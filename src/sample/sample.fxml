@@ -10,12 +10,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="sample.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="582.0" fitWidth="874.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="C:\Users\fa.ghafff\IdeaProjects\Salary payment system\src\PNG\PP.jpg" />
-         </image></ImageView>
+      <ImageView fx:id="imageViewBack" fitHeight="582.0" fitWidth="874.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
       <Pane layoutX="108.0" layoutY="116.0" prefHeight="372.0" prefWidth="383.0" style="-fx-background-color: #E63F723F; -fx-background-radius: 10 0 0 10;" />
       <Pane layoutX="491.0" layoutY="116.0" prefHeight="372.0" prefWidth="275.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 10 10 0;">
          <children>
