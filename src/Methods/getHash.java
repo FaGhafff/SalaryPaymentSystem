@@ -2,9 +2,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Methods {
-    
     public static String getHash(String input) {
+        
         try {
 
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -19,8 +18,8 @@ public class Methods {
                 hashtext = "0" + hashtext;
             }
             return hashtext;
+            
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
-}
