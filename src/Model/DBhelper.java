@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DBhelper {
-    Connection cnct;
-    Statement st;
+    private  Connection cnct;
+    private Statement st;
 
     public DBhelper() {
         connect();
@@ -22,7 +22,7 @@ public class DBhelper {
         close();
     }
 
-    public void connect() {
+    private void connect() {
         try {
             Class.forName("org.sqlite.JDBC");
             cnct = DriverManager.getConnection("jdbc:sqlite:faat.db");
@@ -36,7 +36,7 @@ public class DBhelper {
         }
     }
 
-    public void createTable() {
+    private void createTable() {
         String tableSQL = "CREATE TABLE IF NOT EXISTS loginInfo (Username TEXT , Password TEXT)";
         try {
             st.executeUpdate(tableSQL);
@@ -46,7 +46,7 @@ public class DBhelper {
         }
     }
 
-    public void insertPerson(String username, String password) {
+    private void insertPerson(String username, String password) {
         String insertSQL = "INSERT INTO loginInfo (username,password) VALUES ('" + username + "','" + password + "')";
         try {
             st.executeUpdate(insertSQL);
@@ -58,7 +58,7 @@ public class DBhelper {
 
     }
 
-    public void close() {
+    private void close() {
 
         try {
             st.close();
@@ -82,7 +82,7 @@ public class DBhelper {
         }
     }
 
-    public ArrayList<DBPerson> getAllPerson() {
+    private ArrayList<DBPerson> getAllPerson() {
         String getSQL = "SELECT username,password FROM loginInfo";
         ArrayList<DBPerson> list = new ArrayList<DBhelper.DBPerson>();
 
