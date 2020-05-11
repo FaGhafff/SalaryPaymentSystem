@@ -25,7 +25,7 @@ public class DBhelper {
     public void connect() {
         try {
             Class.forName("org.sqlite.JDBC");
-            cnct = DriverManager.getConnection("jdbc:sqlite:.db");
+            cnct = DriverManager.getConnection("jdbc:sqlite:faat.db");
 
             System.out.println("Connection Created!");
 
