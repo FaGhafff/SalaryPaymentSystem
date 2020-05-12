@@ -393,6 +393,8 @@ public class EmploymentOrder {
                 ", lastNameEnglish='" + lastNameEnglish + '\'' +
                 ", idNumber=" + idNumber +
                 ", bcNumber=" + bcNumber +
+                ", birthPlace=" + birthPlace +
+                ", issuanceOfBCPlace=" + issuanceOfBCPlace +
                 ", sexuality='" + sexuality + '\'' +
                 ", fatherName='" + fatherName + '\'' +
                 ", fatherMobileNumber=" + fatherMobileNumber +
