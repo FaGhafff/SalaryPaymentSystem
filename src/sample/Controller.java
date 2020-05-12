@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Stack;
+
 
 public class Controller implements Initializable {
     public ImageView imageViewBack;
@@ -34,7 +34,7 @@ public class Controller implements Initializable {
             //if we have a client with this user pass
             //call getPerson(String username)
             Stage stage = (Stage) imageViewBack.getScene().getWindow();
-            Person person = null;
+            Person person= null;
             try {
                 if (person instanceof Manager) {
                     loginAsManager((Manager) person, stage);

@@ -8,9 +8,9 @@ import java.net.*;
 public class SMS {
     private final String USER_AGENT = "Mozilla/5.0";
 
-    String phoneNumber = "";
-    String message = "";
-
+    private String phoneNumber = "";
+    private String message = "";
+    private boolean status =false;
 
     public SMS(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -43,9 +43,9 @@ public class SMS {
             //add request header
             con.setRequestProperty("User-Agent", USER_AGENT);
 
-            int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + url);
-            System.out.println("Response Code : " + responseCode);
+//            int responseCode = con.getResponseCode();
+//            System.out.println("\nSending 'GET' request to URL : " + url);
+//            System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -56,9 +56,10 @@ public class SMS {
                 response.append(inputLine);
             }
             in.close();
-            if (Integer.parseInt(response.toString()) > 2000)
+            if (Integer.parseInt(response.toString()) > 2000) {
+                status = true;
                 return "پیام با موفقیت ارسال شد.";
-            else
+            }else
                 return response.toString();
         } catch (UnknownHostException e) {
             return "خطای اتصال به اینترنت";
@@ -66,8 +67,10 @@ public class SMS {
             return "حظا";
         }
 
-
     }
 
 
+    public boolean getStatus() {
+        return status;
+    }
 }
