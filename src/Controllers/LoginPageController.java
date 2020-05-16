@@ -1,4 +1,4 @@
-package sample;
+package Controllers;
 
 import Controllers.EmployeeController;
 import Controllers.ManagerController;
@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Controller implements Initializable {
+public class LoginPageController implements Initializable {
     public ImageView imageViewBack;
     public JFXTextField textFieldUser;
     public JFXTextField textFieldPass;

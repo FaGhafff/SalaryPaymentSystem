@@ -275,13 +275,13 @@ public class LegalReceipt {
 
     public double getSalary() {
 
-        private double holdSalary = salaryBase + annualIncrease + extraordinaryHousing + deprivationOfServiecePlace
+         double holdSalary = salaryBase + annualIncrease + extraordinaryHousing + deprivationOfServiecePlace
                 + badWeather + familyAllowance + childrenAllowance + seniorOrExpertAllowance + reward + importantsOfJob
                 + sacrificePoints - (insurance + pensionFund);
 
-        private double holdTax = holdSalary - ((holdSalary * tax) / 100);
+         double holdTax = holdSalary - ((holdSalary * tax) / 100);
 
-        private double holdFinalSalary = holdSalary - holdTax;
+         double holdFinalSalary = holdSalary - holdTax;
         setFinalSalary(holdFinalSalary);
 
         return holdFinalSalary;
