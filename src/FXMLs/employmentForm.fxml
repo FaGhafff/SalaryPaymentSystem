@@ -1,8 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-
-</AnchorPane>
+<ScrollPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="737.0" prefWidth="1111.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane prefHeight="1391.0" prefWidth="1113.0" style="-fx-background-color: white;">
+         <children>
+            <Pane prefHeight="101.0" prefWidth="1099.0" style="-fx-background-color: ff5252;">
+               <children>
+                  <Label contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="12.0" layoutY="24.0" prefHeight="53.0" prefWidth="208.0" text="فرم استخدام ">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Label layoutX="40.0" layoutY="170.0" prefHeight="18.0" prefWidth="122.0" text="نام به فارسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="208.0" prefHeight="18.0" prefWidth="131.0" text="نام خانوادگی به فارسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="170.0" prefHeight="18.0" prefWidth="143.0" text="نام به انگلیسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="208.0" prefHeight="18.0" prefWidth="140.0" text="نام خانوادگی به انگلیسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="246.0" prefHeight="18.0" prefWidth="150.0" text="کد ملی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="246.0" prefHeight="18.0" prefWidth="122.0" text="شماره شناسنامه :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="284.0" prefHeight="18.0" prefWidth="99.0" text="محل تولد :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="284.0" prefHeight="18.0" prefWidth="128.0" text="محل صدور شناسنامه :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="322.0" prefHeight="18.0" prefWidth="111.0" text="جنسیت :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="465.0" prefHeight="18.0" prefWidth="109.0" text="نام پدر به فارسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="503.0" prefHeight="18.0" prefWidth="111.0" text="شماره تلفن پدر :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="322.0" prefHeight="18.0" prefWidth="110.0" text="شماره موبایل :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="360.0" prefHeight="18.0" prefWidth="110.0" text="شماره تلفن ثابت :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="465.0" prefHeight="18.0" prefWidth="111.0" text="وضعیت تاهل :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="503.0" prefHeight="18.0" prefWidth="112.0" text="تعداد فرزندان :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="602.0" prefHeight="18.0" prefWidth="137.0" text="مشکل سلامتی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="602.0" prefHeight="18.0" prefWidth="126.0" text="شرح وضعیت سلامتی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="743.0" prefHeight="19.0" prefWidth="74.0" text="نام :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="781.0" prefHeight="19.0" prefWidth="110.0" text="نام خانوادگی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="743.0" prefHeight="18.0" prefWidth="174.0" text="شماره تلفن همراه :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="518.0" layoutY="779.0" prefHeight="18.0" prefWidth="130.0" text="نسبت :" />
+            <Label layoutX="40.0" layoutY="1240.0" prefHeight="18.0" prefWidth="172.0" text="نحوه آشنایی با شرکت :" />
+            <Label layoutX="40.0" layoutY="926.0" prefHeight="18.0" prefWidth="155.0" text="وضعیت مدرک کاردانی :" />
+            <Label layoutX="40.0" layoutY="888.0" prefHeight="18.0" prefWidth="112.0" text="نوع دیپلم :" />
+            <Label layoutX="518.0" layoutY="888.0" prefHeight="0.0" prefWidth="71.0" text="معدل دیپلم :" />
+            <Label layoutX="392.0" layoutY="926.0" prefHeight="18.0" prefWidth="133.0" text="محل اخد مدرک کاردانی :" />
+            <Label layoutX="766.0" layoutY="926.0" prefHeight="18.0" prefWidth="133.0" text="معدل مدرک کاردانی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="964.0" prefHeight="18.0" prefWidth="153.0" text="وضعیت مدرک کارشناسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="392.0" layoutY="964.0" text="محل اخد مدرک کارشناسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="766.0" layoutY="964.0" prefHeight="18.0" prefWidth="129.0" text="معدل مدرک کارشناسی :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="1002.0" prefHeight="18.0" prefWidth="199.0" text="وضعیت مدرک کارشناسی ارشد :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="392.0" layoutY="1002.0" prefHeight="18.0" prefWidth="173.0" text="محل اخذ مدرک کارشناسی ارشد :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="766.0" layoutY="1002.0" prefHeight="18.0" prefWidth="170.0" text="معدل مدرک کارشناسی ارشد :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="1040.0" prefHeight="18.0" prefWidth="155.0" text="وضعیت مدرک دکتری :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="392.0" layoutY="1040.0" prefHeight="18.0" prefWidth="202.0" text="محل اخذ مدرک دکتری :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="766.0" layoutY="1040.0" prefHeight="18.0" prefWidth="149.0" text="معدل مدرک دکتری :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label layoutX="40.0" layoutY="1078.0" prefHeight="18.0" prefWidth="195.0" text="توضیحات مدارج علمی دیگر :">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Label contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="12.0" layoutY="112.0" prefHeight="27.0" prefWidth="118.0" text="مشخصات فردی">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Separator layoutX="1.0" layoutY="142.0" prefHeight="0.0" prefWidth="1100.0" />
+            <Separator layoutX="-1.0" layoutY="434.0" prefHeight="6.0" prefWidth="1100.0" />
+            <Label layoutX="12.0" layoutY="407.0" prefHeight="27.0" prefWidth="158.0" text="مشخصات خانوادگی ">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="193.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="307.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="269.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="231.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="155.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="345.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="307.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="269.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="231.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="193.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="155.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="488.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="450.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="450.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="488.0" />
+            <Separator layoutX="2.0" layoutY="571.0" prefHeight="7.0" prefWidth="1099.0" />
+            <Label layoutX="12.0" layoutY="544.0" prefHeight="27.0" prefWidth="158.0" text="وضعیت سلامتی ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="587.0" />
+            <JFXTextArea focusColor="#f24b35" layoutX="697.0" layoutY="587.0" prefHeight="88.0" prefWidth="321.0" />
+            <Separator layoutY="704.0" prefHeight="23.0" prefWidth="1101.0" />
+            <Label layoutX="12.0" layoutY="685.0" prefHeight="27.0" prefWidth="269.0" text="مشخصات آشنا برای مواقع ضروری ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="728.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="766.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="728.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="766.0" />
+            <Separator layoutX="2.0" layoutY="849.0" prefHeight="0.0" prefWidth="1101.0" />
+            <Label layoutX="12.0" layoutY="818.0" prefHeight="27.0" prefWidth="211.0" text="مدارک تحصیلی ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="911.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="585.0" layoutY="911.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="940.0" layoutY="911.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="949.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="585.0" layoutY="949.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="940.0" layoutY="949.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="987.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="585.0" layoutY="987.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="940.0" layoutY="987.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="1025.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="585.0" layoutY="1025.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="940.0" layoutY="1025.0" />
+            <JFXTextArea focusColor="#f24b35" layoutX="219.0" layoutY="1063.0" prefHeight="88.0" prefWidth="321.0" />
+            <Separator layoutX="-2.0" layoutY="1207.0" prefHeight="7.0" prefWidth="1101.0" />
+            <Label layoutX="12.0" layoutY="1180.0" prefHeight="27.0" prefWidth="211.0" text="نحوه آشنایی با ما ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTextArea focusColor="#f24b35" layoutX="219.0" layoutY="1229.0" prefHeight="88.0" prefWidth="321.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="219.0" layoutY="873.0" />
+            <JFXTextField focusColor="#eb4848" layoutX="697.0" layoutY="873.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
