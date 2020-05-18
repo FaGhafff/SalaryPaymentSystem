@@ -11,6 +11,7 @@ public class DBReader {
     private Statement st;
     static ArrayList<DBPerson> list;
     static ArrayList<Long> phoneNumber;
+    static DBPerson person;
 
     public DBReader() {
         connect();
@@ -104,8 +105,7 @@ public class DBReader {
         return false;
     }
 
-    public static DBPerson getPerson(String username, ArrayList<String> login) {
-        int j = -1;
+    public static void getPerson(String username, ArrayList<String> login) {
         for (int i = 0; i < login.size(); i++) {
             ArrayList<String> temp = new ArrayList<String>();
             StringTokenizer tkn = new StringTokenizer(login.get(i), "#");
@@ -113,12 +113,12 @@ public class DBReader {
                 temp.add(tkn.nextToken());
             }
             if (username.equals(temp.get(0))) {
-                return list.get(i);
-
+                person = list.get(i);
+                break;
             }
         }
-        return null;
     }
+
 
 
     public static void main(String[] args) {

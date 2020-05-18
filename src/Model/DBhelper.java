@@ -42,8 +42,8 @@ public class DBhelper {
 
     private void createTable() {
 
-        String tableSQL = "CREATE TABLE IF NOT EXISTS personalInfo (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, namePersian TEXT,  lastNamePersian TEXT, nameEnglish TEXT, lastNameEnglish TEXT, idNumber INTEGER, bcNumber INTEGER, birthPlace TEXT, issuanceOfBirth TEXT,sexuality TEXT, fatherName TEXT, fatherMobileNumber INTEGER, mobilePhoneNumber INTEGER, telephoneNumber INTEGER, maritalStatus TEXT, childrenCount INTEGER, healthIssue TEXT, healthStatus TEXT, emergencyContactName TEXT, emergencyContactLastName TEXT, emergencyContactRelation TEXT, emergencyContactPhoneNumber INTEGER, methodOfIntroducing TEXT, diplomaType TEXT, diplomaScore DOUBLE, associateStatus TEXT, associatePlace TEXT,associateScore DOUBLE, bachelorStatus TEXT, bachelorPlace TEXT, bachelorScore DOUBLE, masterStatus TEXT, masterPlace TEXT, masterScore DOUBLE, doctorateStatus TEXT, doctoratePlace TEXT, doctorateScore DOUBLE, otherEducation TEXT);";
-        try {
+        String tableSQL = "CREATE TABLE IF NOT EXISTS  loginInfo (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,userName , password);";
+            try {
             st.executeUpdate(tableSQL);
             System.out.println("TABLE CREATE");
         } catch (SQLException e) {
