@@ -9,11 +9,12 @@ import java.util.StringTokenizer;
 public class DBReader {
     private static Connection cnct;
     private Statement st;
+    static ArrayList<DBPerson> list;
     static ArrayList<Long> phoneNumber;
 
     public DBReader() {
         connect();
-        ArrayList<DBPerson> list = getAllPerson();
+        list = getAllPerson();
         ArrayList<String> login = getAllPersonLogin();
         System.out.println(getPhoneNumber("1362960276", login, phoneNumber));
         System.out.println("count is : " + getCount(list));
@@ -83,6 +84,40 @@ public class DBReader {
                 }
             }
         }
+    }
+
+    public static boolean authClient(String username, String password, ArrayList<String> login) {
+
+        for (int i = 0; i < login.size(); i++) {
+            ArrayList<String> temp = new ArrayList<String>();
+            StringTokenizer tkn = new StringTokenizer(login.get(i), "#");
+            while (tkn.hasMoreTokens()) {
+                temp.add(tkn.nextToken());
+            }
+            if (temp.get(0).equals(username) && temp.get(1).equals(password)) {
+
+                return true;
+
+            }
+
+        }
+        return false;
+    }
+
+    public static DBPerson getPerson(String username, ArrayList<String> login) {
+        int j = -1;
+        for (int i = 0; i < login.size(); i++) {
+            ArrayList<String> temp = new ArrayList<String>();
+            StringTokenizer tkn = new StringTokenizer(login.get(i), "#");
+            while (tkn.hasMoreTokens()) {
+                temp.add(tkn.nextToken());
+            }
+            if (username.equals(temp.get(0))) {
+                return list.get(i);
+
+            }
+        }
+        return null;
     }
 
 
