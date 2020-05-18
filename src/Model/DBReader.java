@@ -1,21 +1,23 @@
 package Model;
 
+import java.security.acl.LastOwnerException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 
 public class DBReader {
-    private Connection cnct;
+    private static Connection cnct;
     private Statement st;
-
-
+    static ArrayList<Long> phoneNumber;
 
     public DBReader() {
         connect();
-        reading();
         ArrayList<DBPerson> list = getAllPerson();
-//        System.out.println(getPhoneNumber("1362960276" , list , phoneNumber));
-        System.out.println(getCount(list));
+        ArrayList<String> login = getAllPersonLogin();
+        System.out.println(getPhoneNumber("1362960276", login, phoneNumber));
+        System.out.println("count is : " + getCount(list));
+        updatePassword(login, "1362960276", "ali123456789", "ali123456");
     }
 
     private void connect() {
@@ -29,10 +31,6 @@ public class DBReader {
         }
     }
 
-    private void reading() {
-
-    }
-
 
     public int getCount(ArrayList<DBPerson> list) {
 
@@ -41,24 +39,55 @@ public class DBReader {
         return count;
     }
 
-//    public String getPhoneNumber(String username , ArrayList<DBPerson> list , ArrayList<Long> pn) {
-//
-//        int i = list.indexOf(username);
-//        pn.add((long) 25);
-//        System.out.println(i);
-//        System.out.println(pn.get(0));
-//        System.out.println(pn.get(1));
-//        String phoneNumber = pn.get(0).toString();
-//        return phoneNumber;
-//    }
+    public String getPhoneNumber(String username, ArrayList<String> login, ArrayList<Long> pn) {
+        int j = -1;
+        for (int i = 0; i < login.size(); i++) {
+            ArrayList<String> temp = new ArrayList<String>();
+            StringTokenizer tkn = new StringTokenizer(login.get(i), "#");
+            while (tkn.hasMoreTokens()) {
+                temp.add(tkn.nextToken());
+            }
+            if (temp.get(0).equals(username)) {
+                j = i;
+                break;
+            }
+        }
+        System.out.println(j);
+        System.out.println(pn.get(0));
+        String phoneNumber = pn.get(j).toString();
+        return phoneNumber;
+    }
 
-    public static void updatePassword(String username) {
+    public static void updatePassword(ArrayList<String> login, String username, String lastPassword, String newPassword) {
+        int j = -1;
+        for (int i = 0; i < login.size(); i++) {
+            ArrayList<String> temp = new ArrayList<String>();
+            StringTokenizer tkn = new StringTokenizer(login.get(i), "#");
+            while (tkn.hasMoreTokens()) {
+                temp.add(tkn.nextToken());
+            }
+            System.out.println(temp.get(0) + "   " + temp.get(1));
+
+            if (temp.get(0).equals(username)) {
+                j = i;
+            }
+            if (temp.get(1).equals(lastPassword)) {
+                try {
+                    String updateSQl = "update loginInfo set id = '" + 1 + "' , userName='" + username + "' , password = '" + newPassword + "' where id = '" + 1 + "' ";
+                    PreparedStatement pstmt = cnct.prepareStatement(updateSQl);
+                    pstmt.executeUpdate();
+                    System.out.println("ok");
+                    break;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage() + " ramz avaz nashod");
+                }
+            }
+        }
     }
 
 
     public static void main(String[] args) {
         new DBReader();
-
     }
 
     class DBPerson {
@@ -112,20 +141,28 @@ public class DBReader {
                     + "#" + masterStatus + "#" + masterPlace + "#" + masterScore + "#" + doctorateStatus + "#" + doctoratePlace
                     + "#" + doctorateScore + "#" + otherEducation);
         }
-
-        public long getMobilePhoneNumber() {
-            return mobilePhoneNumber;
-        }
-
-        public void setMobilePhoneNumber(long mobilePhoneNumber) {
-            this.mobilePhoneNumber = mobilePhoneNumber;
-        }
     }
 
-    private ArrayList<DBPerson> getAllPerson() {
-        String getSQL = "SELECT namePersian , lastNamePersian , nameEnglish,lastNameEnglish,idNumber,bcNumber,birthPlace,issuanceOfBirth,sexuality,fatherName,fatherMobileNumber,telephoneNumber ,  maritalStatus ,childrenCount , healthIssue, healthStatus ,emergencyContactName,emergencyContactLastName,emergencyContactRelation,emergencyContactPhoneNumber, methodOfIntroducing,diplomaType , diplomaScore ,associateStatus,associatePlace ,associateScore,bachelorStatus ,bachelorPlace,bachelorScore,masterStatus,masterPlace , masterScore ,doctorateStatus,doctoratePlace,doctorateScore ,otherEducation FROM personalInfo";
-        ArrayList<DBPerson> list = new ArrayList<DBPerson>();
+    private ArrayList<String> getAllPersonLogin() {
+        String getSQL = "SELECT userName , password FROM loginInfo";
+        ArrayList<String> list = new ArrayList<String>();
+        try {
+            ResultSet rs = st.executeQuery(getSQL);
+            while (rs.next()) {
+                String temp = (rs.getString(1) + "#" + rs.getString(2));
+                list.add(temp);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "  khandane user pass na movafag");
+        }
+        return list;
+    }
 
+
+    private ArrayList<DBPerson> getAllPerson() {
+        String getSQL = "SELECT namePersian , lastNamePersian , nameEnglish,lastNameEnglish,idNumber,bcNumber,birthPlace,issuanceOfBirth,sexuality,fatherName,fatherMobileNumber,mobilePhoneNumber,telephoneNumber ,  maritalStatus ,childrenCount , healthIssue, healthStatus ,emergencyContactName,emergencyContactLastName,emergencyContactRelation,emergencyContactPhoneNumber, methodOfIntroducing,diplomaType , diplomaScore ,associateStatus,associatePlace ,associateScore,bachelorStatus ,bachelorPlace,bachelorScore,masterStatus,masterPlace , masterScore ,doctorateStatus,doctoratePlace,doctorateScore ,otherEducation FROM personalInfo";
+        ArrayList<DBPerson> list = new ArrayList<DBPerson>();
+        phoneNumber = new ArrayList<Long>();
         try {
 
             ResultSet rs = st.executeQuery(getSQL);
@@ -170,9 +207,8 @@ public class DBReader {
                 dbp.doctorateScore = rs.getDouble(35);
                 dbp.otherEducation = rs.getString(36);
                 list.add(dbp);
-               for (int i=1;i<37;i++){
-                   System.out.println(rs.getString(i));
-               }
+
+                phoneNumber.add(rs.getLong(12));
             }
 
 
