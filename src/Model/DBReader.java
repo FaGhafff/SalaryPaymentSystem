@@ -20,6 +20,9 @@ public class DBReader {
         System.out.println(getPhoneNumber("1362960276", login, phoneNumber));
         System.out.println("count is : " + getCount(list));
         updatePassword(login, "1362960276", "ali123456789", "ali123456");
+        getPerson("1362960276", login);
+        System.out.println(authClient("1362960276", "ali123456", login));
+        System.out.println(person);
     }
 
     private void connect() {
@@ -96,11 +99,8 @@ public class DBReader {
                 temp.add(tkn.nextToken());
             }
             if (temp.get(0).equals(username) && temp.get(1).equals(password)) {
-
                 return true;
-
             }
-
         }
         return false;
     }
@@ -168,7 +168,7 @@ public class DBReader {
 
             return (namePersian + "#" + lastNamePersian + "#" + nameEnglish + "#" + lastNameEnglish + "#"
                     + idNumber + "#" + bcNumber + "#" + birthPlace + "#" + issuanceOfBCPlace + "#" + sexuality +
-                    "#" + fatherName + "#" + fatherMobileNumber + "#" + telephoneNumber + "#" + maritalStatus + "#" +
+                    "#" + fatherName + "#" + fatherMobileNumber + "#" + "#" + mobilePhoneNumber + "#" + telephoneNumber + "#" + maritalStatus + "#" +
                     childrenCount + "#" + healthIssue + "#" + healthStatus + "#" + emergencyContactName + "#" +
                     emergencyContactLastName + "#" + emergencyContactRelation + "#" + emergencyContactMobileNumber +
                     "#" + methodOfIntroduction + "#" + diplomaType + "#" + diplomaScore + "#" + associateStatus + "#"
@@ -224,23 +224,23 @@ public class DBReader {
                 dbp.emergencyContactName = rs.getString(18);
                 dbp.emergencyContactLastName = rs.getString(19);
                 dbp.emergencyContactRelation = rs.getString(20);
-                dbp.emergencyContactMobileNumber = rs.getInt(21);
+                dbp.emergencyContactMobileNumber = rs.getLong(21);
                 dbp.methodOfIntroduction = rs.getString(22);
-                dbp.diplomaType = rs.getString(22);
-                dbp.diplomaScore = rs.getDouble(23);
-                dbp.associateStatus = rs.getString(24);
-                dbp.associatePlace = rs.getString(25);
-                dbp.associateScore = rs.getDouble(26);
-                dbp.bachelorStatus = rs.getString(27);
-                dbp.bachelorPlace = rs.getString(28);
-                dbp.bachelorScore = rs.getDouble(29);
-                dbp.masterStatus = rs.getString(30);
-                dbp.masterPlace = rs.getString(31);
-                dbp.masterScore = rs.getDouble(32);
-                dbp.doctorateStatus = rs.getString(33);
-                dbp.doctoratePlace = rs.getString(34);
-                dbp.doctorateScore = rs.getDouble(35);
-                dbp.otherEducation = rs.getString(36);
+                dbp.diplomaType = rs.getString(23);
+                dbp.diplomaScore = rs.getDouble(24);
+                dbp.associateStatus = rs.getString(25);
+                dbp.associatePlace = rs.getString(26);
+                dbp.associateScore = rs.getDouble(27);
+                dbp.bachelorStatus = rs.getString(28);
+                dbp.bachelorPlace = rs.getString(29);
+                dbp.bachelorScore = rs.getDouble(30);
+                dbp.masterStatus = rs.getString(31);
+                dbp.masterPlace = rs.getString(32);
+                dbp.masterScore = rs.getDouble(33);
+                dbp.doctorateStatus = rs.getString(34);
+                dbp.doctoratePlace = rs.getString(35);
+                dbp.doctorateScore = rs.getDouble(36);
+                dbp.otherEducation = rs.getString(37);
                 list.add(dbp);
 
                 phoneNumber.add(rs.getLong(12));
