@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="737.0" prefWidth="1111.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fx:controller="Controllers.EmploymentFormController" hbarPolicy="NEVER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="776.0" prefWidth="1109.0" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <AnchorPane fx:id="methodOfIntroduction" prefHeight="1391.0" prefWidth="1113.0" style="-fx-background-color: white;">
          <children>
@@ -222,6 +223,8 @@
             <TextArea fx:id="healthStatus" layoutX="697.0" layoutY="589.0" prefHeight="89.0" prefWidth="309.0" />
             <TextArea fx:id="healthStatus1" layoutX="219.0" layoutY="1231.0" prefHeight="89.0" prefWidth="309.0" />
             <TextArea fx:id="otherEducation" layoutX="219.0" layoutY="1080.0" prefHeight="89.0" prefWidth="309.0" />
+            <JFXButton fx:id="btnSendRequest" onMouseClicked="#onClickSendRequest" layoutX="1025.0" layoutY="1352.0" text="ارسال درخواست" />
+            <JFXButton fx:id="btnCancel" onMouseClicked="#onClickCancel" layoutX="952.0" layoutY="1352.0" text="انصراف" />
          </children>
       </AnchorPane>
    </content>

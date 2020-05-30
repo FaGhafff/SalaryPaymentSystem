@@ -51,6 +51,8 @@ public class DBhelper {
         }
     }
 
+
+
     private void insertPerson(String username, String password) {
         String insertSQL = "INSERT INTO loginInfo (username,password) VALUES ('" + username + "','" + password + "')";
         try {

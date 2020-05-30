@@ -39,153 +39,339 @@ public class EmploymentOrder {
     private String doctoratePlace = "null doctoratePlace";// doctorate place (محل اخذ مدرک دکتری)
     private double doctorateScore = -1.0; // doctorate score (معدل مدرک دکتری)
     private String otherEducation = "null otherEducation"; // other education (توضیحات مدارج علمی دیگر)
+//
+//    public void setNamePersian(String namePersian) {
+//        this.namePersian = namePersian;
+//    }
+//
+//    public void setLastNamePersian(String lastNamePersian) {
+//        this.lastNamePersian = lastNamePersian;
+//    }
+//
+//    public void setNameEnglish(String nameEnglish) {
+//        this.nameEnglish = nameEnglish;
+//    }
+//
+//    public void setLastNameEnglish(String lastNameEnglish) {
+//        this.lastNameEnglish = lastNameEnglish;
+//    }
+//
+//    public void setIdNumber(long idNumber) {
+//        this.idNumber = idNumber;
+//    }
+//
+//    public void setBcNumber(long bcNumber) {
+//        this.bcNumber = bcNumber;
+//    }
+//
+//    public void setBirthPlace(String birthPlace) {
+//        this.birthPlace = birthPlace;
+//    }
+//
+//    public void setIssuanceOfBCPlace(String issuanceOfBCPlace) {
+//        this.issuanceOfBCPlace = issuanceOfBCPlace;
+//    }
+//
+//    public void setSexuality(String sexuality) {
+//        this.sexuality = sexuality;
+//    }
+//
+//    public void setFatherName(String fatherName) {
+//        this.fatherName = fatherName;
+//    }
+//
+//    public void setFatherMobileNumber(long fatherMobileNumber) {
+//        this.fatherMobileNumber = fatherMobileNumber;
+//    }
+//
+//    public void setMobilePhoneNumber(long mobilePhoneNumber) {
+//        this.mobilePhoneNumber = mobilePhoneNumber;
+//    }
+//
+//    public void setTelephoneNumber(long telephoneNumber) {
+//        this.telephoneNumber = telephoneNumber;
+//    }
+//
+//    public void setMaritalStatus(String maritalStatus) {
+//        this.maritalStatus = maritalStatus;
+//    }
+//
+//    public void setChildrenCount(int childrenCount) {
+//        this.childrenCount = childrenCount;
+//    }
+//
+//    public void setHealthIssue(String healthIssue) {
+//        this.healthIssue = healthIssue;
+//    }
+//
+//    public void setHealthStatus(String healthStatus) {
+//        this.healthStatus = healthStatus;
+//    }
+//
+//    public void setEmergencyContactName(String emergencyContacName) {
+//        this.emergencyContactName = emergencyContacName;
+//    }
+//
+//    public void setEmergencyContactLastName(String emergencyContacLastName) {
+//        this.emergencyContactLastName = emergencyContacLastName;
+//    }
+//
+//    public void setEmergencyContactRelation(String emergencyContacRelation) {
+//        this.emergencyContactRelation = emergencyContacRelation;
+//    }
+//
+//    public void setEmergencyContactMobileNumber(long emergencyContacMobileNumber) {
+//        this.emergencyContactMobileNumber = emergencyContacMobileNumber;
+//    }
+//
+//    public void setMethodOfIntroduction(String methodOfIntroduction) {
+//        this.methodOfIntroduction = methodOfIntroduction;
+//    }
+//
+//    public void setDiplomaType(String diplomaType) {
+//        this.diplomaType = diplomaType;
+//    }
+//
+//    public void setDiplomaScore(double diplomaScore) {
+//        this.diplomaScore = diplomaScore;
+//    }
+//
+//    public void setAssociateStatus(String associateStatus) {
+//        this.associateStatus = associateStatus;
+//    }
+//
+//    public void setAssociatePlace(String associatePlace) {
+//        this.associatePlace = associatePlace;
+//    }
+//
+//    public void setAssociateScore(double associateScore) {
+//        this.associateScore = associateScore;
+//    }
+//
+//    public void setBachelorStatus(String bachelorStatus) {
+//        this.bachelorStatus = bachelorStatus;
+//    }
+//
+//    public void setBachelorPlace(String bachelorPlace) {
+//        this.bachelorPlace = bachelorPlace;
+//    }
+//
+//    public void setBachelorScore(double bachelorScore) {
+//        this.bachelorScore = bachelorScore;
+//    }
+//
+//    public void setMasterStatus(String masterStatus) {
+//        this.masterStatus = masterStatus;
+//    }
+//
+//    public void setMasterPlace(String masterPlace) {
+//        this.masterPlace = masterPlace;
+//    }
+//
+//    public void setMasterScore(double masterScore) {
+//        this.masterScore = masterScore;
+//    }
+//
+//    public void setDoctorateStatus(String doctorateStatus) {
+//        this.doctorateStatus = doctorateStatus;
+//    }
+//
+//    public void setDoctoratePlace(String doctoratePlace) {
+//        this.doctoratePlace = doctoratePlace;
+//    }
+//
+//    public void setDoctorateScore(double doctorateScore) {
+//        this.doctorateScore = doctorateScore;
+//    }
+//
+//    public void setOtherEducation(String otherEducation) {
+//        this.otherEducation = otherEducation;
+//    }
 
-    public void setNamePersian(String namePersian) {
+
+    public EmploymentOrder setNamePersian(String namePersian) {
         this.namePersian = namePersian;
+        return this;
     }
 
-    public void setLastNamePersian(String lastNamePersian) {
+    public EmploymentOrder setLastNamePersian(String lastNamePersian) {
         this.lastNamePersian = lastNamePersian;
+        return this;
     }
 
-    public void setNameEnglish(String nameEnglish) {
+    public EmploymentOrder setNameEnglish(String nameEnglish) {
         this.nameEnglish = nameEnglish;
+        return this;
     }
 
-    public void setLastNameEnglish(String lastNameEnglish) {
+    public EmploymentOrder setLastNameEnglish(String lastNameEnglish) {
         this.lastNameEnglish = lastNameEnglish;
+        return this;
     }
 
-    public void setIdNumber(long idNumber) {
+    public EmploymentOrder setIdNumber(long idNumber) {
         this.idNumber = idNumber;
+        return this;
     }
 
-    public void setBcNumber(long bcNumber) {
+    public EmploymentOrder setBcNumber(long bcNumber) {
         this.bcNumber = bcNumber;
+        return this;
     }
 
-    public void setBirthPlace(String birthPlace) {
+    public EmploymentOrder setBirthPlace(String birthPlace) {
         this.birthPlace = birthPlace;
+        return this;
     }
 
-    public void setIssuanceOfBCPlace(String issuanceOfBCPlace) {
+    public EmploymentOrder setIssuanceOfBCPlace(String issuanceOfBCPlace) {
         this.issuanceOfBCPlace = issuanceOfBCPlace;
+        return this;
     }
 
-    public void setSexuality(String sexuality) {
+    public EmploymentOrder setSexuality(String sexuality) {
         this.sexuality = sexuality;
+        return this;
     }
 
-    public void setFatherName(String fatherName) {
+    public EmploymentOrder setFatherName(String fatherName) {
         this.fatherName = fatherName;
+        return this;
     }
 
-    public void setFatherMobileNumber(long fatherMobileNumber) {
+    public EmploymentOrder setFatherMobileNumber(long fatherMobileNumber) {
         this.fatherMobileNumber = fatherMobileNumber;
+        return this;
     }
 
-    public void setMobilePhoneNumber(long mobilePhoneNumber) {
+    public EmploymentOrder setMobilePhoneNumber(long mobilePhoneNumber) {
         this.mobilePhoneNumber = mobilePhoneNumber;
+        return this;
     }
 
-    public void setTelephoneNumber(long telephoneNumber) {
+    public EmploymentOrder setTelephoneNumber(long telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
+        return this;
     }
 
-    public void setMaritalStatus(String maritalStatus) {
+    public EmploymentOrder setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
+        return this;
     }
 
-    public void setChildrenCount(int childrenCount) {
+    public EmploymentOrder setChildrenCount(int childrenCount) {
         this.childrenCount = childrenCount;
+        return this;
     }
 
-    public void setHealthIssue(String healthIssue) {
+    public EmploymentOrder setHealthIssue(String healthIssue) {
         this.healthIssue = healthIssue;
+        return this;
     }
 
-    public void setHealthStatus(String healthStatus) {
+    public EmploymentOrder setHealthStatus(String healthStatus) {
         this.healthStatus = healthStatus;
+        return this;
     }
 
-    public void setEmergencyContactName(String emergencyContacName) {
-        this.emergencyContactName = emergencyContacName;
+    public EmploymentOrder setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+        return this;
     }
 
-    public void setEmergencyContactLastName(String emergencyContacLastName) {
-        this.emergencyContactLastName = emergencyContacLastName;
+    public EmploymentOrder setEmergencyContactLastName(String emergencyContactLastName) {
+        this.emergencyContactLastName = emergencyContactLastName;
+        return this;
     }
 
-    public void setEmergencyContactRelation(String emergencyContacRelation) {
-        this.emergencyContactRelation = emergencyContacRelation;
+    public EmploymentOrder setEmergencyContactRelation(String emergencyContactRelation) {
+        this.emergencyContactRelation = emergencyContactRelation;
+        return this;
     }
 
-    public void setEmergencyContactMobileNumber(long emergencyContacMobileNumber) {
-        this.emergencyContactMobileNumber = emergencyContacMobileNumber;
+    public EmploymentOrder setEmergencyContactMobileNumber(long emergencyContactMobileNumber) {
+        this.emergencyContactMobileNumber = emergencyContactMobileNumber;
+        return this;
     }
 
-    public void setMethodOfIntroduction(String methodOfIntroduction) {
+    public EmploymentOrder setMethodOfIntroduction(String methodOfIntroduction) {
         this.methodOfIntroduction = methodOfIntroduction;
+        return this;
     }
 
-    public void setDiplomaType(String diplomaType) {
+    public EmploymentOrder setDiplomaType(String diplomaType) {
         this.diplomaType = diplomaType;
+        return this;
     }
 
-    public void setDiplomaScore(double diplomaScore) {
+    public EmploymentOrder setDiplomaScore(double diplomaScore) {
         this.diplomaScore = diplomaScore;
+        return this;
     }
 
-    public void setAssociateStatus(String associateStatus) {
+    public EmploymentOrder setAssociateStatus(String associateStatus) {
         this.associateStatus = associateStatus;
+        return this;
     }
 
-    public void setAssociatePlace(String associatePlace) {
+    public EmploymentOrder setAssociatePlace(String associatePlace) {
         this.associatePlace = associatePlace;
+        return this;
     }
 
-    public void setAssociateScore(double associateScore) {
+    public EmploymentOrder setAssociateScore(double associateScore) {
         this.associateScore = associateScore;
+        return this;
     }
 
-    public void setBachelorStatus(String bachelorStatus) {
+    public EmploymentOrder setBachelorStatus(String bachelorStatus) {
         this.bachelorStatus = bachelorStatus;
+        return this;
     }
 
-    public void setBachelorPlace(String bachelorPlace) {
+    public EmploymentOrder setBachelorPlace(String bachelorPlace) {
         this.bachelorPlace = bachelorPlace;
+        return this;
     }
 
-    public void setBachelorScore(double bachelorScore) {
+    public EmploymentOrder setBachelorScore(double bachelorScore) {
         this.bachelorScore = bachelorScore;
+        return this;
     }
 
-    public void setMasterStatus(String masterStatus) {
+    public EmploymentOrder setMasterStatus(String masterStatus) {
         this.masterStatus = masterStatus;
+        return this;
     }
 
-    public void setMasterPlace(String masterPlace) {
+    public EmploymentOrder setMasterPlace(String masterPlace) {
         this.masterPlace = masterPlace;
+        return this;
     }
 
-    public void setMasterScore(double masterScore) {
+    public EmploymentOrder setMasterScore(double masterScore) {
         this.masterScore = masterScore;
+        return this;
     }
 
-    public void setDoctorateStatus(String doctorateStatus) {
+    public EmploymentOrder setDoctorateStatus(String doctorateStatus) {
         this.doctorateStatus = doctorateStatus;
+        return this;
     }
 
-    public void setDoctoratePlace(String doctoratePlace) {
+    public EmploymentOrder setDoctoratePlace(String doctoratePlace) {
         this.doctoratePlace = doctoratePlace;
+        return this;
     }
 
-    public void setDoctorateScore(double doctorateScore) {
+    public EmploymentOrder setDoctorateScore(double doctorateScore) {
         this.doctorateScore = doctorateScore;
+        return this;
     }
 
-    public void setOtherEducation(String otherEducation) {
+    public EmploymentOrder setOtherEducation(String otherEducation) {
         this.otherEducation = otherEducation;
+        return this;
     }
 
     public String getNamePersian() {

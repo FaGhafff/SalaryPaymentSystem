@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EmployeeController">
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
       <Label accessibleText="fish hogogi" alignment="CENTER_RIGHT" layoutY="287.0" prefHeight="82.0" prefWidth="267.0" text="   دریافت فیش حقوقی ">
