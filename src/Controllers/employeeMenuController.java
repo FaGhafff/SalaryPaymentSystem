@@ -35,16 +35,6 @@ public class employeeMenuController implements Initializable {
         e4.setImage(image4);
         Image imageExit = new Image("PNG/exit.png");
         exit.setImage(imageExit);
-//        l1.setOnMouseClicked(event -> {
-//            System.out.println(l1.getText());
-//        }); l2.setOnMouseClicked(event -> {
-//            System.out.println(l2.getText());
-//        }); l3.setOnMouseClicked(event -> {
-//            System.out.println(l3.getText());
-//        }); l4.setOnMouseClicked(event -> {
-//            System.out.println(l4.getText());
-//            System.exit(0);
-//        });
 
     }
 

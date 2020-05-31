@@ -34,20 +34,20 @@ public class EmployeeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Pane pa = FXMLLoader.load(getClass().getResource("../FXMLs/employeeMenu.fxml"));
+            Pane pa = FXMLLoader.load(getClass().getResource("../FXMLs/EmployeeMenu/employeeMenu.fxml"));
             drawer.setSidePane(pa);
-            loadPane("FXMLs/employeeFish.fxml");
+            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml");
             for (Node node : pa.getChildren()) {
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
                     switch (node.getAccessibleText()) {
                         case "fish hogogi":
-                            loadPane("FXMLs/employeeFish.fxml");
+                            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml");
                             break;
                         case "change pass":
-                            loadPane("FXMLs/employeeChangePass.fxml");
+                            loadPane("FXMLs/EmployeeMenu/employeeChangePass.fxml");
                             break;
                         case "send massage":
-                            loadPane("FXMLs/employeeSend.fxml");
+                            loadPane("FXMLs/EmployeeMenu/employeeSend.fxml");
                             break;
                         case "exit":
                             System.exit(0);
@@ -70,7 +70,7 @@ public class EmployeeController implements Initializable {
         }
     }
 
-    void loadPane(String path) {
+    private void loadPane(String path) {
         try {
             FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource(path));
             Parent root = fXMLLoader.load();
