@@ -10,6 +10,7 @@ import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -36,6 +37,20 @@ public class EmployeeController implements Initializable {
 
             Pane pa = FXMLLoader.load(getClass().getResource("../FXMLs/employeeMenu.fxml"));
             drawer.setSidePane(pa);
+            for (Node node : pa.getChildren()) {
+                node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+                    switch (node.getAccessibleText()) {
+                        case "fish hogogi":
+                            break;
+                        case "change pass":
+                            break;
+                        case "send massage":
+                            break;
+                        case "exit":
+                            break;
+                    }
+                });
+            }
             HamburgerBackArrowBasicTransition back = new HamburgerBackArrowBasicTransition(hamburger);
             back.setRate(-1);
             hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {

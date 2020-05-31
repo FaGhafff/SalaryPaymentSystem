@@ -5,8 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLs.ManagerMenu">
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
       <ImageView fitHeight="74.0" fitWidth="82.0" layoutX="97.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
@@ -14,14 +15,51 @@
             <Image url="@../../../../OneDrive/Pictures/businessman_64px.png" />
          </image>
       </ImageView>
-      <Label layoutY="229.0" prefHeight="74.0" prefWidth="267.0" text="Label">
-         <graphic>
-            <ImageView fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" />
-         </graphic>
+      <Label alignment="CENTER_RIGHT" layoutY="229.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت کارمندان ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </Label>
-      <Label layoutY="303.0" prefHeight="74.0" prefWidth="267.0" text="Label" />
-      <Label layoutX="1.0" layoutY="379.0" prefHeight="74.0" prefWidth="267.0" text="Label" />
-      <Label layoutY="451.0" prefHeight="74.0" prefWidth="267.0" text="Label" />
-      <Label layoutY="525.0" prefHeight="74.0" prefWidth="267.0" text="Label" />
+      <Label alignment="CENTER_RIGHT" layoutY="303.0" prefHeight="74.0" prefWidth="267.0" text="   نمایش میانگین پرداختی ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="379.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت در خواست های استخدام ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutY="451.0" prefHeight="74.0" prefWidth="267.0" text="   تغیر و تعریف ثوابت حقوق ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutY="525.0" prefHeight="74.0" prefWidth="267.0" text="   خروج ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <ImageView fitHeight="49.0" fitWidth="42.0" layoutX="5.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../OneDrive/Pictures/buy_upgrade_30px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="6.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../OneDrive/Pictures/project_manager_32px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="7.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../OneDrive/Pictures/checked_radio_button_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="10.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../OneDrive/Pictures/edit_file_64px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="36.0" layoutX="6.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+         <image>
+            <Image url="@../../../../OneDrive/Pictures/oo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
