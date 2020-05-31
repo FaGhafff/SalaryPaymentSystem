@@ -7,50 +7,61 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.employeeMenuController">
-   <children>
-      <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
-      <Label accessibleText="fish hogogi" alignment="CENTER_RIGHT" layoutY="287.0" prefHeight="82.0" prefWidth="267.0" text="   دریافت فیش حقوقی ">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label accessibleText="change pass" alignment="CENTER_RIGHT" layoutY="369.0" prefHeight="82.0" prefWidth="267.0" text="   تغیر رمز عبور ">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label accessibleText="send massage" alignment="CENTER_RIGHT" layoutY="451.0" prefHeight="82.0" prefWidth="267.0" text="   ارسال انتقادات و پیشنهاد ها ">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="e3" fitHeight="45.0" fitWidth="48.0" layoutX="5.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../PNG/employeeMenu3.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="e2" fitHeight="43.0" fitWidth="43.0" layoutX="6.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/cheap_2_26px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="e4" fitHeight="45.0" fitWidth="62.0" layoutX="9.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../PNG/employeeMenu4.png" />
-         </image>
-      </ImageView>
-      <Label accessibleText="exit" alignment="CENTER_RIGHT" layoutY="533.0" prefHeight="82.0" prefWidth="267.0" text="   خروج ">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="exit" fitHeight="35.0" fitWidth="43.0" layoutX="7.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../PNG/exit.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="e1" fitHeight="90.0" fitWidth="150.0" layoutX="89.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
-      </ImageView>
-   </children>
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.employeeMenuController">
+    <children>
+        <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;"/>
+        <Label accessibleText="fish hogogi" alignment="CENTER_RIGHT" layoutY="287.0" prefHeight="82.0" prefWidth="267.0"
+               text="   دریافت فیش حقوقی ">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <Label accessibleText="change pass" alignment="CENTER_RIGHT" layoutY="369.0" prefHeight="82.0" prefWidth="267.0"
+               text="   تغیر رمز عبور ">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <Label accessibleText="send massage" alignment="CENTER_RIGHT" layoutY="451.0" prefHeight="82.0"
+               prefWidth="267.0" text="   ارسال انتقادات و پیشنهاد ها ">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <ImageView fx:id="e3" fitHeight="45.0" fitWidth="48.0" layoutX="5.0" layoutY="392.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../PNG/employeeMenu3.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="e2" fitHeight="43.0" fitWidth="43.0" layoutX="6.0" layoutY="307.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../../../OneDrive/Pictures/cheap_2_26px.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="e4" fitHeight="45.0" fitWidth="62.0" layoutX="9.0" layoutY="468.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../PNG/employeeMenu4.png"/>
+            </image>
+        </ImageView>
+        <Label accessibleText="exit" alignment="CENTER_RIGHT" layoutY="533.0" prefHeight="82.0" prefWidth="267.0"
+               text="   خروج ">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+        </Label>
+        <ImageView fx:id="exit" fitHeight="35.0" fitWidth="43.0" layoutX="7.0" layoutY="556.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../PNG/exit.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="e1" fitHeight="90.0" fitWidth="150.0" layoutX="89.0" layoutY="144.0" pickOnBounds="true"
+                   preserveRatio="true">
+        </ImageView>
+    </children>
 </AnchorPane>

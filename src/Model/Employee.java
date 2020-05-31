@@ -53,6 +53,7 @@ public class Employee extends Person {
     private double finalSalary = -1; // final salary (حقوق آخر)
     private String companyName = "null companyName"; // company name (نام شرکت)
     private long companyCode = -1; // company code (کد شرکت)
+    private double serviceTime = -1.0; // مدت زمان خدمت
 
     public void setAssociateScore(double associateScore) {
         this.associateScore = associateScore;
@@ -462,4 +463,11 @@ public class Employee extends Person {
         return companyName;
     }
 
+    public void setServiceTime(double serviceTime) {
+        this.serviceTime = serviceTime;
+    }
+
+    public double getServiceTime() {
+        return serviceTime;
+    }
 }

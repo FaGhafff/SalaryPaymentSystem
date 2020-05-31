@@ -253,8 +253,105 @@ public class FixedValues {
         return annualIncrease;
     }
 
-    public void calculateAnnualIncrease(int years) {
+    public double calculateAnnualIncrease(double years) {
 
         setAnnualIncrease((double) (years / 5) * 120);
+        return getAnnualIncrease();
+    }
+
+    public void setSalaryBase(double salaryBase) {
+        this.salaryBase = salaryBase;
+    }
+
+    public void setReward(double reward) {
+        this.reward = reward;
+    }
+
+    public void setInsurance(double insurance) {
+        this.insurance = insurance;
+    }
+
+    public void setPensionFund(double pensionFund) {
+        this.pensionFund = pensionFund;
+    }
+
+    public void setImportantsOfJob(double importantsOfJob) {
+        this.importantsOfJob = importantsOfJob;
+    }
+
+    public void setExtraordinaryHousing(double extraordinaryHousing) {
+        this.extraordinaryHousing = extraordinaryHousing;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+
+    public void setFixedBadWeather(ArrayList<Double> fixedBadWeather) {
+        this.fixedBadWeather = fixedBadWeather;
+    }
+
+    public void setFixedChildrenAllowance(ArrayList<Double> fixedChildrenAllowance) {
+        this.fixedChildrenAllowance = fixedChildrenAllowance;
+    }
+
+    public void setFixedOrganizationalPosition(ArrayList<Integer> fixedOrganizationalPosition) {
+        this.fixedOrganizationalPosition = fixedOrganizationalPosition;
+    }
+
+    public void setFixsacrificePoints(ArrayList<Double> fixsacrificePoints) {
+        this.fixsacrificePoints = fixsacrificePoints;
+    }
+
+    public void setFixSeniorOrExpertAllowance(ArrayList<Double> fixSeniorOrExpertAllowance) {
+        this.fixSeniorOrExpertAllowance = fixSeniorOrExpertAllowance;
+    }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public double getSalaryBase() {
+        return salaryBase;
+    }
+
+    public double getExtraordinaryHousing() {
+        return extraordinaryHousing;
+    }
+
+    public double getPensionFund() {
+        return pensionFund;
+    }
+
+    public double getReward() {
+        return reward;
+    }
+
+    public double getImportantsOfJob() {
+        return importantsOfJob;
+    }
+
+    public double getInsurance() {
+        return insurance;
+    }
+
+    public ArrayList<Double> getFixedBadWeather() {
+        return fixedBadWeather;
+    }
+
+    public ArrayList<Double> getFixedChildrenAllowance() {
+        return fixedChildrenAllowance;
+    }
+
+    public ArrayList<Double> getFixsacrificePoints() {
+        return fixsacrificePoints;
+    }
+
+    public ArrayList<Double> getFixSeniorOrExpertAllowance() {
+        return fixSeniorOrExpertAllowance;
+    }
+
+    public ArrayList<Integer> getFixedOrganizationalPosition() {
+        return fixedOrganizationalPosition;
     }
 }
