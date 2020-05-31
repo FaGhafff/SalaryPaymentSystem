@@ -2,6 +2,7 @@ package Controllers;
 
 import Controllers.EmployeeController;
 import Controllers.ManagerController;
+import Model.DataBaseHelper;
 import Model.Employee;
 import Model.Manager;
 import Model.Person;
@@ -10,9 +11,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +27,9 @@ public class LoginPageController implements Initializable {
     public ImageView imageViewBack;
     public JFXTextField textFieldUser;
     public JFXTextField textFieldPass;
+    public Pane forgetPassPane;
+    public Label lblResultForgetPass;
+    public JFXTextField textFieldForgetPass;
 
     private Parent root;
     private FXMLLoader loader;
@@ -30,19 +37,21 @@ public class LoginPageController implements Initializable {
 
     public void onClickLogin() {
         if (textFieldValidation(textFieldUser)) {
-            //call authClient(String username,String password) from DBHelper
-            //if we have a client with this user pass
-            //call getPerson(String username)
-            Stage stage = (Stage) imageViewBack.getScene().getWindow();
-            Person person= null;
-            try {
-                if (person instanceof Manager) {
-                    loginAsManager((Manager) person, stage);
-                } else if (person instanceof Employee) {
-                    loginAsEmployee((Employee) person, stage);
+            DataBaseHelper dataBaseHelper = new DataBaseHelper();
+            if (dataBaseHelper.authClient(textFieldUser.getText(), textFieldPass.getText())) {
+                //if we have a client with this user pass
+                //call getPerson(String username)
+                Stage stage = (Stage) imageViewBack.getScene().getWindow();
+                Person person = dataBaseHelper.getPerson(textFieldUser.getText());
+                try {
+                    if (person instanceof Manager) {
+                        loginAsManager((Manager) person, stage);
+                    } else if (person instanceof Employee) {
+                        loginAsEmployee((Employee) person, stage);
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage() + " in class: " + this.getClass().getName());
                 }
-            } catch (Exception e) {
-                System.out.println(e.getMessage()+" in class: "+this.getClass().getName());
             }
         }
     }
@@ -53,6 +62,7 @@ public class LoginPageController implements Initializable {
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
         } catch (IOException e) {
             System.out.println(e.getMessage() + " in class" + this.getClass().getName().toString());
@@ -60,7 +70,12 @@ public class LoginPageController implements Initializable {
     }
 
     public void onClickForgetPass() {
-        Stage stage = new Stage();
+        if (textFieldValidation(textFieldForgetPass)) {
+
+
+        } else {
+            lblResultForgetPass.setText("نام کاربری موجود نمی باشد.");
+        }
         //todo open new stage and get username and send new pass with SMS
     }
 
@@ -101,11 +116,23 @@ public class LoginPageController implements Initializable {
         return true;
     }
 
+    public void onClickHyperBack() {
+        forgetPassPane.setVisible(false);
+        forgetPassPane.setDisable(true);
+    }
+
+    public void showForgetPane() {
+        forgetPassPane.setDisable(false);
+        forgetPassPane.setVisible(true);
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image image = new Image("PNG/PP.jpg");
         imageViewBack.setImage(image);
+        forgetPassPane.setVisible(false);
+        forgetPassPane.setDisable(false);
 
 
     }
