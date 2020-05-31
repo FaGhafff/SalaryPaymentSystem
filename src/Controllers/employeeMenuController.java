@@ -1,18 +1,27 @@
 package Controllers;
 
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-    public class employeeMenuController implements Initializable {
-        public ImageView e1;
-        public ImageView e2;
-        public ImageView e3;
-        public ImageView e4;
-        public ImageView exit;
+public class employeeMenuController implements Initializable {
+    public ImageView e1;
+    public ImageView e2;
+    public ImageView e3;
+    public ImageView e4;
+    public ImageView exit;
+    public AnchorPane menuPane;
+    public Label l1;
+    public Label l2;
+    public Label l3;
+    public Label l4;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -26,8 +35,19 @@ import java.util.ResourceBundle;
         e4.setImage(image4);
         Image imageExit = new Image("PNG/exit.png");
         exit.setImage(imageExit);
+//        l1.setOnMouseClicked(event -> {
+//            System.out.println(l1.getText());
+//        }); l2.setOnMouseClicked(event -> {
+//            System.out.println(l2.getText());
+//        }); l3.setOnMouseClicked(event -> {
+//            System.out.println(l3.getText());
+//        }); l4.setOnMouseClicked(event -> {
+//            System.out.println(l4.getText());
+//            System.exit(0);
+//        });
 
     }
+
 
 
 }
