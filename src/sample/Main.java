@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.javafx.stage.StagePeerListener;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-       Parent root = FXMLLoader.load(getClass().getResource("../FXMLs/loginPage.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("../FXMLs/employee.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.UNDECORATED);
