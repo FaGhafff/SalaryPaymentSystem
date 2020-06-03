@@ -12,36 +12,37 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ManagerMenuٍEmployeeManagementController implements Initializable {
     public TableView<EmployeeManagementTableModel> table;
-    public TableColumn<EmployeeManagementTableModel,String> row;
-    public TableColumn<EmployeeManagementTableModel,String> username;
-    public TableColumn<EmployeeManagementTableModel,String> name;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> salaryBase;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> annualIncrease;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> extraordinaryHousing;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> badWeather;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> deprivationOfServiecePlace;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> familyAllowance;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> childrenAllowance;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> seniorOrExpertAllowance;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> reward;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> importantsOfJob;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> sacrificePoints;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> insurance;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> pensionFund;
-    public TableColumn<EmployeeManagementTableModel,JFXTextField> tax;
+    public TableColumn<EmployeeManagementTableModel, String> row;
+    public TableColumn<EmployeeManagementTableModel, String> username;
+    public TableColumn<EmployeeManagementTableModel, String> name;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> salaryBase;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> annualIncrease;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> extraordinaryHousing;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> badWeather;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> deprivationOfServiecePlace;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> familyAllowance;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> childrenAllowance;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> seniorOrExpertAllowance;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> reward;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> importantsOfJob;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> sacrificePoints;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> insurance;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> pensionFund;
+    public TableColumn<EmployeeManagementTableModel, JFXTextField> tax;
     public Button confirm;
     public Label result;
     private DataBaseHelper helper;
 
     void initTable() {
 
-        row.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel,String>("row"));
+        row.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel, String>("row"));
         username.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel, String>("username"));
         name.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel, String>("name"));
         salaryBase.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel, JFXTextField>("salaryBase"));
@@ -62,7 +63,7 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
 
         final ObservableList<EmployeeManagementTableModel> data = FXCollections.observableArrayList();
         data.add(new
-                EmployeeManagementTableModel(1 + "", "1234", "علی", new JFXTextField("500",false), new JFXTextField("600"),
+                EmployeeManagementTableModel(1 + "", "1234", "علی", new JFXTextField("500", false), new JFXTextField("600"),
                 new JFXTextField(),
                 new JFXTextField(),
                 new JFXTextField(),
@@ -103,7 +104,7 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
 
     }
 
-    void onClickConfirm(){
+    void onClickConfirm() {
         ArrayList<Hokm> list = new ArrayList<>();
         try {
             for (EmployeeManagementTableModel item : table.getItems()) {
@@ -129,7 +130,7 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
             helper.writeHokmes(list);
             result.setText("ثبت شد!");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             result.setText("خطا در فرمت اطلاعات وارد شده!!!");
         }
 
@@ -141,6 +142,6 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
 //        helper = new DataBaseHelper();
         initTable();
 //        setTable(helper.readAllHokms());
-        confirm.setOnAction( event -> onClickConfirm());
+        confirm.setOnAction(event -> onClickConfirm());
     }
 }
