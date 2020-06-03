@@ -4,25 +4,23 @@ import java.util.ArrayList;
 
 public class FixedValues {
 
+    private int row;
+    private String username;
+    private String name;
     private double salaryBase = -1.0; // salary base (پایه حقوق) *
     private double annualIncrease = -1.0; // annual increase (افزایش سنواتی) *
     private double extraordinaryHousing = -1.0; // extraordinary housing (فوق العاده مسکن) *
     private double badWeather = -1.0; // bad weather (بدی آب و هوا) *
     private double deprivationOfServiecePlace = -1.0; // deprivation of serviece place (محرومیت محل خدمت) *
-    private double familyAllowance = -1.0; // family allowance (کمک هزینه عائله مندی) *
-    private double childrenAllowance = -1.0; // children's allowance (کمک هزینه فرزند) *
-    private double seniorOrExpertAllowance = -1.0; // senior or expert allowance (ارشد یا خبره بودن) *
+    private double familyAllowance = -1.0; // family allowance (کمک هزینه عائله مندی) * *
+    private double childrenAllowance = -1.0; // children's allowance (کمک هزینه فرزند) * *
+    private double seniorOrExpertAllowance = -1.0; // senior or expert allowance (ارشد یا خبره بودن) * *
     private double reward = -1.0; // reward (پاداش) *
     private double importantsOfJob = -1.0; // importants of job (فوق العاده شغل) *
-    private double sacrificePoints = -1.0; // sacrifice points (ایثارگری) *
+    private double sacrificePoints = -1.0; // sacrifice points (ایثارگری) * *
     private double insurance = -1.0; // insurance (بیمه) *
     private double pensionFund = -1.0; // pension fund (صندوق بازنشستگی) *
     private double tax = -1.0; // tax (مالیات) *
-    private ArrayList<Double> fixedBadWeather = new ArrayList();
-    private ArrayList<Double> fixedChildrenAllowance = new ArrayList();
-    private ArrayList<Integer> fixedOrganizationalPosition = new ArrayList();
-    private ArrayList<Double> fixSeniorOrExpertAllowance = new ArrayList();
-    private ArrayList<Double> fixsacrificePoints = new ArrayList();
 
     public FixedValues() {
 
@@ -33,31 +31,6 @@ public class FixedValues {
         this.reward = 250.0;
         this.importantsOfJob = 150.0;
         this.tax = 9.0;
-
-        fixedBadWeather.add(35.0);
-        fixedBadWeather.add(60.0);
-        fixedBadWeather.add(120.0);
-        fixedBadWeather.add(170.0);
-
-        fixedOrganizationalPosition.add(0); // رییس
-        fixedOrganizationalPosition.add(1); // کارمند و کارشناس
-        fixedOrganizationalPosition.add(2); // خدمات و حراست
-        fixedOrganizationalPosition.add(3); // قراردادی
-
-        fixedChildrenAllowance.add(250.0);
-        fixedChildrenAllowance.add(200.0);
-        fixedChildrenAllowance.add(180.0);
-        fixedChildrenAllowance.add(150.0);
-
-        fixSeniorOrExpertAllowance.add(500.0);
-        fixSeniorOrExpertAllowance.add(300.0);
-        fixSeniorOrExpertAllowance.add(0.0);
-        fixSeniorOrExpertAllowance.add(0.0);
-
-        fixsacrificePoints.add(400.0);
-        fixsacrificePoints.add(350.0);
-        fixsacrificePoints.add(300.0);
-        fixsacrificePoints.add(250.0);
 
     }
 
@@ -131,13 +104,14 @@ public class FixedValues {
         return familyAllowance;
     }
 
-    public void calculateFamilyAllowance(boolean status) {
+    public double calculateFamilyAllowance(boolean status) {
 
-        if (status)
+        if (status) {
             setFamilyAllowance(320.0);
-
-        else
+            return getFamilyAllowance();
+        } else
             setFamilyAllowance(0.0);
+        return getFamilyAllowance();
 
     }
 
@@ -149,36 +123,16 @@ public class FixedValues {
         return childrenAllowance;
     }
 
-    public void calculateChildrenAllowance(int childrenCount, int status, ArrayList<Double> fixed) {
+    public double calculateChildrenAllowance(int childrenCount) {
 
-        double hold = 0.0;
+        double childrenAllowance = 0.0;
 
-        switch (status) {
+        for (int i = 0; i < childrenCount; i++) {
 
-            case 0:
-                for (int i = 0; i < childrenCount; i++) {
-                    hold += 250.0;
-                }
-
-            case 1:
-                hold = 0.0;
-                for (int i = 0; i < childrenCount; i++) {
-                    hold += 200.0;
-                }
-
-            case 2:
-                hold = 0.0;
-                for (int i = 0; i < childrenCount; i++) {
-                    hold += 180.0;
-                }
-
-            case 3:
-                hold = 0.0;
-                for (int i = 0; i < childrenCount; i++) {
-                    hold += 150.0;
-                }
 
         }
+
+        return childrenAllowance;
 
     }
 
@@ -190,26 +144,12 @@ public class FixedValues {
         return seniorOrExpertAllowance;
     }
 
-    public void calculateSeniorOrExpertAllowance(int status, ArrayList<Double> fixed) {
+    public double calculateSeniorOrExpertAllowance(boolean entry) {
 
-        switch (status) {
-
-            case 0:
-                setBadWeather(fixed.get(0));
-                break;
-
-            case 1:
-                setBadWeather(fixed.get(1));
-                break;
-
-            case 2:
-                setBadWeather(fixed.get(2));
-                break;
-
-            case 3:
-                setBadWeather(fixed.get(3));
-                break;
-
+        if (entry) {
+            return 400.0;
+        } else {
+            return 300.0;
         }
 
     }
@@ -222,26 +162,12 @@ public class FixedValues {
         return sacrificePoints;
     }
 
-    public void calculateSacrificePoints(int status, ArrayList<Double> fixed) {
+    public double calculateSacrificePoints(boolean status) {
 
-        switch (status) {
-
-            case 0:
-                setBadWeather(fixed.get(0));
-                break;
-
-            case 1:
-                setBadWeather(fixed.get(1));
-                break;
-
-            case 2:
-                setBadWeather(fixed.get(2));
-                break;
-
-            case 3:
-                setBadWeather(fixed.get(3));
-                break;
-
+        if (status) {
+            return 500.0;
+        } else {
+            return 0.0;
         }
     }
 
@@ -287,26 +213,6 @@ public class FixedValues {
         this.tax = tax;
     }
 
-    public void setFixedBadWeather(ArrayList<Double> fixedBadWeather) {
-        this.fixedBadWeather = fixedBadWeather;
-    }
-
-    public void setFixedChildrenAllowance(ArrayList<Double> fixedChildrenAllowance) {
-        this.fixedChildrenAllowance = fixedChildrenAllowance;
-    }
-
-    public void setFixedOrganizationalPosition(ArrayList<Integer> fixedOrganizationalPosition) {
-        this.fixedOrganizationalPosition = fixedOrganizationalPosition;
-    }
-
-    public void setFixsacrificePoints(ArrayList<Double> fixsacrificePoints) {
-        this.fixsacrificePoints = fixsacrificePoints;
-    }
-
-    public void setFixSeniorOrExpertAllowance(ArrayList<Double> fixSeniorOrExpertAllowance) {
-        this.fixSeniorOrExpertAllowance = fixSeniorOrExpertAllowance;
-    }
-
     public double getTax() {
         return tax;
     }
@@ -335,23 +241,27 @@ public class FixedValues {
         return insurance;
     }
 
-    public ArrayList<Double> getFixedBadWeather() {
-        return fixedBadWeather;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public ArrayList<Double> getFixedChildrenAllowance() {
-        return fixedChildrenAllowance;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public ArrayList<Double> getFixsacrificePoints() {
-        return fixsacrificePoints;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public ArrayList<Double> getFixSeniorOrExpertAllowance() {
-        return fixSeniorOrExpertAllowance;
+    public String getName() {
+        return name;
     }
 
-    public ArrayList<Integer> getFixedOrganizationalPosition() {
-        return fixedOrganizationalPosition;
+    public int getRow() {
+        return row;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }
