@@ -1,61 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerMenuController">
    <children>
       <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
-      <ImageView fitHeight="74.0" fitWidth="82.0" layoutX="97.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="i0" fitHeight="74.0" fitWidth="82.0" layoutX="97.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../OneDrive/Pictures/businessman_64px.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER_RIGHT" layoutY="229.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت کارمندان ">
+      <Label fx:id="l1" accessibleText="modirKar" alignment="CENTER_RIGHT" layoutY="229.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت کارمندان ">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutY="303.0" prefHeight="74.0" prefWidth="267.0" text="   نمایش میانگین پرداختی ">
+      <Label fx:id="l2" accessibleText="mian" alignment="CENTER_RIGHT" layoutY="303.0" prefHeight="74.0" prefWidth="267.0" text="   نمایش میانگین پرداختی ">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="379.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت در خواست های استخدام ">
+      <Label fx:id="l3" accessibleText="modirDar" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="379.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت در خواست های استخدام ">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Label alignment="CENTER_RIGHT" layoutY="451.0" prefHeight="74.0" prefWidth="267.0" text="   تغیر و تعریف ثوابت حقوق ">
+      <Label fx:id="l4" accessibleText="taghiSav" alignment="CENTER_RIGHT" layoutY="451.0" prefHeight="74.0" prefWidth="267.0" text="   تغیر و تعریف ثوابت حقوق ">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Label alignment="CENTER_RIGHT" layoutY="525.0" prefHeight="74.0" prefWidth="267.0" text="   خروج ">
+      <Label fx:id="l5" accessibleText="exit" alignment="CENTER_RIGHT" layoutY="525.0" prefHeight="74.0" prefWidth="267.0" text="   خروج ">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <ImageView fitHeight="49.0" fitWidth="42.0" layoutX="5.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="i1" accessibleText="modirKar" fitHeight="49.0" fitWidth="42.0" layoutX="5.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../OneDrive/Pictures/buy_upgrade_30px.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="6.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="i2" accessibleText="mian" fitHeight="35.0" fitWidth="41.0" layoutX="6.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../OneDrive/Pictures/project_manager_32px.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="7.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="i3" accessibleText="modirDar" fitHeight="49.0" fitWidth="39.0" layoutX="7.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../OneDrive/Pictures/checked_radio_button_24px.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="10.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="i4" accessibleText="taghiSav" fitHeight="35.0" fitWidth="37.0" layoutX="10.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../OneDrive/Pictures/edit_file_64px.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="54.0" fitWidth="36.0" layoutX="6.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+      <ImageView fx:id="i5" accessibleText="exit" fitHeight="54.0" fitWidth="36.0" layoutX="6.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" smooth="false">
          <image>
             <Image url="@../../../../OneDrive/Pictures/oo.png" />
          </image>

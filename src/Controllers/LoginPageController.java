@@ -51,6 +51,7 @@ public class LoginPageController implements Initializable {
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage() + " in class: " + this.getClass().getName());
+                    e.printStackTrace();
                 }
             }
         }
@@ -84,7 +85,8 @@ public class LoginPageController implements Initializable {
         EmployeeController employeeController = new EmployeeController();
         employeeController.setEmployee(employee);
         loader.setController(employeeController);
-        loader.setRoot(getClass().getResource("FXMLs/employee.fxml"));
+        URL url = new URL(this.getClass().getClassLoader().getResource("FXMLs/employee.fxml").toString());
+        loader.setLocation(url);
         root = loader.load();
         stage.close();
         stage = new Stage();
@@ -93,11 +95,12 @@ public class LoginPageController implements Initializable {
     }
 
     private void loginAsManager(Manager manager, Stage stage) throws IOException {
-        loader = new FXMLLoader();
+        loader = new FXMLLoader(getClass().getClassLoader().getResource("manager.fxml"));
         ManagerController managerController = new ManagerController();
         managerController.setManager(manager);
+        URL url = new URL(this.getClass().getClassLoader().getResource("FXMLs/manager.fxml").toString());
+        loader.setLocation(url);
         loader.setController(manager);
-        loader.setRoot(getClass().getResource("FXMLs/manager.fxml"));
         root = loader.load();
         stage.close();
         stage = new Stage();

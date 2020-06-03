@@ -1,8 +1,5 @@
 package Model;
 
-import SubSystems.Employment;
-import sun.font.DelegatingShape;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -207,7 +204,10 @@ public class DataBaseHelper {
     public LegalReceipt getLegalReceipt(String username) {
         return null;
     }
-
+    public ArrayList<Hokm> readAllHokms(){
+        return null;
+    }
+    public void writeHokmes(ArrayList<Hokm> list){}
     //
     public static void main(String[] args) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
