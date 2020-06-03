@@ -1,6 +1,5 @@
 package Model;
 
-
 public class LegalReceipt {
 
     private double salaryBase = -1.0; // salary base (پایه حقوق) *
@@ -17,7 +16,6 @@ public class LegalReceipt {
     private double insurance = -1.0; // insurance (بیمه) *
     private double pensionFund = -1.0; // pension fund (صندوق بازنشستگی) *
     private double tax = -1.0; // tax (مالیات) *
-
 
     public LegalReceipt(Employee employee, FixedValues fixedValues, int childrenCount, boolean familyAllowance,
                         boolean seniorOrExpertAllowance, boolean sacrificePoints) {

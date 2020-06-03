@@ -55,7 +55,6 @@ public class DataBaseHelper {
         }
     }
 
-
     public String getHash(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -71,7 +70,6 @@ public class DataBaseHelper {
         }
     }
 
-
     public boolean authClient(String username, String password) {
         try {
             String query = "SELECT * FROM userpass WHERE user='" + username + "' AND pass= '" + getHash(password) + "'";
@@ -84,7 +82,6 @@ public class DataBaseHelper {
         return true;
     }
     //
-
 
     //Need to check
 
@@ -130,7 +127,6 @@ public class DataBaseHelper {
         } catch (SQLException e) {
             return false;
         }
-
 
 //        return true;
     }
@@ -191,7 +187,6 @@ public class DataBaseHelper {
             e.printStackTrace();
         }
     }
-    //
 
     //Empty
     public Person getPerson(String username) {

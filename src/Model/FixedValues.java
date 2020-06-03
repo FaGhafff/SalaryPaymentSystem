@@ -34,74 +34,157 @@ public class FixedValues {
 
     }
 
+    public int getRow() {
+        return row;
+    }
 
-    public void setBadWeather(double badWeather) {
-        this.badWeather = badWeather;
+    public FixedValues setRow(int row) {
+        this.row = row;
+        return this;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public FixedValues setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public FixedValues setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public double getSalaryBase() {
+        return salaryBase;
+    }
+
+    public FixedValues setSalaryBase(double salaryBase) {
+        this.salaryBase = salaryBase;
+        return this;
+    }
+
+    public double getAnnualIncrease() {
+        return annualIncrease;
+    }
+
+    public FixedValues setAnnualIncrease(double annualIncrease) {
+        this.annualIncrease = annualIncrease;
+        return this;
+    }
+
+    public double getExtraordinaryHousing() {
+        return extraordinaryHousing;
+    }
+
+    public FixedValues setExtraordinaryHousing(double extraordinaryHousing) {
+        this.extraordinaryHousing = extraordinaryHousing;
+        return this;
     }
 
     public double getBadWeather() {
         return badWeather;
     }
 
-    public void calculateBadWeather(int status, ArrayList<Double> fixed) {
-
-        switch (status) {
-
-            case 0:
-                setBadWeather(fixed.get(0));
-                break;
-
-            case 1:
-                setBadWeather(fixed.get(1));
-                break;
-            case 2:
-                setBadWeather(fixed.get(2));
-                break;
-            case 3:
-                setBadWeather(fixed.get(3));
-                break;
-
-        }
-
-    }
-
-    public void setDeprivationOfServiecePlace(double deprivationOfServiecePlace) {
-        this.deprivationOfServiecePlace = deprivationOfServiecePlace;
+    public FixedValues setBadWeather(double badWeather) {
+        this.badWeather = badWeather;
+        return this;
     }
 
     public double getDeprivationOfServiecePlace() {
         return deprivationOfServiecePlace;
     }
 
-    public void calculateDeprivationOfServiecePlace(int status, ArrayList<Double> fixed) {
-
-        switch (status) {
-
-            case 0:
-                setBadWeather(fixed.get(0));
-                break;
-
-            case 1:
-                setBadWeather(fixed.get(1));
-                break;
-
-            case 2:
-                setBadWeather(fixed.get(2));
-                break;
-
-            case 3:
-                setBadWeather(fixed.get(3));
-                break;
-
-        }
-    }
-
-    public void setFamilyAllowance(double familyAllowance) {
-        this.familyAllowance = familyAllowance;
+    public FixedValues setDeprivationOfServiecePlace(double deprivationOfServiecePlace) {
+        this.deprivationOfServiecePlace = deprivationOfServiecePlace;
+        return this;
     }
 
     public double getFamilyAllowance() {
         return familyAllowance;
+    }
+
+    public FixedValues setFamilyAllowance(double familyAllowance) {
+        this.familyAllowance = familyAllowance;
+        return this;
+    }
+
+    public double getChildrenAllowance() {
+        return childrenAllowance;
+    }
+
+    public FixedValues setChildrenAllowance(double childrenAllowance) {
+        this.childrenAllowance = childrenAllowance;
+        return this;
+    }
+
+    public double getSeniorOrExpertAllowance() {
+        return seniorOrExpertAllowance;
+    }
+
+    public FixedValues setSeniorOrExpertAllowance(double seniorOrExpertAllowance) {
+        this.seniorOrExpertAllowance = seniorOrExpertAllowance;
+        return this;
+    }
+
+    public double getReward() {
+        return reward;
+    }
+
+    public FixedValues setReward(double reward) {
+        this.reward = reward;
+        return this;
+    }
+
+    public double getImportantsOfJob() {
+        return importantsOfJob;
+    }
+
+    public FixedValues setImportantsOfJob(double importantsOfJob) {
+        this.importantsOfJob = importantsOfJob;
+        return this;
+    }
+
+    public double getSacrificePoints() {
+        return sacrificePoints;
+    }
+
+    public FixedValues setSacrificePoints(double sacrificePoints) {
+        this.sacrificePoints = sacrificePoints;
+        return this;
+    }
+
+    public double getInsurance() {
+        return insurance;
+    }
+
+    public FixedValues setInsurance(double insurance) {
+        this.insurance = insurance;
+        return this;
+    }
+
+    public double getPensionFund() {
+        return pensionFund;
+    }
+
+    public FixedValues setPensionFund(double pensionFund) {
+        this.pensionFund = pensionFund;
+        return this;
+    }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public FixedValues setTax(double tax) {
+        this.tax = tax;
+        return this;
     }
 
     public double calculateFamilyAllowance(boolean status) {
@@ -115,33 +198,18 @@ public class FixedValues {
 
     }
 
-    public void setChildrenAllowance(double childrenAllowance) {
-        this.childrenAllowance = childrenAllowance;
-    }
-
-    public double getChildrenAllowance() {
-        return childrenAllowance;
-    }
-
     public double calculateChildrenAllowance(int childrenCount) {
 
         double childrenAllowance = 0.0;
 
         for (int i = 0; i < childrenCount; i++) {
 
+            childrenAllowance += 250.0;
 
         }
 
         return childrenAllowance;
 
-    }
-
-    public void setSeniorOrExpertAllowance(double seniorOrExpertAllowance) {
-        this.seniorOrExpertAllowance = seniorOrExpertAllowance;
-    }
-
-    public double getSeniorOrExpertAllowance() {
-        return seniorOrExpertAllowance;
     }
 
     public double calculateSeniorOrExpertAllowance(boolean entry) {
@@ -154,14 +222,6 @@ public class FixedValues {
 
     }
 
-    public void setSacrificePoints(double sacrificePoints) {
-        this.sacrificePoints = sacrificePoints;
-    }
-
-    public double getSacrificePoints() {
-        return sacrificePoints;
-    }
-
     public double calculateSacrificePoints(boolean status) {
 
         if (status) {
@@ -171,97 +231,9 @@ public class FixedValues {
         }
     }
 
-    public void setAnnualIncrease(double annualIncrease) {
-        this.annualIncrease = annualIncrease;
-    }
-
-    public double getAnnualIncrease() {
-        return annualIncrease;
-    }
-
     public double calculateAnnualIncrease(double years) {
 
         setAnnualIncrease((double) (years / 5) * 120);
         return getAnnualIncrease();
-    }
-
-    public void setSalaryBase(double salaryBase) {
-        this.salaryBase = salaryBase;
-    }
-
-    public void setReward(double reward) {
-        this.reward = reward;
-    }
-
-    public void setInsurance(double insurance) {
-        this.insurance = insurance;
-    }
-
-    public void setPensionFund(double pensionFund) {
-        this.pensionFund = pensionFund;
-    }
-
-    public void setImportantsOfJob(double importantsOfJob) {
-        this.importantsOfJob = importantsOfJob;
-    }
-
-    public void setExtraordinaryHousing(double extraordinaryHousing) {
-        this.extraordinaryHousing = extraordinaryHousing;
-    }
-
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-
-    public double getTax() {
-        return tax;
-    }
-
-    public double getSalaryBase() {
-        return salaryBase;
-    }
-
-    public double getExtraordinaryHousing() {
-        return extraordinaryHousing;
-    }
-
-    public double getPensionFund() {
-        return pensionFund;
-    }
-
-    public double getReward() {
-        return reward;
-    }
-
-    public double getImportantsOfJob() {
-        return importantsOfJob;
-    }
-
-    public double getInsurance() {
-        return insurance;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public String getUsername() {
-        return username;
     }
 }
