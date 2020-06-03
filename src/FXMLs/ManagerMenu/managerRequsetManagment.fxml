@@ -3,15 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="635.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerSubMenu.ManagerMenuRequestManagement">
+<AnchorPane prefHeight="636.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerSubMenu.ManagerMenuRequestManagement">
     <children>
-                <TableView fx:id="table" layoutX="151.0" layoutY="77.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="482.0" prefWidth="500.0">
+                <TableView fx:id="table" layoutX="151.0" layoutY="77.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="482.0" prefWidth="491.0">
                     <columns>
-                        <TableColumn fx:id="row" prefWidth="46.0" text="ردیف" />
-                        <TableColumn fx:id="name" prefWidth="154.0" text="نام و نام خانوادگی" />
-                        <TableColumn fx:id="show" prefWidth="100.0" text="#" />
-                        <TableColumn fx:id="accept" prefWidth="100.0" text="#" />
-                        <TableColumn fx:id="reject" prefWidth="100.0" text="#" />
+                        <TableColumn fx:id="row" prefWidth="46.0" style="-fx-background-color: ff5252;" text="ردیف" />
+                        <TableColumn fx:id="name" prefWidth="154.0" style="-fx-background-color: ff5252;" text="نام و نام خانوادگی" />
+                        <TableColumn fx:id="show" prefWidth="100.0" style="-fx-background-color: ff5252;" text="نمایش" />
+                        <TableColumn fx:id="accept" prefWidth="100.0" style="-fx-background-color: ff5252;" text="تایید " />
+                        <TableColumn fx:id="reject" prefWidth="100.0" style="-fx-background-color: ff5252;" text="حذف " />
 
                     </columns>
                 </TableView>

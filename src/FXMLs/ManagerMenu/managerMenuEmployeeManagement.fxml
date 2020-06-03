@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="635.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerSubMenu.ManagerMenuٍEmployeeManagementController">
+<AnchorPane prefHeight="632.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerSubMenu.ManagerMenuٍEmployeeManagementController">
    <children>
       <ScrollPane fitToHeight="true" layoutX="10.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="532.0" prefWidth="811.0">
          <content>
-            <TableView fx:id="table" nodeOrientation="RIGHT_TO_LEFT">
+            <TableView fx:id="table" nodeOrientation="RIGHT_TO_LEFT" prefHeight="513.0" prefWidth="1754.0">
               <columns>
-                <TableColumn fx:id="row" prefWidth="75.0" text="ردیف" />
-                  <TableColumn fx:id="username" prefWidth="75.0" text="کد پرسنلی" />
-                <TableColumn fx:id="name" prefWidth="75.0" text="نام و نام خانوادگی" />
-                  <TableColumn fx:id="salaryBase" prefWidth="75.0" text="پایه حقوق" />
-                  <TableColumn fx:id="annualIncrease" prefWidth="69.0" text="افزایش سنواتی" />
-                  <TableColumn fx:id="extraordinaryHousing" prefWidth="81.0" text="فوق العاده مسکن" />
-                  <TableColumn fx:id="badWeather" prefWidth="75.0" text="بدی آب و هوا" />
-                  <TableColumn fx:id="deprivationOfServiecePlace" prefWidth="77.0" text="محرومیت محل خدمت" />
-                  <TableColumn fx:id="familyAllowance" prefWidth="73.0" text="کمک هزینه عائله مندی" />
-                  <TableColumn fx:id="childrenAllowance" prefWidth="75.0" text="کمک هزینه فرزند" />
-                  <TableColumn fx:id="seniorOrExpertAllowance" prefWidth="75.0" text="فوق العاده رتبه بندی" />
-                  <TableColumn fx:id="reward" prefWidth="75.0" text="پاداش" />
-                  <TableColumn fx:id="importantsOfJob" prefWidth="75.0" text="فوق العاده شغل" />
-                  <TableColumn fx:id="sacrificePoints" prefWidth="75.0" text="ایثارگری" />
-                  <TableColumn fx:id="insurance" prefWidth="75.0" text="بیمه" />
-                  <TableColumn fx:id="pensionFund" prefWidth="75.0" text="صندوق باز نشستگی" />
-                  <TableColumn fx:id="tax" prefWidth="75.0" text="مالیات" />
+                <TableColumn fx:id="row" prefWidth="45.0" style="-fx-background-color: ff5252;" text="ردیف" />
+                  <TableColumn fx:id="username" prefWidth="74.0" style="-fx-background-color: ff5252;" text="کد پرسنلی" />
+                <TableColumn fx:id="name" prefWidth="119.0" style="-fx-background-color: ff5252;" text="نام و نام خانوادگی" />
+                  <TableColumn fx:id="salaryBase" prefWidth="68.0" style="-fx-background-color: ff5252;" text="پایه حقوق" />
+                  <TableColumn fx:id="annualIncrease" prefWidth="108.0" style="-fx-background-color: ff5252;" text="افزایش سنواتی" />
+                  <TableColumn fx:id="extraordinaryHousing" minWidth="0.0" prefWidth="126.0" style="-fx-background-color: ff5252;" text="فوق العاده مسکن" />
+                  <TableColumn fx:id="badWeather" prefWidth="126.0" style="-fx-background-color: ff5252;" text="بدی آب و هوا" />
+                  <TableColumn fx:id="deprivationOfServiecePlace" prefWidth="153.0" style="-fx-background-color: ff5252;" text="محرومیت محل خدمت" />
+                  <TableColumn fx:id="familyAllowance" prefWidth="167.0" style="-fx-background-color: ff5252;" text="کمک هزینه عائله مندی" />
+                  <TableColumn fx:id="childrenAllowance" prefWidth="139.0" style="-fx-background-color: ff5252;" text="کمک هزینه فرزند" />
+                  <TableColumn fx:id="seniorOrExpertAllowance" prefWidth="155.0" style="-fx-background-color: ff5252;" text="فوق العاده رتبه بندی" />
+                  <TableColumn fx:id="reward" prefWidth="68.0" style="-fx-background-color: ff5252;" text="پاداش" />
+                  <TableColumn fx:id="importantsOfJob" prefWidth="120.0" style="-fx-background-color: ff5252;" text="فوق العاده شغل" />
+                  <TableColumn fx:id="sacrificePoints" prefWidth="59.0" style="-fx-background-color: ff5252;" text="ایثارگری" />
+                  <TableColumn fx:id="insurance" prefWidth="41.0" style="-fx-background-color: ff5252;" text="بیمه" />
+                  <TableColumn fx:id="pensionFund" prefWidth="136.0" style="-fx-background-color: ff5252;" text="صندوق باز نشستگی" />
+                  <TableColumn fx:id="tax" prefWidth="49.0" style="-fx-background-color: ff5252;" text="مالیات" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <Button fx:id="confirm" layoutX="14.0" layoutY="565.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="60.0" text="ثبت" />
-      <Label fx:id="result" alignment="CENTER" contentDisplay="RIGHT" layoutX="90.0" layoutY="565.0" prefHeight="42.0" prefWidth="134.0">
+      <Button fx:id="confirm" layoutX="14.0" layoutY="576.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: ff5252;" text="ثبت" />
+      <Label fx:id="result" alignment="CENTER" contentDisplay="RIGHT" layoutX="152.0" layoutY="565.0" prefHeight="42.0" prefWidth="166.0">
          <font>
             <Font size="21.0" />
          </font>
