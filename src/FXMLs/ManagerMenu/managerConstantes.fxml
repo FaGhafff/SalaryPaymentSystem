@@ -4,33 +4,30 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="635.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="635.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.92" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="370.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" text="ثبت ثوابت حقوقی" />
-      <JFXTextField alignment="CENTER_RIGHT" labelFloat="true" layoutX="670.0" layoutY="80.0" promptText="حقوق پایه" />
-      <JFXTextField labelFloat="true" layoutX="479.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" promptText="افزایش به ازای هر 5 سال" />
-      <JFXTextField labelFloat="true" layoutX="273.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" promptText="فوق العاده مسکن" />
-      <JFXTextField labelFloat="true" layoutX="68.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" promptText="محرومیت محل خدمت" />
-      <Label layoutX="764.0" layoutY="136.0" nodeOrientation="RIGHT_TO_LEFT" text="عنوان رتبه" />
-      <JFXTextField labelFloat="true" layoutX="670.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" promptText="ارشد" />
-      <JFXTextField labelFloat="true" layoutX="479.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" promptText="خبره" />
-      <Label layoutX="763.0" layoutY="224.0" nodeOrientation="RIGHT_TO_LEFT" text="رده شغلی" />
-      <JFXTextField labelFloat="true" layoutX="679.0" layoutY="257.0" nodeOrientation="RIGHT_TO_LEFT" promptText="رئیس" />
-      <JFXTextField labelFloat="true" layoutX="479.0" layoutY="257.0" nodeOrientation="RIGHT_TO_LEFT" promptText="کارمند و کارشناس" />
-      <JFXTextField labelFloat="true" layoutX="273.0" layoutY="257.0" nodeOrientation="RIGHT_TO_LEFT" promptText="خدمات و حراست" />
-      <JFXTextField labelFloat="true" layoutX="68.0" layoutY="257.0" nodeOrientation="RIGHT_TO_LEFT" promptText="قراردادی" />
-      <JFXTextField labelFloat="true" layoutX="679.0" layoutY="311.0" nodeOrientation="RIGHT_TO_LEFT" promptText="کمک هزینه عائله مندی" />
-      <Label layoutX="732.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" text="کمک هزینه فرزند" />
-      <JFXTextField labelFloat="true" layoutX="658.0" layoutY="400.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="160.0" promptText="فرزند در سمت رئیس" />
-      <JFXTextField labelFloat="true" layoutX="454.0" layoutY="400.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="160.0" promptText="فرزند در سمت کارمند و کارشناس" />
-      <JFXTextField labelFloat="true" layoutX="248.0" layoutY="400.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="160.0" promptText="فرزند در سمت خدمات و حراست" />
-      <JFXTextField labelFloat="true" layoutX="43.0" layoutY="400.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="0.0" prefWidth="160.0" promptText="فرزند در سمت کارمند قراردادی" />
-      <Label layoutX="746.0" layoutY="447.0" nodeOrientation="RIGHT_TO_LEFT" text="بدی آب و هوا" />
-      <JFXTextField labelFloat="true" layoutX="679.0" layoutY="474.0" nodeOrientation="RIGHT_TO_LEFT" promptText="منطقه یک" />
-      <JFXTextField labelFloat="true" layoutX="479.0" layoutY="474.0" nodeOrientation="RIGHT_TO_LEFT" promptText="منطقه دو" />
-      <JFXTextField labelFloat="true" layoutX="273.0" layoutY="474.0" nodeOrientation="RIGHT_TO_LEFT" promptText="منطقه سه" />
-      <JFXTextField labelFloat="true" layoutX="68.0" layoutY="474.0" nodeOrientation="RIGHT_TO_LEFT" promptText="منطقه چهار" />
-      <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="573.0" prefHeight="25.0" prefWidth="76.0" text="ثبت" />
+      <Label layoutX="319.0" layoutY="25.0" nodeOrientation="RIGHT_TO_LEFT" text="ثبت مقادیر پیش فرض ثوابت حقوقی" />
+      <JFXTextField fx:id="txtSalaryBase" alignment="CENTER_RIGHT" labelFloat="true" layoutX="670.0" layoutY="80.0" promptText="حقوق پایه" />
+      <JFXTextField fx:id="txtAnnualIncrease" labelFloat="true" layoutX="480.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" promptText="افزایش به ازای هر 5 سال" />
+      <JFXTextField fx:id="txtExtraordinaryHousing" labelFloat="true" layoutX="270.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" promptText="فوق العاده مسکن" />
+      <JFXTextField fx:id="txtBadWeather" labelFloat="true" layoutX="70.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" promptText="بدی آب و هوا" />
+      <JFXTextField fx:id="txtDeprivationOfServiecePlace" labelFloat="true" layoutX="670.0" layoutY="170.0" nodeOrientation="RIGHT_TO_LEFT" promptText="محرومیت محل خدمت" />
+      <JFXTextField fx:id="txtFamilyAllowance" labelFloat="true" layoutX="480.0" layoutY="170.0" nodeOrientation="RIGHT_TO_LEFT" promptText="کمک هزینه عائله مندی" />
+      <JFXTextField fx:id="txtChildrenAllowance" labelFloat="true" layoutX="270.0" layoutY="170.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="135.0" promptText="کمک هزینه فرزند" />
+      <JFXTextField fx:id="txtSeniorOrExpertAllowance" labelFloat="true" layoutX="70.0" layoutY="170.0" nodeOrientation="RIGHT_TO_LEFT" promptText="فوق العاده رتبه " />
+      <JFXTextField fx:id="txtReward" labelFloat="true" layoutX="670.0" layoutY="260.0" nodeOrientation="RIGHT_TO_LEFT" promptText="پاداش" />
+      <JFXTextField fx:id="txtImportantsOfJob" labelFloat="true" layoutX="480.0" layoutY="260.0" nodeOrientation="RIGHT_TO_LEFT" promptText="فوق العاده شغل" />
+      <JFXTextField fx:id="txtSacrificePoints" labelFloat="true" layoutX="270.0" layoutY="260.0" nodeOrientation="RIGHT_TO_LEFT" promptText="ایثارگری" />
+      <JFXTextField fx:id="txtInsurance" labelFloat="true" layoutX="70.0" layoutY="260.0" nodeOrientation="RIGHT_TO_LEFT" promptText="بیمه" />
+      <JFXTextField fx:id="txtPensionFund" layoutX="480.0" layoutY="350.0" nodeOrientation="RIGHT_TO_LEFT" promptText="صندوق بازنشتگی" />
+      <JFXTextField fx:id="txtTax" layoutX="270.0" layoutY="350.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="135.0" promptText="مالیات(درصد)" />
+      <JFXButton fx:id="confirm" buttonType="RAISED" layoutX="68.0" layoutY="573.0" prefHeight="25.0" prefWidth="76.0" text="ثبت" />
+      <Label fx:id="result" layoutX="166.0" layoutY="561.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="49.0" prefWidth="178.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

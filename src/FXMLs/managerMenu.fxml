@@ -5,14 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerMenuController">
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerMenuController">
    <children>
       <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
-      <ImageView fx:id="i0" fitHeight="74.0" fitWidth="82.0" layoutX="97.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/businessman_64px.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="i0" fitHeight="74.0" fitWidth="82.0" layoutX="97.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true"/>
       <Label fx:id="l1" accessibleText="modirKar" alignment="CENTER_RIGHT" layoutY="229.0" prefHeight="74.0" prefWidth="267.0" text="   مدریت کارمندان ">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -34,30 +30,10 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <ImageView fx:id="i1" accessibleText="modirKar" fitHeight="49.0" fitWidth="42.0" layoutX="5.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/buy_upgrade_30px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="i2" accessibleText="mian" fitHeight="35.0" fitWidth="41.0" layoutX="6.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/project_manager_32px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="i3" accessibleText="modirDar" fitHeight="49.0" fitWidth="39.0" layoutX="7.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/checked_radio_button_24px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="i4" accessibleText="taghiSav" fitHeight="35.0" fitWidth="37.0" layoutX="10.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/edit_file_64px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="i5" accessibleText="exit" fitHeight="54.0" fitWidth="36.0" layoutX="6.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-         <image>
-            <Image url="@../../../../OneDrive/Pictures/oo.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="i1" accessibleText="modirKar" fitHeight="49.0" fitWidth="42.0" layoutX="5.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true"/>
+      <ImageView fx:id="i2" accessibleText="mian" fitHeight="35.0" fitWidth="41.0" layoutX="6.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true"/>
+      <ImageView fx:id="i3" accessibleText="modirDar" fitHeight="49.0" fitWidth="39.0" layoutX="7.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true"/>
+      <ImageView fx:id="i4" accessibleText="taghiSav" fitHeight="35.0" fitWidth="37.0" layoutX="10.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true"/>
+      <ImageView fx:id="i5" accessibleText="exit" fitHeight="54.0" fitWidth="36.0" layoutX="6.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" smooth="false"/>
    </children>
 </AnchorPane>

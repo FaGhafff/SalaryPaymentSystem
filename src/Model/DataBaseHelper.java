@@ -1,5 +1,7 @@
 package Model;
 
+import SubSystems.Employment;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -208,6 +210,9 @@ public class DataBaseHelper {
         return null;
     }
     public void writeHokmes(ArrayList<Hokm> list){}
+    public Hokm getDefaultHokm(){return null;}
+    public void signIn(EmploymentOrder order){}
+
     //
     public static void main(String[] args) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();

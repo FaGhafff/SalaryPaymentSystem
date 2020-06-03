@@ -1,9 +1,9 @@
-package Controllers;
+package Controllers.TableModels;
 
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.property.SimpleStringProperty;
 
-public class ConstantsManagerTableModel {
+public class EmployeeManagementTableModel {
     public String getRow() {
         return row.get();
     }
@@ -44,7 +44,7 @@ public class ConstantsManagerTableModel {
         return salaryBase;
     }
 
-    public ConstantsManagerTableModel setSalaryBase(JFXTextField salaryBase) {
+    public EmployeeManagementTableModel setSalaryBase(JFXTextField salaryBase) {
         this.salaryBase = salaryBase;
         return this;
     }
@@ -53,7 +53,7 @@ public class ConstantsManagerTableModel {
         return annualIncrease;
     }
 
-    public ConstantsManagerTableModel setAnnualIncrease(JFXTextField annualIncrease) {
+    public EmployeeManagementTableModel setAnnualIncrease(JFXTextField annualIncrease) {
         this.annualIncrease = annualIncrease;
         return this;
     }
@@ -62,7 +62,7 @@ public class ConstantsManagerTableModel {
         return extraordinaryHousing;
     }
 
-    public ConstantsManagerTableModel setExtraordinaryHousing(JFXTextField extraordinaryHousing) {
+    public EmployeeManagementTableModel setExtraordinaryHousing(JFXTextField extraordinaryHousing) {
         this.extraordinaryHousing = extraordinaryHousing;
         return this;
     }
@@ -71,7 +71,7 @@ public class ConstantsManagerTableModel {
         return badWeather;
     }
 
-    public ConstantsManagerTableModel setBadWeather(JFXTextField badWeather) {
+    public EmployeeManagementTableModel setBadWeather(JFXTextField badWeather) {
         this.badWeather = badWeather;
         return this;
     }
@@ -80,7 +80,7 @@ public class ConstantsManagerTableModel {
         return deprivationOfServiecePlace;
     }
 
-    public ConstantsManagerTableModel setDeprivationOfServiecePlace(JFXTextField deprivationOfServiecePlace) {
+    public EmployeeManagementTableModel setDeprivationOfServiecePlace(JFXTextField deprivationOfServiecePlace) {
         this.deprivationOfServiecePlace = deprivationOfServiecePlace;
         return this;
     }
@@ -89,7 +89,7 @@ public class ConstantsManagerTableModel {
         return familyAllowance;
     }
 
-    public ConstantsManagerTableModel setFamilyAllowance(JFXTextField familyAllowance) {
+    public EmployeeManagementTableModel setFamilyAllowance(JFXTextField familyAllowance) {
         this.familyAllowance = familyAllowance;
         return this;
     }
@@ -98,7 +98,7 @@ public class ConstantsManagerTableModel {
         return childrenAllowance;
     }
 
-    public ConstantsManagerTableModel setChildrenAllowance(JFXTextField childrenAllowance) {
+    public EmployeeManagementTableModel setChildrenAllowance(JFXTextField childrenAllowance) {
         this.childrenAllowance = childrenAllowance;
         return this;
     }
@@ -107,7 +107,7 @@ public class ConstantsManagerTableModel {
         return seniorOrExpertAllowance;
     }
 
-    public ConstantsManagerTableModel setSeniorOrExpertAllowance(JFXTextField seniorOrExpertAllowance) {
+    public EmployeeManagementTableModel setSeniorOrExpertAllowance(JFXTextField seniorOrExpertAllowance) {
         this.seniorOrExpertAllowance = seniorOrExpertAllowance;
         return this;
     }
@@ -116,7 +116,7 @@ public class ConstantsManagerTableModel {
         return reward;
     }
 
-    public ConstantsManagerTableModel setReward(JFXTextField reward) {
+    public EmployeeManagementTableModel setReward(JFXTextField reward) {
         this.reward = reward;
         return this;
     }
@@ -125,7 +125,7 @@ public class ConstantsManagerTableModel {
         return importantsOfJob;
     }
 
-    public ConstantsManagerTableModel setImportantsOfJob(JFXTextField importantsOfJob) {
+    public EmployeeManagementTableModel setImportantsOfJob(JFXTextField importantsOfJob) {
         this.importantsOfJob = importantsOfJob;
         return this;
     }
@@ -134,7 +134,7 @@ public class ConstantsManagerTableModel {
         return sacrificePoints;
     }
 
-    public ConstantsManagerTableModel setSacrificePoints(JFXTextField sacrificePoints) {
+    public EmployeeManagementTableModel setSacrificePoints(JFXTextField sacrificePoints) {
         this.sacrificePoints = sacrificePoints;
         return this;
     }
@@ -143,7 +143,7 @@ public class ConstantsManagerTableModel {
         return insurance;
     }
 
-    public ConstantsManagerTableModel setInsurance(JFXTextField insurance) {
+    public EmployeeManagementTableModel setInsurance(JFXTextField insurance) {
         this.insurance = insurance;
         return this;
     }
@@ -152,7 +152,7 @@ public class ConstantsManagerTableModel {
         return pensionFund;
     }
 
-    public ConstantsManagerTableModel setPensionFund(JFXTextField pensionFund) {
+    public EmployeeManagementTableModel setPensionFund(JFXTextField pensionFund) {
         this.pensionFund = pensionFund;
         return this;
     }
@@ -161,7 +161,7 @@ public class ConstantsManagerTableModel {
         return tax;
     }
 
-    public ConstantsManagerTableModel setTax(JFXTextField tax) {
+    public EmployeeManagementTableModel setTax(JFXTextField tax) {
         this.tax = tax;
         return this;
     }
@@ -184,21 +184,21 @@ public class ConstantsManagerTableModel {
     private JFXTextField pensionFund;
     private JFXTextField tax;
 
-    public ConstantsManagerTableModel(String row, String username,String name,
-                                      JFXTextField salaryBase,
-                                      JFXTextField annualIncrease,
-                                      JFXTextField extraordinaryHousing,
-                                      JFXTextField badWeather,
-                                      JFXTextField deprivationOfServiecePlace,
-                                      JFXTextField familyAllowance,
-                                      JFXTextField childrenAllowance,
-                                      JFXTextField seniorOrExpertAllowance,
-                                      JFXTextField reward,
-                                      JFXTextField importantsOfJob,
-                                      JFXTextField sacrificePoints,
-                                      JFXTextField insurance,
-                                      JFXTextField pensionFund,
-                                      JFXTextField tax) {
+    public EmployeeManagementTableModel(String row, String username, String name,
+                                        JFXTextField salaryBase,
+                                        JFXTextField annualIncrease,
+                                        JFXTextField extraordinaryHousing,
+                                        JFXTextField badWeather,
+                                        JFXTextField deprivationOfServiecePlace,
+                                        JFXTextField familyAllowance,
+                                        JFXTextField childrenAllowance,
+                                        JFXTextField seniorOrExpertAllowance,
+                                        JFXTextField reward,
+                                        JFXTextField importantsOfJob,
+                                        JFXTextField sacrificePoints,
+                                        JFXTextField insurance,
+                                        JFXTextField pensionFund,
+                                        JFXTextField tax) {
         this.row = new SimpleStringProperty(row);
         this.username = new SimpleStringProperty(username);
         this.name = new SimpleStringProperty(name);

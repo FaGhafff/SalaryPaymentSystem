@@ -47,7 +47,7 @@ public class ManagerController implements Initializable {
                             loadPane("FXMLs/ManagerMenu/managerAvreg.fxml");
                             break;
                         case "modirDar":
-                            loadPane("FXMLs/ManagerMenu/managerManageRequset.fxml");
+                            loadPane("FXMLs/ManagerMenu/managerRequsetManagment.fxml");
                             break;
                         case "taghiSav":
                             loadPane("FXMLs/ManagerMenu/managerConstantes.fxml");

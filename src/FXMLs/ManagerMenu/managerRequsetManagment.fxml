@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="635.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManagerSubMenu.ManagerMenuRequestManagement">
+    <children>
+                <TableView fx:id="table" layoutX="151.0" layoutY="77.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="482.0" prefWidth="500.0">
+                    <columns>
+                        <TableColumn fx:id="row" prefWidth="46.0" text="ردیف" />
+                        <TableColumn fx:id="name" prefWidth="154.0" text="نام و نام خانوادگی" />
+                        <TableColumn fx:id="show" prefWidth="100.0" text="#" />
+                        <TableColumn fx:id="accept" prefWidth="100.0" text="#" />
+                        <TableColumn fx:id="reject" prefWidth="100.0" text="#" />
+
+                    </columns>
+                </TableView>
+<!--        <Button fx:id="confirm" layoutX="14.0" layoutY="565.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="60.0" text="ثبت" />-->
+<!--        <Label fx:id="result" alignment="CENTER" contentDisplay="RIGHT" layoutX="90.0" layoutY="565.0" prefHeight="42.0" prefWidth="134.0">-->
+<!--            <font>-->
+<!--                <Font size="21.0" />-->
+<!--            </font>-->
+<!--        </Label>-->
+    </children>
+</AnchorPane>

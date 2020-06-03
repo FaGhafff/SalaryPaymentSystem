@@ -4,6 +4,7 @@ import Model.Employee;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,11 +73,18 @@ public class EmployeeController implements Initializable {
     }
 
     private void loadPane(String path) {
+        if (mainPane.getChildren().size()>0)
+            mainPane.getChildren().remove(0);
+        System.out.println(mainPane.getChildren().size());
         try {
             FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource(path));
+
+
             Parent root = fXMLLoader.load();
+//            root.setVisible(false);
+            FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), root);
+            fadeTransition.play();
             mainPane.getChildren().add(root);
-            System.out.println("hi");
         } catch (IOException e) {
             System.out.println(e.getMessage() + " " + this.getClass().getName());
         }
