@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.employeeMenuController">
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.employeeMenuController">
    <children>
       <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
       <Label fx:id="l1" accessibleText="fish hogogi" alignment="CENTER_RIGHT" layoutY="287.0" prefHeight="82.0" prefWidth="267.0" text="   دریافت فیش حقوقی ">
@@ -24,17 +26,17 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fx:id="e3" accessibleText="change pass" fitHeight="45.0" fitWidth="48.0" layoutX="5.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="e3" accessibleText="change pass" fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../PNG/employeeMenu3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="e2" accessibleText="fish hogogi" fitHeight="43.0" fitWidth="43.0" layoutX="6.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="e2" accessibleText="fish hogogi" fitHeight="45.0" fitWidth="45.0" layoutX="9.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../OneDrive/Pictures/cheap_2_26px.png" />
+            <Image url="@../../PNG/employeeMenu2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="e4" accessibleText="send massage" fitHeight="45.0" fitWidth="62.0" layoutX="9.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="e4" accessibleText="send massage" fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../PNG/employeeMenu4.png" />
          </image>
@@ -44,7 +46,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fx:id="exit" accessibleText="exit" fitHeight="35.0" fitWidth="43.0" layoutX="7.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="exit" accessibleText="exit" fitHeight="35.0" fitWidth="43.0" layoutX="14.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../PNG/exit.png" />
          </image>

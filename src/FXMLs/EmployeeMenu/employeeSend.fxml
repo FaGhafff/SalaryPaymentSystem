@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<Pane prefHeight="632.0" prefWidth="836.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="291.0" layoutY="60.0" prefHeight="21.0" prefWidth="495.0" text="انتقادات و پیشنهاد هایتان را جهت پیشرفت و ارتقا ما و ریس محترماتان ارسال کنید." />
+      <Label layoutX="552.0" layoutY="144.0" prefHeight="21.0" prefWidth="234.0" text="ارسال انتقادات و پیشنهاد ها به رییس :" />
+      <Label layoutX="575.0" layoutY="365.0" prefHeight="21.0" prefWidth="211.0" text="ارسال انتقادات و پیشنهاد ها به ما :" />
+      <TextArea layoutX="25.0" layoutY="144.0" prefHeight="115.0" prefWidth="504.0" />
+      <JFXButton layoutX="25.0" layoutY="269.0" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: ff5252;" text="ارسال" textFill="WHITE" />
+      <TextArea layoutX="25.0" layoutY="365.0" prefHeight="115.0" prefWidth="504.0" />
+      <JFXButton layoutX="25.0" layoutY="490.0" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: ff5252;" text="ارسال" textFill="WHITE" />
+   </children>
+</Pane>
