@@ -54,69 +54,114 @@ public class EmploymentFormController implements Initializable {
     public JFXButton btnSendRequest;
     public JFXButton btnCancel;
 
+    private EmploymentOrder order = null;
+
+    public EmploymentFormController setOrder(EmploymentOrder order) {
+        this.order = order;
+        return this;
+    }
+
     public void onClickCancel() {
         Stage stage = (Stage) btnSendRequest.getScene().getWindow();
         stage.close();
     }
 
     public void onClickSendRequest() {
-        if (checkData()){
-        EmploymentOrder employmentOrder = new EmploymentOrder()
-                .setNamePersian(namePersian.getText())
-                .setLastNamePersian(lastNamePersian.getText())
-                .setNameEnglish(nameEnglish.getText())
-                .setLastNameEnglish(lastNameEnglish.getText())
-                .setIdNumber(Long.parseLong(idNumber.getText()))
-                .setBcNumber(Long.parseLong(bcNumber.getText()))
-                .setBirthPlace(birthPlace.getText())
-                .setIssuanceOfBCPlace(issuanceOfBCPlace.getText())
-                .setSexuality(sexuality.getText())
-                .setMobilePhoneNumber(Long.parseLong(mobilePhoneNumber.getText()))
-                .setTelephoneNumber(Long.parseLong(telephoneNumber.getText()))
-                .setFatherName(fatherName.getText())
-                .setMaritalStatus(maritalStatus.getText())
-                .setChildrenCount(Integer.parseInt(childrenCount.getText()))
-                .setHealthIssue(healthIssue.getText())
-                .setEmergencyContactName(emergencyContactName.getText())
-                .setEmergencyContactLastName(emergencyContactLastName.getText())
-                .setEmergencyContactMobileNumber(Long.parseLong(emergencyContactMobileNumber.getText()))
-                .setEmergencyContactRelation(emergencyContactRelation.getText())
-                .setDiplomaType(diplomaType.getText())
-                .setDiplomaScore(Double.parseDouble(diplomaScore.getText()))
-                .setAssociateStatus(associateStatus.getText())
-                .setAssociatePlace(associatePlace.getText())
-                .setAssociateScore(Double.parseDouble(associateScore.getText()))
-                .setBachelorStatus(bachelorStatus.getText())
-                .setBirthPlace(bachelorPlace.getText())
-                .setBachelorScore(Double.parseDouble(bachelorScore.getText()))
-                .setMasterScore(Double.parseDouble(masterScore.getText()))
-                .setMasterStatus(masterStatus.getText())
-                .setMasterPlace(masterPlace.getText())
-                .setDoctoratePlace(doctoratePlace.getText())
-                .setDoctorateScore(Double.parseDouble(doctorateScore.getText()))
-                .setDoctorateStatus(doctorateStatus.getText())
-                .setHealthStatus(healthStatus.getText())
-                .setHealthIssue(healthStatus1.getText())
-                .setOtherEducation(otherEducation.getText());
+        if (checkData()) {
+            EmploymentOrder employmentOrder = new EmploymentOrder()
+                    .setNamePersian(namePersian.getText())
+                    .setLastNamePersian(lastNamePersian.getText())
+                    .setNameEnglish(nameEnglish.getText())
+                    .setLastNameEnglish(lastNameEnglish.getText())
+                    .setIdNumber(Long.parseLong(idNumber.getText()))
+                    .setBcNumber(Long.parseLong(bcNumber.getText()))
+                    .setBirthPlace(birthPlace.getText())
+                    .setIssuanceOfBCPlace(issuanceOfBCPlace.getText())
+                    .setSexuality(sexuality.getText())
+                    .setMobilePhoneNumber(Long.parseLong(mobilePhoneNumber.getText()))
+                    .setTelephoneNumber(Long.parseLong(telephoneNumber.getText()))
+                    .setFatherName(fatherName.getText())
+                    .setMaritalStatus(maritalStatus.getText())
+                    .setChildrenCount(Integer.parseInt(childrenCount.getText()))
+                    .setHealthIssue(healthIssue.getText())
+                    .setEmergencyContactName(emergencyContactName.getText())
+                    .setEmergencyContactLastName(emergencyContactLastName.getText())
+                    .setEmergencyContactMobileNumber(Long.parseLong(emergencyContactMobileNumber.getText()))
+                    .setEmergencyContactRelation(emergencyContactRelation.getText())
+                    .setDiplomaType(diplomaType.getText())
+                    .setDiplomaScore(Double.parseDouble(diplomaScore.getText()))
+                    .setAssociateStatus(associateStatus.getText())
+                    .setAssociatePlace(associatePlace.getText())
+                    .setAssociateScore(Double.parseDouble(associateScore.getText()))
+                    .setBachelorStatus(bachelorStatus.getText())
+                    .setBirthPlace(bachelorPlace.getText())
+                    .setBachelorScore(Double.parseDouble(bachelorScore.getText()))
+                    .setMasterScore(Double.parseDouble(masterScore.getText()))
+                    .setMasterStatus(masterStatus.getText())
+                    .setMasterPlace(masterPlace.getText())
+                    .setDoctoratePlace(doctoratePlace.getText())
+                    .setDoctorateScore(Double.parseDouble(doctorateScore.getText()))
+                    .setDoctorateStatus(doctorateStatus.getText())
+                    .setHealthStatus(healthStatus.getText())
+                    .setHealthIssue(healthStatus1.getText())
+                    .setOtherEducation(otherEducation.getText());
 
-        DataBaseHelper dataBaseHelper = new DataBaseHelper();
-        if (dataBaseHelper.sendRequest(employmentOrder)) {
-            btnSendRequest.setText("ارسال شد !");
-            btnCancel.setText("خروج");
+            DataBaseHelper dataBaseHelper = new DataBaseHelper();
+            if (dataBaseHelper.sendRequest(employmentOrder)) {
+                btnSendRequest.setText("ارسال شد !");
+                btnCancel.setText("خروج");
+            }
         }
-    }}
+    }
 
-    private boolean checkData(){
-
+    private boolean checkData() {
         //todo check validation of data in here
         //set suitable color for textField if data is invalid
-
-
         return true;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        if (order != null) {
+            System.out.println("hi");
+            namePersian.setText(order.getNamePersian());
+            nameEnglish.setText(order.getNameEnglish());
+            lastNamePersian.setText(order.getLastNamePersian());
+            lastNameEnglish.setText(order.getLastNameEnglish());
+            idNumber.setText(order.getIdNumber() + "");
+            bcNumber.setText(order.getBcNumber() + "");
+            birthPlace.setText(order.getBirthPlace());
+            issuanceOfBCPlace.setText(order.getIssuanceOfBCPlace());
+            sexuality.setText(order.getSexuality());
+            mobilePhoneNumber.setText(order.getMobilePhoneNumber() + "");
+            telephoneNumber.setText(order.getTelephoneNumber() + "");
+            fatherName.setText(order.getFatherName());
+            maritalStatus.setText(order.getMaritalStatus());
+            fatherMobileNumber.setText(order.getFatherMobileNumber() + "");
+            childrenCount.setText(order.getChildrenCount() + "");
+            healthIssue.setText(order.getHealthIssue());
+            emergencyContactName.setText(order.getEmergencyContactName());
+            emergencyContactMobileNumber.setText(order.getEmergencyContactMobileNumber() + "");
+            emergencyContactLastName.setText(order.getEmergencyContactLastName());
+            emergencyContactRelation.setText(order.getEmergencyContactRelation());
+            diplomaType.setText(order.getDiplomaType());
+            diplomaScore.setText(order.getDoctorateScore() + "");
+            associateStatus.setText(order.getAssociateStatus());
+            associatePlace.setText(order.getAssociatePlace());
+            associateScore.setText(order.getAssociateScore() + "");
+            bachelorStatus.setText(order.getBachelorStatus());
+            bachelorPlace.setText(order.getBachelorPlace());
+            bachelorScore.setText(order.getBachelorScore() + "");
+            masterStatus.setText(order.getMasterStatus());
+            masterPlace.setText(order.getMasterPlace());
+            masterScore.setText(order.getMasterScore() + "");
+            doctorateStatus.setText(order.getDoctorateStatus());
+            doctoratePlace.setText(order.getDoctoratePlace());
+            doctorateScore.setText(order.getDoctorateScore() + "");
+            healthStatus.setText(order.getHealthStatus());
+            healthStatus1.setText(order.getHealthIssue());
+            otherEducation.setText(order.getOtherEducation());
+            btnSendRequest.setDisable(true);
+        }
     }
 }

@@ -13,6 +13,8 @@ public class SMS {
     private boolean status =false;
 
     public SMS(String phoneNumber) {
+        if (phoneNumber.charAt(0)!='0')
+            phoneNumber="0"+phoneNumber;
         this.phoneNumber = phoneNumber;
     }
 

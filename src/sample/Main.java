@@ -1,5 +1,6 @@
 package sample;
 
+import Controllers.ManagerSubMenu.ManagerMenuRequestManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +11,11 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-       Parent root = FXMLLoader.load(getClass().getResource("src/FXMLs/ManagerMenu/managerMenuEmployeeManagement.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        Parent root;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXMLs/ManagerMenu/managerRequsetManagment.fxml"));
+        loader.setController(new ManagerMenuRequestManagement());
+        root = loader.load();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.UNDECORATED);

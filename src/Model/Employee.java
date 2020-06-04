@@ -2,6 +2,7 @@ package Model;
 
 public class Employee extends Person {
 
+    private String username;
     private long fatherMobileNumber = -1; //father's mobile number (شماره تلفن پدر)
     private String maritalStatus = "null maritalStatus"; // marital status (وضعیت تاهل)
     private int childrenCount = -1; // children Count (تعداد فرزندان)
@@ -29,445 +30,286 @@ public class Employee extends Person {
     private String otherEducation = "null otherEducation"; // other education (توضیحات مدارج علمی دیگر)
     private String highestDegree = "null highestDegree"; // highest degree (بالاترین مدرک تحصیلی)
     private String majorStatus = "null majorStatus"; // major status (رشته تحصیلی)
-    private String serviceUnit = "null serviceUnit"; // service unit (واحد خدمت)
-    private String organizationalPosition = "null organizationalPosition"; // organizational position (پست سازمانی)
-    private String serviceTimeYear = "null serviceTimeYear"; // service time year (مدت زمان خدمت به سال)
-    private String serviceTimeMonth = "null serviceTimeMonth"; // service time month (مدت زمان خدمت به ماه)
-    private String serviceTimeDay = "null serviceTimeDay"; // service time day (مدت زمان خدمت به روز)
-    private double salaryBase = -1.0; // salary base (پایه حقوق)
-    private double annualIncrease = -1.0; // annual increase (افزایش سنواتی)
-    private double extraordinaryHousing = -1.0; // extraordinary housing (فوق العاده مسکن)
-    private double badWeather = -1.0; // bad weather (بدی آب و هوا)
-    private double deprivationOfServiecePlace = -1.0; // deprivation of serviece place (محرومیت محل خدمت)
-    private double familyAllowance = -1.0; // family allowance (کمک هزینه عائله مندی)
-    private double childrenAllowance = -1.0; // children's allowance (کمک هزینه فرزند)
-    private double seniorOrExpertAllowance = -1.0; // senior or expert allowance (ارشد یا خبره بودن)
-    private double reward = -1.0; // reward (پاداش)
-    private double importantsOfJob = -1.0; // importants of job (فوق العاده شغل)
-    private double sacrificePoints = -1.0; // sacrifice points (ایثارگری)
-    private double insurance = -1.0; // insurance (بیمه)
-    private double pensionFund = -1.0; // pension fund (صندوق بازنشستگی)
-    private double tax = -1.0; // tax (مالیات)
-    private String descriptionOfTheSentence = "null descriptionOfTheSentence"; // description of the sentence (شرح حکم)
-    private long serialOfSentence = -1; // serial of sentence (شماره سریال حکم)
-    private double finalSalary = -1; // final salary (حقوق آخر)
-    private String companyName = "null companyName"; // company name (نام شرکت)
-    private long companyCode = -1; // company code (کد شرکت)
-    private double serviceTime = -1.0; // مدت زمان خدمت
+    private String startServiceYear = "null startServiceYear";//تاریخ شروع خدمت به سال
+    private String startServiceMonth = "null startServiceMonth";//الریخ شروع خدمت به ماه
+    private String startServiceDay = "null startServiceDay";//تاریخ شروع خدمت به روز
 
-    public void setAssociateScore(double associateScore) {
-        this.associateScore = associateScore;
+    public String getUsername() {
+        return username;
     }
 
-    public void setBachelorPlace(String bachelorPlace) {
-        this.bachelorPlace = bachelorPlace;
-    }
-
-    public void setDiplomaType(String diplomaType) {
-        this.diplomaType = diplomaType;
-    }
-
-    public void setMasterStatus(String masterStatus) {
-        this.masterStatus = masterStatus;
-    }
-
-    public void setBachelorStatus(String bachelorStatus) {
-        this.bachelorStatus = bachelorStatus;
-    }
-
-    public void setMasterPlace(String masterPlace) {
-        this.masterPlace = masterPlace;
-    }
-
-    public void setAssociatePlace(String associatePlace) {
-        this.associatePlace = associatePlace;
-    }
-
-    public void setAssociateStatus(String associateStatus) {
-        this.associateStatus = associateStatus;
-    }
-
-    public void setDiplomaScore(double diplomaScore) {
-        this.diplomaScore = diplomaScore;
-    }
-
-    public void setMethodOfIntroduction(String methodOfIntroduction) {
-        this.methodOfIntroduction = methodOfIntroduction;
-    }
-
-    public void setHealthStatus(String healthStatus) {
-        this.healthStatus = healthStatus;
-    }
-
-    public void setHealthIssue(String healthIssue) {
-        this.healthIssue = healthIssue;
-    }
-
-    public void setMasterScore(double masterScore) {
-        this.masterScore = masterScore;
-    }
-
-    public void setChildrenCount(int childrenCount) {
-        this.childrenCount = childrenCount;
-    }
-
-    public void setDoctorateScore(double doctorateScore) {
-        this.doctorateScore = doctorateScore;
-    }
-
-    public void setDoctoratePlace(String doctoratePlace) {
-        this.doctoratePlace = doctoratePlace;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public void setFatherMobileNumber(long fatherMobileNumber) {
-        this.fatherMobileNumber = fatherMobileNumber;
-    }
-
-    public void setEmergencyContactLastName(String emergencyContactLastName) {
-        this.emergencyContactLastName = emergencyContactLastName;
-    }
-
-    public void setDoctorateStatus(String doctorateStatus) {
-        this.doctorateStatus = doctorateStatus;
-    }
-
-    public void setBachelorScore(double bachelorScore) {
-        this.bachelorScore = bachelorScore;
-    }
-
-    public void setEmergencyContactMobileNumber(long emergencyContactMobileNumber) {
-        this.emergencyContactMobileNumber = emergencyContactMobileNumber;
-    }
-
-    public void setEmergencyContactName(String emergencyContactName) {
-        this.emergencyContactName = emergencyContactName;
-    }
-
-    public void setOtherEducation(String otherEducation) {
-        this.otherEducation = otherEducation;
-    }
-
-    public void setEmergencyContactRelation(String emergencyContactRelation) {
-        this.emergencyContactRelation = emergencyContactRelation;
-    }
-
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-
-    public void setSerialOfSentence(long serialOfSentence) {
-        this.serialOfSentence = serialOfSentence;
-    }
-
-    public void setServiceUnit(String serviceUnit) {
-        this.serviceUnit = serviceUnit;
-    }
-
-    public void setServiceTimeYear(String serviceTimeYear) {
-        this.serviceTimeYear = serviceTimeYear;
-    }
-
-    public void setSeniorOrExpertAllowance(double seniorOrExpertAllowance) {
-        this.seniorOrExpertAllowance = seniorOrExpertAllowance;
-    }
-
-    public void setSacrificePoints(double sacrificePoints) {
-        this.sacrificePoints = sacrificePoints;
-    }
-
-    public void setServiceTimeMonth(String serviceTimeMonth) {
-        this.serviceTimeMonth = serviceTimeMonth;
-    }
-
-    public void setServiceTimeDay(String serviceTimeDay) {
-        this.serviceTimeDay = serviceTimeDay;
-    }
-
-    public void setReward(double reward) {
-        this.reward = reward;
-    }
-
-    public void setFinalSalary(double finalSalary) {
-        this.finalSalary = finalSalary;
-    }
-
-    public void setPensionFund(double pensionFund) {
-        this.pensionFund = pensionFund;
-    }
-
-    public void setInsurance(double insurance) {
-        this.insurance = insurance;
-    }
-
-    public void setSalaryBase(double salaryBase) {
-        this.salaryBase = salaryBase;
-    }
-
-    public void setOrganizationalPosition(String organizationalPosition) {
-        this.organizationalPosition = organizationalPosition;
-    }
-
-    public void setImportantsOfJob(double importantsOfJob) {
-        this.importantsOfJob = importantsOfJob;
-    }
-
-    public void setDescriptionOfTheSentence(String descriptionOfTheSentence) {
-        this.descriptionOfTheSentence = descriptionOfTheSentence;
-    }
-
-    public void setMajorStatus(String majorStatus) {
-        this.majorStatus = majorStatus;
-    }
-
-    public void setFamilyAllowance(double familyAllowance) {
-        this.familyAllowance = familyAllowance;
-    }
-
-    public void setHighestDegree(String highestDegree) {
-        this.highestDegree = highestDegree;
-    }
-
-    public void setExtraordinaryHousing(double extraordinaryHousing) {
-        this.extraordinaryHousing = extraordinaryHousing;
-    }
-
-    public void setDeprivationOfServiecePlace(double deprivationOfServiecePlace) {
-        this.deprivationOfServiecePlace = deprivationOfServiecePlace;
-    }
-
-    public void setChildrenAllowance(double childrenAllowance) {
-        this.childrenAllowance = childrenAllowance;
-    }
-
-    public void setBadWeather(double badWeather) {
-        this.badWeather = badWeather;
-    }
-
-    public void setAnnualIncrease(double annualIncrease) {
-        this.annualIncrease = annualIncrease;
-    }
-
-    public void setCompanyCode(long companyCode) {
-        this.companyCode = companyCode;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getDescriptionOfTheSentence() {
-        return descriptionOfTheSentence;
-    }
-
-    public long getSerialOfSentence() {
-        return serialOfSentence;
-    }
-
-    public double getAssociateScore() {
-        return associateScore;
-    }
-
-    public String getDoctoratePlace() {
-        return doctoratePlace;
-    }
-
-    public String getDiplomaType() {
-        return diplomaType;
-    }
-
-    public double getMasterScore() {
-        return masterScore;
-    }
-
-    public String getMethodOfIntroduction() {
-        return methodOfIntroduction;
-    }
-
-    public String getAssociatePlace() {
-        return associatePlace;
-    }
-
-    public String getHealthStatus() {
-        return healthStatus;
-    }
-
-    public String getAssociateStatus() {
-        return associateStatus;
-    }
-
-    public String getMasterPlace() {
-        return masterPlace;
-    }
-
-    public String getDoctorateStatus() {
-        return doctorateStatus;
-    }
-
-    public double getDiplomaScore() {
-        return diplomaScore;
-    }
-
-    public String getHealthIssue() {
-        return healthIssue;
-    }
-
-    public int getChildrenCount() {
-        return childrenCount;
-    }
-
-    public String getMaritalStatus() {
-        return maritalStatus;
+    public Employee setUsername(String username) {
+        this.username = username;
+        return this;
     }
 
     public long getFatherMobileNumber() {
         return fatherMobileNumber;
     }
 
-    public long getEmergencyContactMobileNumber() {
-        return emergencyContactMobileNumber;
+    public Employee setFatherMobileNumber(long fatherMobileNumber) {
+        this.fatherMobileNumber = fatherMobileNumber;
+        return this;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public Employee setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+        return this;
+    }
+
+    public int getChildrenCount() {
+        return childrenCount;
+    }
+
+    public Employee setChildrenCount(int childrenCount) {
+        this.childrenCount = childrenCount;
+        return this;
+    }
+
+    public String getHealthIssue() {
+        return healthIssue;
+    }
+
+    public Employee setHealthIssue(String healthIssue) {
+        this.healthIssue = healthIssue;
+        return this;
+    }
+
+    public String getHealthStatus() {
+        return healthStatus;
+    }
+
+    public Employee setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
+        return this;
     }
 
     public String getEmergencyContactName() {
         return emergencyContactName;
     }
 
-    public String getMasterStatus() {
-        return masterStatus;
+    public Employee setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+        return this;
     }
 
     public String getEmergencyContactLastName() {
         return emergencyContactLastName;
     }
 
-    public double getBachelorScore() {
-        return bachelorScore;
+    public Employee setEmergencyContactLastName(String emergencyContactLastName) {
+        this.emergencyContactLastName = emergencyContactLastName;
+        return this;
     }
 
     public String getEmergencyContactRelation() {
         return emergencyContactRelation;
     }
 
-    public String getServiceUnit() {
-        return serviceUnit;
+    public Employee setEmergencyContactRelation(String emergencyContactRelation) {
+        this.emergencyContactRelation = emergencyContactRelation;
+        return this;
     }
 
-    public String getBachelorPlace() {
-        return bachelorPlace;
+    public long getEmergencyContactMobileNumber() {
+        return emergencyContactMobileNumber;
+    }
+
+    public Employee setEmergencyContactMobileNumber(long emergencyContactMobileNumber) {
+        this.emergencyContactMobileNumber = emergencyContactMobileNumber;
+        return this;
+    }
+
+    public String getMethodOfIntroduction() {
+        return methodOfIntroduction;
+    }
+
+    public Employee setMethodOfIntroduction(String methodOfIntroduction) {
+        this.methodOfIntroduction = methodOfIntroduction;
+        return this;
+    }
+
+    public String getDiplomaType() {
+        return diplomaType;
+    }
+
+    public Employee setDiplomaType(String diplomaType) {
+        this.diplomaType = diplomaType;
+        return this;
+    }
+
+    public double getDiplomaScore() {
+        return diplomaScore;
+    }
+
+    public Employee setDiplomaScore(double diplomaScore) {
+        this.diplomaScore = diplomaScore;
+        return this;
+    }
+
+    public String getAssociateStatus() {
+        return associateStatus;
+    }
+
+    public Employee setAssociateStatus(String associateStatus) {
+        this.associateStatus = associateStatus;
+        return this;
+    }
+
+    public String getAssociatePlace() {
+        return associatePlace;
+    }
+
+    public Employee setAssociatePlace(String associatePlace) {
+        this.associatePlace = associatePlace;
+        return this;
+    }
+
+    public double getAssociateScore() {
+        return associateScore;
+    }
+
+    public Employee setAssociateScore(double associateScore) {
+        this.associateScore = associateScore;
+        return this;
     }
 
     public String getBachelorStatus() {
         return bachelorStatus;
     }
 
-    public double getTax() {
-        return tax;
+    public Employee setBachelorStatus(String bachelorStatus) {
+        this.bachelorStatus = bachelorStatus;
+        return this;
     }
 
-    public String getServiceTimeMonth() {
-        return serviceTimeMonth;
+    public String getBachelorPlace() {
+        return bachelorPlace;
     }
 
-    public double getSeniorOrExpertAllowance() {
-        return seniorOrExpertAllowance;
+    public Employee setBachelorPlace(String bachelorPlace) {
+        this.bachelorPlace = bachelorPlace;
+        return this;
     }
 
-    public double getSacrificePoints() {
-        return sacrificePoints;
+    public double getBachelorScore() {
+        return bachelorScore;
     }
 
-    public double getPensionFund() {
-        return pensionFund;
+    public Employee setBachelorScore(double bachelorScore) {
+        this.bachelorScore = bachelorScore;
+        return this;
     }
 
-    public String getServiceTimeYear() {
-        return serviceTimeYear;
+    public String getMasterStatus() {
+        return masterStatus;
     }
 
-    public String getHighestDegree() {
-        return highestDegree;
+    public Employee setMasterStatus(String masterStatus) {
+        this.masterStatus = masterStatus;
+        return this;
     }
 
-    public double getReward() {
-        return reward;
+    public String getMasterPlace() {
+        return masterPlace;
     }
 
-    public double getInsurance() {
-        return insurance;
+    public Employee setMasterPlace(String masterPlace) {
+        this.masterPlace = masterPlace;
+        return this;
     }
 
-    public double getImportantsOfJob() {
-        return importantsOfJob;
+    public double getMasterScore() {
+        return masterScore;
+    }
+
+    public Employee setMasterScore(double masterScore) {
+        this.masterScore = masterScore;
+        return this;
+    }
+
+    public String getDoctorateStatus() {
+        return doctorateStatus;
+    }
+
+    public Employee setDoctorateStatus(String doctorateStatus) {
+        this.doctorateStatus = doctorateStatus;
+        return this;
+    }
+
+    public String getDoctoratePlace() {
+        return doctoratePlace;
+    }
+
+    public Employee setDoctoratePlace(String doctoratePlace) {
+        this.doctoratePlace = doctoratePlace;
+        return this;
     }
 
     public double getDoctorateScore() {
         return doctorateScore;
     }
 
-    public String getOrganizationalPosition() {
-        return organizationalPosition;
-    }
-
-    public double getSalaryBase() {
-        return salaryBase;
-    }
-
-    public String getMajorStatus() {
-        return majorStatus;
-    }
-
-    public double getFinalSalary() {
-        return finalSalary;
+    public Employee setDoctorateScore(double doctorateScore) {
+        this.doctorateScore = doctorateScore;
+        return this;
     }
 
     public String getOtherEducation() {
         return otherEducation;
     }
 
-    public double getFamilyAllowance() {
-        return familyAllowance;
+    public Employee setOtherEducation(String otherEducation) {
+        this.otherEducation = otherEducation;
+        return this;
     }
 
-    public double getExtraordinaryHousing() {
-        return extraordinaryHousing;
+    public String getHighestDegree() {
+        return highestDegree;
     }
 
-    public double getDeprivationOfServiecePlace() {
-        return deprivationOfServiecePlace;
+    public Employee setHighestDegree(String highestDegree) {
+        this.highestDegree = highestDegree;
+        return this;
     }
 
-    public double getChildrenAllowance() {
-        return childrenAllowance;
+    public String getMajorStatus() {
+        return majorStatus;
     }
 
-    public double getBadWeather() {
-        return badWeather;
+    public Employee setMajorStatus(String majorStatus) {
+        this.majorStatus = majorStatus;
+        return this;
     }
 
-    public double getAnnualIncrease() {
-        return annualIncrease;
+    public String getStartServiceYear() {
+        return startServiceYear;
     }
 
-    public String getServiceTimeDay() {
-        return serviceTimeDay;
+    public Employee setStartServiceYear(String startServiceYear) {
+        this.startServiceYear = startServiceYear;
+        return this;
     }
 
-    public long getCompanyCode() {
-        return companyCode;
+    public String getStartServiceMonth() {
+        return startServiceMonth;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public Employee setStartServiceMonth(String startServiceMonth) {
+        this.startServiceMonth = startServiceMonth;
+        return this;
     }
 
-    public void setServiceTime(double serviceTime) {
-        this.serviceTime = serviceTime;
+    public String getStartServiceDay() {
+        return startServiceDay;
     }
 
-    public double getServiceTime() {
-        return serviceTime;
+    public Employee setStartServiceDay(String startServiceDay) {
+        this.startServiceDay = startServiceDay;
+        return this;
     }
 }

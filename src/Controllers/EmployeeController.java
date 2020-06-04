@@ -1,5 +1,8 @@
 package Controllers;
 
+import Controllers.EmployeeSubMenu.EmployeeChangePass;
+import Controllers.EmployeeSubMenu.EmployeeLegalReceipt;
+import Controllers.EmployeeSubMenu.EmployeeSendRequests;
 import Model.Employee;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -38,18 +41,18 @@ public class EmployeeController implements Initializable {
         try {
             Pane pa = FXMLLoader.load(getClass().getResource("../FXMLs/EmployeeMenu/employeeMenu.fxml"));
             drawer.setSidePane(pa);
-            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml");
+            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername()));
             for (Node node : pa.getChildren()) {
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
                     switch (node.getAccessibleText()) {
                         case "fish hogogi":
-                            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml");
+                            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername()));
                             break;
                         case "change pass":
-                            loadPane("FXMLs/EmployeeMenu/employeeChangePass.fxml");
+                            loadPane("FXMLs/EmployeeMenu/employeeChangePass.fxml",new EmployeeChangePass().setUsername(employee.getUsername()).setPhoneNumber(employee.getMobilePhoneNumber()+""));
                             break;
                         case "send massage":
-                            loadPane("FXMLs/EmployeeMenu/employeeSend.fxml");
+                            loadPane("FXMLs/EmployeeMenu/employeeSend.fxml",new EmployeeSendRequests());
                             break;
                         case "exit":
                             System.exit(0);
@@ -72,16 +75,13 @@ public class EmployeeController implements Initializable {
         }
     }
 
-    private void loadPane(String path) {
-        if (mainPane.getChildren().size()>0)
+    private void loadPane(String path, Object controller) {
+        if (mainPane.getChildren().size() > 0)
             mainPane.getChildren().remove(0);
-        System.out.println(mainPane.getChildren().size());
         try {
             FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource(path));
-
-
+            fXMLLoader.setController(controller);
             Parent root = fXMLLoader.load();
-//            root.setVisible(false);
             FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), root);
             fadeTransition.play();
             mainPane.getChildren().add(root);
@@ -89,7 +89,6 @@ public class EmployeeController implements Initializable {
             System.out.println(e.getMessage() + " " + this.getClass().getName());
         }
     }
-
 
 
 }
