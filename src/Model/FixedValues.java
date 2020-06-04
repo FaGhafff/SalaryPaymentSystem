@@ -16,7 +16,7 @@ public class FixedValues {
     private double childrenAllowance = -1.0; // children's allowance (کمک هزینه فرزند) * *
     private double seniorOrExpertAllowance = -1.0; // senior or expert allowance (ارشد یا خبره بودن) * *
     private double reward = -1.0; // reward (پاداش) *
-    private double importantsOfJob = -1.0; // importants of job (فوق العاده شغل) *
+    private double importantsOfJob = -1.0; // importants of job (پاداش) *
     private double sacrificePoints = -1.0; // sacrifice points (ایثارگری) * *
     private double insurance = -1.0; // insurance (بیمه) *
     private double pensionFund = -1.0; // pension fund (صندوق بازنشستگی) *

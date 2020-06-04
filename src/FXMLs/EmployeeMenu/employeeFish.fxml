@@ -1,13 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="635.0" prefWidth="831.0" style="-fx-background-color: red">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="836.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="47.0" prefHeight="25.0" prefWidth="155.0" text="نام و نام خانوادگی :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="114.0" prefHeight="25.0" prefWidth="155.0" text="پایه حقوقی :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="183.0" prefHeight="25.0" prefWidth="155.0" text="فوق العاده مسکن :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="253.0" prefHeight="25.0" prefWidth="155.0" text="محرومیت محل خدمت :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="324.0" prefHeight="25.0" prefWidth="155.0" text="کمک هزینه فرزند :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="392.0" prefHeight="25.0" prefWidth="155.0" text="پاداش :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="462.0" prefHeight="25.0" prefWidth="155.0" text="بیمه :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="530.0" prefHeight="25.0" prefWidth="155.0" text="مالیات :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="209.0" layoutY="50.0" prefHeight="25.0" prefWidth="155.0" text="کلمه عبور :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="211.0" layoutY="115.0" prefHeight="25.0" prefWidth="155.0" text="افزایش سنواتی :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="211.0" layoutY="184.0" prefHeight="25.0" prefWidth="155.0" text="بدی آب و هوا :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="211.0" layoutY="254.0" prefHeight="25.0" prefWidth="155.0" text="کمک هزینه عائله مندی :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="211.0" layoutY="325.0" prefHeight="25.0" prefWidth="155.0" text="ارشد یا خبره بودن :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="211.0" layoutY="393.0" prefHeight="25.0" prefWidth="155.0" text="ایثارگری :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="211.0" layoutY="463.0" prefHeight="25.0" prefWidth="155.0" text="صندوق بازنشستگی :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="516.0" layoutY="584.0" prefHeight="25.0" prefWidth="77.0" text="جمع کل :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="47.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="annualIncrease" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="114.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="badWeather" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="183.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="familyAllowance" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="253.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="seniorOrExpertAllowance" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="324.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="sacrificePoints" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="392.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="pensionFund" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="462.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="importantsOfJob" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="530.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="47.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="salaryBase" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="114.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="extraordinaryHousing" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="183.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="deprivationOfServiecePlace" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="253.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="childrenAllowance" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="324.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="reward" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="392.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="insurance" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="462.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tax" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="530.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="total" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="581.0" style="-fx-border-color: ff5252; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="218.0" layoutY="530.0" prefHeight="25.0" prefWidth="155.0" text="فوق العاده شغل :" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
