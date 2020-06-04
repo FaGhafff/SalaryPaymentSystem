@@ -1,12 +1,11 @@
 package Model;
 
-import java.util.ArrayList;
 
 public class FixedValues {
 
     private int row;
-    private String username;
-    private String name;
+    private String username="null";
+    private String name="null";
     private double salaryBase = -1.0; // salary base (پایه حقوق) *
     private double annualIncrease = -1.0; // annual increase (افزایش سنواتی) *
     private double extraordinaryHousing = -1.0; // extraordinary housing (فوق العاده مسکن) *
@@ -24,13 +23,13 @@ public class FixedValues {
 
     public FixedValues() {
 
-        this.salaryBase = 980.0;
-        this.extraordinaryHousing = 300.0;
-        this.insurance = -200.0;
-        this.pensionFund = -400.0;
-        this.reward = 250.0;
-        this.importantsOfJob = 150.0;
-        this.tax = 9.0;
+//        this.salaryBase = 980.0;
+//        this.extraordinaryHousing = 300.0;
+//        this.insurance = -200.0;
+//        this.pensionFund = -400.0;
+//        this.reward = 250.0;
+//        this.importantsOfJob = 150.0;
+//        this.tax = 9.0;
 
     }
 
@@ -188,7 +187,7 @@ public class FixedValues {
     }
 
     public double calculateFamilyAllowance(boolean status) {
-
+//fixme
         if (status) {
             setFamilyAllowance(320.0);
             return getFamilyAllowance();
@@ -203,7 +202,7 @@ public class FixedValues {
         double childrenAllowance = 0.0;
 
         for (int i = 0; i < childrenCount; i++) {
-
+//fixme
             childrenAllowance += 250.0;
 
         }
@@ -213,7 +212,7 @@ public class FixedValues {
     }
 
     public double calculateSeniorOrExpertAllowance(boolean entry) {
-
+//fixme
         if (entry) {
             return 400.0;
         } else {
@@ -223,7 +222,7 @@ public class FixedValues {
     }
 
     public double calculateSacrificePoints(boolean status) {
-
+//fixme
         if (status) {
             return 500.0;
         } else {

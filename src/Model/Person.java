@@ -15,99 +15,111 @@ public class Person {
     private long mobilePhoneNumber = -1; // mobile number (شماره موبایل)
     private long telephoneNumber = -1; // telephone number (شماره تلفن ثابت)
 
-    public void setNamePersian(String namePersian) {
-        this.namePersian = namePersian;
-    }
-
-    public void setLastNamePersian(String lastNamePersian) {
-        this.lastNamePersian = lastNamePersian;
-    }
-
-    public void setIdNumber(long idNumber) {
-        this.idNumber = idNumber;
-    }
-
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
-    }
-
-    public void setNameEnglish(String nameEnglish) {
-        this.nameEnglish = nameEnglish;
-    }
-
-    public void setIssuanceOfBCPlace(String issuanceOfBCPlace) {
-        this.issuanceOfBCPlace = issuanceOfBCPlace;
-    }
-
-    public void setSexuality(String sexuality) {
-        this.sexuality = sexuality;
-    }
-
-    public void setBcNumber(long bcNumber) {
-        this.bcNumber = bcNumber;
-    }
-
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
-    }
-
-    public void setLastNameEnglish(String lastNameEnglish) {
-        this.lastNameEnglish = lastNameEnglish;
-    }
-
-    public void setTelephoneNumber(long telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public void setMobilePhoneNumber(long mobilePhoneNumber) {
-        this.mobilePhoneNumber = mobilePhoneNumber;
-    }
-
     public String getNamePersian() {
         return namePersian;
+    }
+
+    public Person setNamePersian(String namePersian) {
+        this.namePersian = namePersian;
+        return this;
     }
 
     public String getLastNamePersian() {
         return lastNamePersian;
     }
 
-    public long getIdNumber() {
-        return idNumber;
+    public Person setLastNamePersian(String lastNamePersian) {
+        this.lastNamePersian = lastNamePersian;
+        return this;
     }
 
-    public String getBirthPlace() {
-        return birthPlace;
+    public String getNameEnglish() {
+        return nameEnglish;
     }
 
-    public long getBcNumber() {
-        return bcNumber;
-    }
-
-    public String getIssuanceOfBCPlace() {
-        return issuanceOfBCPlace;
-    }
-
-    public long getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public long getMobilePhoneNumber() {
-        return mobilePhoneNumber;
-    }
-
-    public String getFatherName() {
-        return fatherName;
-    }
-
-    public String getSexuality() {
-        return sexuality;
+    public Person setNameEnglish(String nameEnglish) {
+        this.nameEnglish = nameEnglish;
+        return this;
     }
 
     public String getLastNameEnglish() {
         return lastNameEnglish;
     }
 
-    public String getNameEnglish() {
-        return nameEnglish;
+    public Person setLastNameEnglish(String lastNameEnglish) {
+        this.lastNameEnglish = lastNameEnglish;
+        return this;
+    }
+
+    public long getIdNumber() {
+        return idNumber;
+    }
+
+    public Person setIdNumber(long idNumber) {
+        this.idNumber = idNumber;
+        return this;
+    }
+
+    public long getBcNumber() {
+        return bcNumber;
+    }
+
+    public Person setBcNumber(long bcNumber) {
+        this.bcNumber = bcNumber;
+        return this;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public Person setBirthPlace(String birthPlace) {
+        this.birthPlace = birthPlace;
+        return this;
+    }
+
+    public String getIssuanceOfBCPlace() {
+        return issuanceOfBCPlace;
+    }
+
+    public Person setIssuanceOfBCPlace(String issuanceOfBCPlace) {
+        this.issuanceOfBCPlace = issuanceOfBCPlace;
+        return this;
+    }
+
+    public String getSexuality() {
+        return sexuality;
+    }
+
+    public Person setSexuality(String sexuality) {
+        this.sexuality = sexuality;
+        return this;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public Person setFatherName(String fatherName) {
+        this.fatherName = fatherName;
+        return this;
+    }
+
+    public long getMobilePhoneNumber() {
+        return mobilePhoneNumber;
+    }
+
+    public Person setMobilePhoneNumber(long mobilePhoneNumber) {
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        return this;
+    }
+
+    public long getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public Person setTelephoneNumber(long telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+        return this;
     }
 }

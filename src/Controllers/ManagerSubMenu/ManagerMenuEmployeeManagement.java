@@ -2,7 +2,8 @@ package Controllers.ManagerSubMenu;
 
 import Controllers.TableModels.EmployeeManagementTableModel;
 import Model.DataBaseHelper;
-import Model.Hokm;
+import Model.FixedValues;
+import Model.LegalReceipt;
 import Methods.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +18,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ManagerMenuٍEmployeeManagementController implements Initializable {
+public class ManagerMenuEmployeeManagement implements Initializable {
     public TableView<EmployeeManagementTableModel> table;
     public TableColumn<EmployeeManagementTableModel, String> row;
     public TableColumn<EmployeeManagementTableModel, String> username;
@@ -61,26 +62,26 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
         tax.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel, JFXTextField>("tax"));
         salaryBase.setCellValueFactory(new PropertyValueFactory<EmployeeManagementTableModel, JFXTextField>("salaryBase"));
 
-        final ObservableList<EmployeeManagementTableModel> data = FXCollections.observableArrayList();
-        data.add(new
-                EmployeeManagementTableModel(1 + "", "1234", "علی", new JFXTextField("500", false), new JFXTextField("600"),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField(),
-                new JFXTextField()));
-        table.setItems(data);
+//        final ObservableList<EmployeeManagementTableModel> data = FXCollections.observableArrayList();
+//        data.add(new
+//                EmployeeManagementTableModel(1 + "", "1234", "علی", new JFXTextField("500", false), new JFXTextField("600"),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField(),
+//                new JFXTextField()));
+//        table.setItems(data);
 
     }
 
-    void setTable(ArrayList<Hokm> list) {
+    void setTable(ArrayList<FixedValues> list) {
         ObservableList<EmployeeManagementTableModel> data = FXCollections.observableArrayList();
         list.forEach(hokm ->
                 data.add(new EmployeeManagementTableModel(hokm.getRow() + "", hokm.getUsername(), hokm.getName(),
@@ -105,10 +106,10 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
     }
 
     void onClickConfirm() {
-        ArrayList<Hokm> list = new ArrayList<>();
+        ArrayList<FixedValues> list = new ArrayList<>();
         try {
             for (EmployeeManagementTableModel item : table.getItems()) {
-                list.add(new Hokm()
+                list.add(new FixedValues()
                         .setRow(Integer.parseInt(item.getRow()))
                         .setUsername(item.getUsername())
                         .setName(item.getName())
@@ -127,7 +128,7 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
                         .setPensionFund(Double.parseDouble(item.getPensionFund().getText()))
                         .setTax(Double.parseDouble(item.getTax().getText())));
             }
-            helper.writeHokmes(list);
+            helper.updateHokm(list);
             result.setText("ثبت شد!");
 
         } catch (Exception e) {
@@ -139,9 +140,9 @@ public class ManagerMenuٍEmployeeManagementController implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        helper = new DataBaseHelper();
+        helper = new DataBaseHelper();
         initTable();
-//        setTable(helper.readAllHokms());
+        setTable(helper.readAllHokms());
         confirm.setOnAction(event -> onClickConfirm());
     }
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.employeeMenuController">
+<AnchorPane prefHeight="737.0" prefWidth="267.0" style="-fx-background-color: #476472;" xmlns="http://javafx.com/javafx/8.0.92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EmployeeMenuController">
    <children>
       <Pane prefHeight="101.0" prefWidth="267.0" style="-fx-background-color: ff5252;" />
       <Label fx:id="l1" accessibleText="fish hogogi" alignment="CENTER_RIGHT" layoutY="287.0" prefHeight="82.0" prefWidth="267.0" text="   دریافت فیش حقوقی ">

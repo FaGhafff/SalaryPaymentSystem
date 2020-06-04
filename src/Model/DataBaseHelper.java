@@ -81,6 +81,160 @@ public class DataBaseHelper {
         }
         return true;
     }
+
+    public boolean changePassword(String username, String newPassword) {
+        String sql = "UPDATE userpass SET pass = '" + getHash(newPassword) + "' WHERE user ='" + username + "'";
+        try {
+            statement.execute(sql);
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
+    }
+
+    public void setConstants(FixedValues constants) {
+        try {
+            statement.execute("DELETE FROM cons");
+            String sql = "INSERT INTO `cons`(`salaryBase`, `annualIncrease`, `extraordinaryHousing`, `badWeather`, `deprivationOfServiecePlace`," +
+                    " `familyAllowance`, `childrenAllowance`, `seniorOrExpertAllowance`, `reward`," +
+                    " `importantsOfJob`, `sacrificePoints`, `insurance`, `pensionFund`, `tax`) " +
+                    "VALUES ('" + constants.getSalaryBase() + "','" + constants.getAnnualIncrease() + "','" + constants.getExtraordinaryHousing() + "','" + constants.getBadWeather() + "','" + constants.getDeprivationOfServiecePlace()
+                    + "','" + constants.getFamilyAllowance() + "','" + constants.getChildrenAllowance() + "','" + constants.getSeniorOrExpertAllowance() + "','" + constants.getReward() +
+                    "','" + constants.getImportantsOfJob() + "','" + constants.getSacrificePoints() + "','" + constants.getInsurance() + "','" + constants.getPensionFund() + "','" + constants.getTax() + "')";
+            statement.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " setConstants " + this.getClass().getName());
+        }
+    }
+
+    public FixedValues getConstants() {
+        try {
+            String sql = "SELECT * FROM cons";
+            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet.next();
+            return new FixedValues().setSalaryBase(resultSet.getDouble(1))
+                    .setAnnualIncrease(resultSet.getDouble(2))
+                    .setExtraordinaryHousing(resultSet.getDouble(3))
+                    .setBadWeather(resultSet.getDouble(4))
+                    .setDeprivationOfServiecePlace(resultSet.getDouble(5))
+                    .setFamilyAllowance(resultSet.getDouble(6))
+                    .setChildrenAllowance(resultSet.getDouble(7))
+                    .setSeniorOrExpertAllowance(resultSet.getDouble(8))
+                    .setReward(resultSet.getDouble(9))
+                    .setImportantsOfJob(resultSet.getDouble(10))
+                    .setSacrificePoints(resultSet.getDouble(11))
+                    .setInsurance(resultSet.getDouble(12))
+                    .setPensionFund(resultSet.getDouble(13))
+                    .setTax(resultSet.getDouble(14));
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " getDefaultHokm");
+            return null;
+        }
+
+    }
+
+    public ArrayList<FixedValues> readAllHokms() {
+        ArrayList<FixedValues> list = new ArrayList<>();
+        String sql = "SELECT * FROM `legalreceipt` ";
+        try {
+            ResultSet resultSet = statement.executeQuery(sql);
+            int i =1;
+            while (resultSet.next()){
+                list.add(new FixedValues().setRow(i)
+                        .setUsername(resultSet.getString(1))
+                        .setName(resultSet.getString(2))
+                        .setSalaryBase(resultSet.getDouble(3))
+                        .setAnnualIncrease(resultSet.getDouble(4))
+                        .setExtraordinaryHousing(resultSet.getDouble(5))
+                        .setBadWeather(resultSet.getDouble(6))
+                        .setDeprivationOfServiecePlace(resultSet.getDouble(7))
+                        .setFamilyAllowance(resultSet.getDouble(8))
+                        .setChildrenAllowance(resultSet.getDouble(9))
+                        .setSeniorOrExpertAllowance(resultSet.getDouble(10))
+                        .setReward(resultSet.getDouble(11))
+                        .setImportantsOfJob(resultSet.getDouble(12))
+                        .setSacrificePoints(resultSet.getDouble(13))
+                        .setInsurance(resultSet.getDouble(14))
+                        .setPensionFund(resultSet.getDouble(15))
+                        .setTax(resultSet.getDouble(16)));
+                i++;
+            }
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage() + " readAllHokms");
+        }
+        return list;
+
+    }
+
+    public FixedValues getHokm(String username){
+        try {
+            String sql = "SELECT * FROM `legalreceipt` WHERE `username`='"+username+"'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet.next();
+            return new FixedValues().setUsername(resultSet.getString(1))
+                    .setName(resultSet.getString(2))
+                    .setSalaryBase(resultSet.getDouble(3))
+                    .setAnnualIncrease(resultSet.getDouble(4))
+                    .setExtraordinaryHousing(resultSet.getDouble(5))
+                    .setBadWeather(resultSet.getDouble(6))
+                    .setDeprivationOfServiecePlace(resultSet.getDouble(7))
+                    .setFamilyAllowance(resultSet.getDouble(8))
+                    .setChildrenAllowance(resultSet.getDouble(9))
+                    .setSeniorOrExpertAllowance(resultSet.getDouble(10))
+                    .setReward(resultSet.getDouble(11))
+                    .setImportantsOfJob(resultSet.getDouble(12))
+                    .setSacrificePoints(resultSet.getDouble(13))
+                    .setInsurance(resultSet.getDouble(14))
+                    .setPensionFund(resultSet.getDouble(15))
+                    .setTax(resultSet.getDouble(16));
+        }catch (SQLException e){
+            System.out.println(e.getMessage()+" getHokm");
+            return null;
+        }
+    }
+
+    public void writeHokme(FixedValues fixedValues) {
+
+        String sql = "INSERT INTO `legalreceipt`(`username`, `name`,`salaryBase`, `annualIncrease`, `extraordinaryHousing`, `badWeather`, `deprivationOfServiecePlace`," +
+                " `familyAllowance`, `childrenAllowance`, `seniorOrExpertAllowance`, `reward`," +
+                " `importantsOfJob`, `sacrificePoints`, `insurance`, `pensionFund`, `tax`) " +
+                "VALUES ('"+fixedValues.getUsername()+"','"+fixedValues.getName()+"','" + fixedValues.getSalaryBase() + "','" + fixedValues.getAnnualIncrease() + "','" + fixedValues.getExtraordinaryHousing() + "','" + fixedValues.getBadWeather() + "','" + fixedValues.getDeprivationOfServiecePlace()
+                + "','" + fixedValues.getFamilyAllowance() + "','" + fixedValues.getChildrenAllowance() + "','" + fixedValues.getSeniorOrExpertAllowance() + "','" + fixedValues.getReward() +
+                "','" + fixedValues.getImportantsOfJob() + "','" + fixedValues.getSacrificePoints() + "','" + fixedValues.getInsurance() + "','" + fixedValues.getPensionFund() + "','" + fixedValues.getTax() +"')";
+        try {
+            statement.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void updateHokm(ArrayList<FixedValues> list) {
+        for (FixedValues fixedValues : list) {
+
+            String query = "DELETE FROM `legalreceipt` WHERE `username`="+fixedValues.getUsername();
+            try {
+                statement.execute(query);
+                writeHokme(fixedValues);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public void remove(EmploymentOrder order) {
+        try {
+            String sql ="DELETE FROM `employment` WHERE `idNumber`="+order.getIdNumber();
+            statement.execute(sql);
+        }catch (SQLException e){
+            System.out.println(e.getMessage()+" remove");
+        }
+    }
+
     //
 
     //Need to check
@@ -130,6 +284,7 @@ public class DataBaseHelper {
 
 //        return true;
     }
+
     public ArrayList<EmploymentOrder> getRequests() {
         String query = "SELECT * FROM employment";
         ArrayList<EmploymentOrder> list = new ArrayList<>();
@@ -179,6 +334,7 @@ public class DataBaseHelper {
         }
         return list;
     }
+
     private void createTable(String query) {
         try {
             statement.execute(query);
@@ -188,30 +344,57 @@ public class DataBaseHelper {
         }
     }
 
+
+
+
     //Empty
     public Person getPerson(String username) {
         return new Employee();
     }
-    public boolean changePassword(String username, String newPassword) {
-        return true;
+
+    public void signUp(EmploymentOrder order) {
     }
-    public FixedValues getConstants() {
-        return new FixedValues();
-    }
-    public LegalReceipt getLegalReceipt(String username) {
-        return null;
-    }
-    public ArrayList<Hokm> readAllHokms(){
-        return null;
-    }
-    public void writeHokmes(ArrayList<Hokm> list){}
-    public Hokm getDefaultHokm(){return null;}
-    public void signIn(EmploymentOrder order){}
+
 
     //
+
+    //todo eslah shavad ehraz dar login baraye textFields
+
     public static void main(String[] args) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
-        dataBaseHelper.createTables();
-        System.out.println(dataBaseHelper.authClient("985361042", "f223c3fae23e3c2d7e0a282b84029dd2"));
+//        dataBaseHelper.createTables();
+
+
+
+
     }
 }
+
+
+
+
+//    public void updateHokm(ArrayList<FixedValues> list) {
+//        for (FixedValues fixedValues : list) {
+//
+//            String query = "UPDATE `legalreceipt`"
+//                    +" SET `salaryBase`= "+fixedValues.getSalaryBase()+" ," +
+//                    "`annualIncrease`= "+fixedValues.getAnnualIncrease()+"," +
+//                    "`extraordinaryHousing`="+fixedValues.getExtraordinaryHousing()+"," +
+//                    "`badWeather`="+fixedValues.getBadWeather()+"," +
+//                    "`deprivationOfServiecePlace`="+fixedValues.getDeprivationOfServiecePlace()+"," +
+//                    "`familyAllowance`="+fixedValues.getFamilyAllowance()+"," +
+//                    "`childrenAllowance`="+fixedValues.getChildrenAllowance()+"," +
+//                    "`seniorOrExpertAllowance`="+fixedValues.getSeniorOrExpertAllowance()+"," +
+//                    "`reward`="+fixedValues.getReward()+"," +
+//                    "`importantsOfJob`="+fixedValues.getImportantsOfJob()+"," +
+//                    "`sacrificePoints`="+fixedValues.getSacrificePoints()+"," +
+//                    "`insurance`="+fixedValues.getInsurance()+"," +
+//                    "`pensionFund`="+fixedValues.getPensionFund()+"," +
+//                    "`tax`="+fixedValues.getTax()+""+" WHERE 'username'= "+fixedValues.getUsername()+"";
+//            try {
+//                statement.execute(query);
+//            } catch (SQLException e) {
+//                System.out.println(e.getMessage());
+//            }
+//        }
+//    }
