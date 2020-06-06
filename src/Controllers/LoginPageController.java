@@ -60,6 +60,7 @@ public class LoginPageController implements Initializable {
     public void onClickFillForm() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXMLs/employmentForm.fxml"));
+            loader.setController(new EmploymentFormController());
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -100,7 +101,7 @@ public class LoginPageController implements Initializable {
         managerController.setManager(manager);
         URL url = new URL(this.getClass().getClassLoader().getResource("FXMLs/manager.fxml").toString());
         loader.setLocation(url);
-        loader.setController(manager);
+        loader.setController(managerController);
         root = loader.load();
         stage.close();
         stage = new Stage();

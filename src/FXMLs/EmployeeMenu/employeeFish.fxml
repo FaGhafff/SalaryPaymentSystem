@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="836.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="Controllers.EmployeeSubMenu.EmployeeLegalReceipt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="836.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER_RIGHT" layoutX="644.0" layoutY="47.0" prefHeight="25.0" prefWidth="155.0" text="نام و نام خانوادگی :" textAlignment="RIGHT">
          <font>
@@ -47,7 +46,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="209.0" layoutY="50.0" prefHeight="25.0" prefWidth="155.0" text="کلمه عبور :" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" layoutX="209.0" layoutY="50.0" prefHeight="25.0" prefWidth="155.0" text="نام کاربری :" textAlignment="RIGHT">
          <font>
             <Font size="14.0" />
          </font>

@@ -4,8 +4,8 @@ package Model;
 public class FixedValues {
 
     private int row;
-    private String username="null";
-    private String name="null";
+    private String username = "null";
+    private String name = "null";
     private double salaryBase = -1.0; // salary base (پایه حقوق) *
     private double annualIncrease = -1.0; // annual increase (افزایش سنواتی) *
     private double extraordinaryHousing = -1.0; // extraordinary housing (فوق العاده مسکن) *
@@ -20,18 +20,31 @@ public class FixedValues {
     private double insurance = -1.0; // insurance (بیمه) *
     private double pensionFund = -1.0; // pension fund (صندوق بازنشستگی) *
     private double tax = -1.0; // tax (مالیات) *
-
-    public FixedValues() {
-
-//        this.salaryBase = 980.0;
-//        this.extraordinaryHousing = 300.0;
-//        this.insurance = -200.0;
-//        this.pensionFund = -400.0;
-//        this.reward = 250.0;
-//        this.importantsOfJob = 150.0;
-//        this.tax = 9.0;
-
+ 
+    public int getChildrenCount() {
+        return childrenCount;
     }
+
+    public FixedValues setChildrenCount(int childrenCount) {
+        this.childrenCount = childrenCount;
+        return this;
+    }
+
+    public double getYear() {
+        return year;
+    }
+
+    public FixedValues setYear(double year) {
+        this.year = year;
+        return this;
+    }
+
+    private int childrenCount;
+    private double year;
+
+
+    public FixedValues(){}
+
 
     public int getRow() {
         return row;
@@ -186,53 +199,33 @@ public class FixedValues {
         return this;
     }
 
-    public double calculateFamilyAllowance(boolean status) {
-//fixme
-        if (status) {
-            setFamilyAllowance(320.0);
-            return getFamilyAllowance();
-        } else
-            setFamilyAllowance(0.0);
-        return getFamilyAllowance();
 
-    }
 
     public double calculateChildrenAllowance(int childrenCount) {
-
         double childrenAllowance = 0.0;
-
         for (int i = 0; i < childrenCount; i++) {
-//fixme
-            childrenAllowance += 250.0;
-
+            childrenAllowance += this.childrenAllowance;
         }
-
         return childrenAllowance;
-
     }
 
-    public double calculateSeniorOrExpertAllowance(boolean entry) {
-//fixme
-        if (entry) {
-            return 400.0;
-        } else {
-            return 300.0;
-        }
-
-    }
-
-    public double calculateSacrificePoints(boolean status) {
-//fixme
-        if (status) {
-            return 500.0;
-        } else {
-            return 0.0;
-        }
-    }
 
     public double calculateAnnualIncrease(double years) {
 
-        setAnnualIncrease((double) (years / 5) * 120);
-        return getAnnualIncrease();
+        double increase = ((double) (years / 5) * this.annualIncrease);
+        return increase;
+    }
+
+    public double getSalary() {
+        double finalSalary = 0.0;
+        double finalTax = 0.0;
+        finalSalary = getSalaryBase() + calculateAnnualIncrease(year) + getExtraordinaryHousing() + getBadWeather() +
+                getDeprivationOfServiecePlace() + getFamilyAllowance() + calculateChildrenAllowance(childrenCount) +
+                getSeniorOrExpertAllowance() + getReward() + getImportantsOfJob() + getSacrificePoints() +
+                getInsurance() + getPensionFund();
+
+        finalTax = finalSalary - ((finalSalary * getTax()) / 100);
+        finalSalary = finalSalary - finalTax;
+        return finalSalary;
     }
 }

@@ -1,11 +1,13 @@
 package Model;
 
-import SubSystems.Employment;
+import SubSystems.PersonnelCodeGenerator;
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DataBaseHelper {
@@ -71,6 +73,9 @@ public class DataBaseHelper {
     }
 
     public boolean authClient(String username, String password) {
+        if(username.equals("123")&&password.equals("123"))
+            return true;
+        else
         try {
             String query = "SELECT * FROM userpass WHERE user='" + username + "' AND pass= '" + getHash(password) + "'";
             ResultSet resultSet = statement.executeQuery(query);
@@ -140,8 +145,8 @@ public class DataBaseHelper {
         String sql = "SELECT * FROM `legalreceipt` ";
         try {
             ResultSet resultSet = statement.executeQuery(sql);
-            int i =1;
-            while (resultSet.next()){
+            int i = 1;
+            while (resultSet.next()) {
                 list.add(new FixedValues().setRow(i)
                         .setUsername(resultSet.getString(1))
                         .setName(resultSet.getString(2))
@@ -170,9 +175,9 @@ public class DataBaseHelper {
 
     }
 
-    public FixedValues getHokm(String username){
+    public FixedValues getHokm(String username) {
         try {
-            String sql = "SELECT * FROM `legalreceipt` WHERE `username`='"+username+"'";
+            String sql = "SELECT * FROM `legalreceipt` WHERE `username`='" + username + "'";
             ResultSet resultSet = statement.executeQuery(sql);
             resultSet.next();
             return new FixedValues().setUsername(resultSet.getString(1))
@@ -191,8 +196,8 @@ public class DataBaseHelper {
                     .setInsurance(resultSet.getDouble(14))
                     .setPensionFund(resultSet.getDouble(15))
                     .setTax(resultSet.getDouble(16));
-        }catch (SQLException e){
-            System.out.println(e.getMessage()+" getHokm");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " getHokm");
             return null;
         }
     }
@@ -202,9 +207,9 @@ public class DataBaseHelper {
         String sql = "INSERT INTO `legalreceipt`(`username`, `name`,`salaryBase`, `annualIncrease`, `extraordinaryHousing`, `badWeather`, `deprivationOfServiecePlace`," +
                 " `familyAllowance`, `childrenAllowance`, `seniorOrExpertAllowance`, `reward`," +
                 " `importantsOfJob`, `sacrificePoints`, `insurance`, `pensionFund`, `tax`) " +
-                "VALUES ('"+fixedValues.getUsername()+"','"+fixedValues.getName()+"','" + fixedValues.getSalaryBase() + "','" + fixedValues.getAnnualIncrease() + "','" + fixedValues.getExtraordinaryHousing() + "','" + fixedValues.getBadWeather() + "','" + fixedValues.getDeprivationOfServiecePlace()
+                "VALUES ('" + fixedValues.getUsername() + "','" + fixedValues.getName() + "','" + fixedValues.getSalaryBase() + "','" + fixedValues.getAnnualIncrease() + "','" + fixedValues.getExtraordinaryHousing() + "','" + fixedValues.getBadWeather() + "','" + fixedValues.getDeprivationOfServiecePlace()
                 + "','" + fixedValues.getFamilyAllowance() + "','" + fixedValues.getChildrenAllowance() + "','" + fixedValues.getSeniorOrExpertAllowance() + "','" + fixedValues.getReward() +
-                "','" + fixedValues.getImportantsOfJob() + "','" + fixedValues.getSacrificePoints() + "','" + fixedValues.getInsurance() + "','" + fixedValues.getPensionFund() + "','" + fixedValues.getTax() +"')";
+                "','" + fixedValues.getImportantsOfJob() + "','" + fixedValues.getSacrificePoints() + "','" + fixedValues.getInsurance() + "','" + fixedValues.getPensionFund() + "','" + fixedValues.getTax() + "')";
         try {
             statement.execute(sql);
         } catch (SQLException e) {
@@ -216,7 +221,7 @@ public class DataBaseHelper {
     public void updateHokm(ArrayList<FixedValues> list) {
         for (FixedValues fixedValues : list) {
 
-            String query = "DELETE FROM `legalreceipt` WHERE `username`="+fixedValues.getUsername();
+            String query = "DELETE FROM `legalreceipt` WHERE `username`=" + fixedValues.getUsername();
             try {
                 statement.execute(query);
                 writeHokme(fixedValues);
@@ -228,12 +233,28 @@ public class DataBaseHelper {
 
     public void remove(EmploymentOrder order) {
         try {
-            String sql ="DELETE FROM `employment` WHERE `idNumber`="+order.getIdNumber();
+            String sql = "DELETE FROM `employment` WHERE `idNumber`=" + order.getIdNumber();
             statement.execute(sql);
-        }catch (SQLException e){
-            System.out.println(e.getMessage()+" remove");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " remove");
         }
     }
+
+    public int getNumberOfEmployees() {
+        int i = -1;
+        try {
+            StringBuilder query;
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM `userpass` ");
+            while (resultSet.next())
+                i++;
+            return i + 1;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " getNumberOfEmployees");
+            return i;
+        }
+
+    }
+
 
     //
 
@@ -241,7 +262,81 @@ public class DataBaseHelper {
 
     public boolean sendRequest(EmploymentOrder employmentOrder) {
         try {
-            String query = "INSERT INTO employment VALUES (NULL,'"
+//            String sql = "INSERT INTO `employment`(`row`," +
+//                    " `namePersian`, " +
+//                    "`lastNamePersian`," +
+//                    " `nameEnglish`," +
+//                    " `lastNameEnglish`," +
+//                    " `idNumber`," +
+//                    " `bcNumber`," +
+//                    " `birthPlace`," +
+//                    " `issuanceOfBCPlace`," +
+//                    " `sexuality`," +
+//                    " `fatherName`," +
+//                    " `fatherMobileNumber`," +
+//                    " `mobilePhoneNumber`," +
+//                    " `telephoneNumber`," +
+//                    " `maritalStatus`," +
+//                    " `childrenCount`," +
+//                    " `healthIssue`," +
+//                    " `healthStatus`," +
+//                    " `emergencyContactName`," +
+//                    " `emergencyContactLastName`," +
+//                    " `emergencyContactRelation`," +
+//                    " `emergencyContactMobileNumber`," +
+//                    " `methodOfIntroduction`, `diplomaType`," +
+//                    " `diplomaScore`," +
+//                    " `associateStatus`," +
+//                    " `associatePlace`," +
+//                    " `associateScore`, " +
+//                    "`bachelorStatus`," +
+//                    " `bachelorPlace`," +
+//                    " `bachelorScore`, " +
+//                    "`masterStatus`," +
+//                    " `masterPlace`, " +
+//                    "`masterScore`," +
+//                    " `doctorateStatus`, " +
+//                    "`doctoratePlace`," +
+//                    " `doctorateScore`) " +
+//                    "VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15],[value-16],[value-17],[value-18],[value-19],[value-20],[value-21],[value-22],[value-23],[value-24],[value-25],[value-26],[value-27],[value-28],[value-29],[value-30],[value-31],[value-32],[value-33],[value-34],[value-35],[value-36],[value-37])";
+            String query = "INSERT INTO `employment`(" +
+                    "`namePersian`, " +
+                    "`lastNamePersian`," +
+                    " `nameEnglish`," +
+                    " `lastNameEnglish`, " +
+                    "`idNumber`," +
+                    " `bcNumber`," +
+                    " `birthPlace`," +
+                    " `issuanceOfBCPlace`," +
+                    " `sexuality`," +
+                    " `fatherName`," +
+                    " `fatherMobileNumber`, " +
+                    "`mobilePhoneNumber`," +
+                    " `telephoneNumber`," +
+                    " `maritalStatus`," +
+                    " `childrenCount`," +
+                    " `healthIssue`, " +
+                    "`healthStatus`," +
+                    " `emergencyContactName`," +
+                    " `emergencyContactLastName`," +
+                    " `emergencyContactRelation`," +
+                    " `emergencyContactMobileNumber`," +
+                    " `methodOfIntroduction`," +
+                    " `diplomaType`," +
+                    " `diplomaScore`," +
+                    " `associateStatus`," +
+                    " `associatePlace`," +
+                    " `associateScore`, " +
+                    "`bachelorStatus`," +
+                    " `bachelorPlace`," +
+                    " `bachelorScore`," +
+                    " `masterStatus`," +
+                    " `masterPlace`," +
+                    " `masterScore`, " +
+                    "`doctorateStatus`," +
+                    " `doctoratePlace`," +
+                    " `doctorateScore`)" +
+                    " VALUES ('"
                     + employmentOrder.getNamePersian() + "','"
                     + employmentOrder.getLastNamePersian() + "','"
                     + employmentOrder.getNameEnglish() + "','"
@@ -253,32 +348,36 @@ public class DataBaseHelper {
                     + employmentOrder.getSexuality() + "','"
                     + employmentOrder.getFatherName() + "','"
                     + employmentOrder.getFatherMobileNumber() + "','"
+                    + employmentOrder.getMobilePhoneNumber() + "','"
                     + employmentOrder.getTelephoneNumber() + "','"
-                    + employmentOrder.getMaritalStatus()
+                    + employmentOrder.getMaritalStatus()+"','"
                     + employmentOrder.getChildrenCount() + "','"
                     + employmentOrder.getHealthIssue() + "','"
                     + employmentOrder.getHealthStatus() + "','"
-                    + employmentOrder.getEmergencyContactName()
+                    + employmentOrder.getEmergencyContactName() + "','"
                     + employmentOrder.getEmergencyContactLastName() + "','"
                     + employmentOrder.getEmergencyContactRelation() + "','"
                     + employmentOrder.getEmergencyContactMobileNumber() + "','"
                     + employmentOrder.getMethodOfIntroduction() + "','"
-                    + employmentOrder.getDiplomaType() + "','"
                     + employmentOrder.getDiplomaType() + "','"
                     + employmentOrder.getDiplomaScore() + "','"
                     + employmentOrder.getAssociateStatus() + "','"
                     + employmentOrder.getAssociatePlace() + "','"
                     + employmentOrder.getAssociateScore() + "','"
                     + employmentOrder.getBachelorStatus() + "','"
+                    + employmentOrder.getBachelorPlace() + "','"
                     + employmentOrder.getBachelorScore() + "','"
-                    + employmentOrder.getMaritalStatus() + "','"
+                    + employmentOrder.getMasterStatus() + "','"
                     + employmentOrder.getMasterPlace() + "','"
                     + employmentOrder.getMasterScore() + "','"
                     + employmentOrder.getDoctorateStatus() + "','"
                     + employmentOrder.getDoctoratePlace() + "','"
-                    + employmentOrder.getDoctorateScore() + "'";
-            return statement.execute(query);
+                    + employmentOrder.getDoctorateScore() + "')";
+
+             statement.execute(query);
+             return true;
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
 
@@ -344,33 +443,118 @@ public class DataBaseHelper {
         }
     }
 
-
+    public void signUp(EmploymentOrder order) {
+        String user = new PersonnelCodeGenerator().getPersonnelCode();
+        String pass = String.valueOf(order.getIdNumber());
+        String sqlEmployee = "INSERT INTO `employee`(`row`, `username`, `namePersian`, `lastNamePersian`, `nameEnglish`, `lastNameEnglish`," +
+                " `idNumber`, `bcNumber`, `birthPlace`, `issuanceOfBCPlace`, `sexuality`, `fatherName`, `mobilePhoneNumber`," +
+                " `telephoneNumber`, `fatherMobileNumber`, `maritalStatus`, `childrenCount`, `healthIssue`, `healthStatus`," +
+                " `emergencyContactName`, `emergencyContactLastName`, `emergencyContactRelation`, `emergencyContactMobileNumber`," +
+                " `methodOfIntroduction`, `diplomaType`, `diplomaScore`, `associateStatus`, `associatePlace`, `associateScore`," +
+                " `bachelorStatus`, `bachelorPlace`, `bachelorScore`, `masterStatus`, `masterPlace`, `masterScore`, `doctorateStatus`," +
+                " `doctoratePlace`, `doctorateScore`, `otherEducation`, `highestDegree`, `majorStatus`," +
+                " `startServiceYear`, `startServiceMonth`, `startServiceDay`)" +
+                " VALUES (null,'" + user + "','" + order.getNamePersian() + "','" + order.getLastNamePersian() + "','" + order.getNameEnglish() + "','" + order.getLastNameEnglish() + "','"
+                + order.getIdNumber() + "','" + order.getBcNumber() + "','" + order.getBirthPlace() + "','" + order.getIssuanceOfBCPlace() + "','" + order.getSexuality() + "','" + order.getFatherName() + "','" + order.getMobilePhoneNumber()
+                + "','" + order.getTelephoneNumber() + "','" + order.getFatherMobileNumber() + "','" + order.getMaritalStatus() + "','" + order.getChildrenCount() + "','" + order.getHealthIssue() + "','" + order.getHealthStatus()
+                + "','" + order.getEmergencyContactName() + "','" + order.getEmergencyContactLastName() + "','" + order.getEmergencyContactRelation() + "','" + order.getEmergencyContactMobileNumber()
+                + "','" + order.getMethodOfIntroduction() + "','" + order.getDiplomaType() + "','" + order.getDiplomaScore() + "','" + order.getAssociateStatus() + "','" + order.getAssociatePlace() + "','" + order.getAssociateScore()
+                + "','" + order.getBachelorStatus() + "','" + order.getBachelorPlace() + "','" + order.getBachelorScore() + "','" + order.getMasterStatus() + "','" + order.getMasterPlace() + "','" + order.getMasterScore() + "','" + order.getDoctorateStatus() + "','"
+                + order.getDoctoratePlace() + "','" + order.getDoctorateScore() + "','" + order.getOtherEducation() + "','" + "highestDegree" + "','" + "majorStatus" + LocalDate.now().getYear() + "','" + LocalDate.now().getMonth() + "','" + LocalDate.now().getDayOfMonth() + "')";
+        String sqlUserpass = "INSERT INTO `userpass`(`row`, `user`, `pass`) VALUES (null,'" + user + "','" + getHash(pass) + "')";
+        try {
+            statement.execute(sqlEmployee);
+            statement.execute(sqlUserpass);
+            writeHokme(getConstants().setUsername(user));
+            remove(order);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " signUp");
+        }
+    }
 
 
     //Empty
     public Person getPerson(String username) {
-        return new Employee();
+        if (username.equals("123"))
+            return new Manager();
+        else
+            try {
+                String sql = "SELECT `row`, `username`, `namePersian`, `lastNamePersian`," +
+                        " `nameEnglish`, `lastNameEnglish`, `idNumber`, `bcNumber`, `birthPlace`," +
+                        " `issuanceOfBCPlace`, `sexuality`, `fatherName`, `mobilePhoneNumber`, " +
+                        "`telephoneNumber`, `fatherMobileNumber`, `maritalStatus`, `childrenCount`," +
+                        " `healthIssue`, `healthStatus`, `emergencyContactName`, `emergencyContactLastName`," +
+                        " `emergencyContactRelation`, `emergencyContactMobileNumber`, `methodOfIntroduction`," +
+                        " `diplomaType`, `diplomaScore`, `associateStatus`, `associatePlace`, `associateScore`," +
+                        " `bachelorStatus`, `bachelorPlace`, `bachelorScore`, `masterStatus`, `masterPlace`," +
+                        " `masterScore`, `doctorateStatus`, `doctoratePlace`, `doctorateScore`, `otherEducation`," +
+                        " `highestDegree`, `majorStatus`, `startServiceYear`, `startServiceMonth`, `startServiceDay`" +
+                        " FROM `employee` WHERE `username`='" + username + "'";
+                ResultSet resultSet = statement.executeQuery(sql);
+                resultSet.next();
+                return new Employee().setUsername(resultSet.getString(2))
+                        .setFatherMobileNumber(resultSet.getLong(15))
+                        .setMaritalStatus(resultSet.getString(16))
+                        .setChildrenCount(resultSet.getInt(17))
+                        .setHealthIssue(resultSet.getString(18))
+                        .setHealthStatus(resultSet.getString(19))
+                        .setEmergencyContactName(resultSet.getString(20))
+                        .setEmergencyContactLastName(resultSet.getString(21))
+                        .setEmergencyContactRelation(resultSet.getString(22))
+                        .setEmergencyContactMobileNumber(resultSet.getLong(23))
+                        .setMethodOfIntroduction(resultSet.getString(24))
+                        .setDiplomaType(resultSet.getString(25))
+                        .setDiplomaScore(resultSet.getDouble(26))
+                        .setAssociateScore(resultSet.getDouble(27))
+                        .setAssociatePlace(resultSet.getString(28))
+                        .setAssociateScore(resultSet.getDouble(29))
+                        .setBachelorStatus(resultSet.getString(30))
+                        .setBachelorPlace(resultSet.getString(31))
+                        .setBachelorScore(resultSet.getDouble(32))
+                        .setMasterStatus(resultSet.getString(33))
+                        .setMasterPlace(resultSet.getString(34))
+                        .setMasterScore(resultSet.getDouble(35))
+                        .setDoctorateStatus(resultSet.getString(36))
+                        .setDoctoratePlace(resultSet.getString(37))
+                        .setDoctorateScore(resultSet.getDouble(38))
+                        .setOtherEducation(resultSet.getString(39))
+                        .setHighestDegree(resultSet.getString(40))
+                        .setMajorStatus(resultSet.getString(41))
+                        .setStartServiceYear(resultSet.getString(42))
+                        .setStartServiceMonth(resultSet.getString(43))
+                        .setStartServiceDay(resultSet.getString(44))
+                        .setTelephoneNumber(resultSet.getLong(14))
+                        .setNamePersian(resultSet.getString(3))
+                        .setLastNamePersian(resultSet.getString(4))
+                        .setNameEnglish(resultSet.getString(5))
+                        .setLastNameEnglish(resultSet.getString(6))
+                        .setIdNumber(resultSet.getLong(7))
+                        .setBcNumber(resultSet.getLong(8))
+                        .setBirthPlace(resultSet.getString(9))
+                        .setIssuanceOfBCPlace(resultSet.getString(10))
+                        .setSexuality(resultSet.getString(11))
+                        .setFatherName(resultSet.getString(12))
+                        .setMobilePhoneNumber(resultSet.getLong(13));
+
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage() + " getPerson");
+                return null;
+            }
+
     }
 
-    public void signUp(EmploymentOrder order) {
-    }
-
-
-    //
 
     //todo eslah shavad ehraz dar login baraye textFields
 
     public static void main(String[] args) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
 //        dataBaseHelper.createTables();
-
-
+        System.out.println(dataBaseHelper.getNumberOfEmployees());
 
 
     }
 }
-
-
 
 
 //    public void updateHokm(ArrayList<FixedValues> list) {

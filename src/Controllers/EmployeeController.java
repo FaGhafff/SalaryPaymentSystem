@@ -20,6 +20,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class EmployeeController implements Initializable {
@@ -41,18 +42,20 @@ public class EmployeeController implements Initializable {
         try {
             Pane pa = FXMLLoader.load(getClass().getResource("../FXMLs/EmployeeMenu/employeeMenu.fxml"));
             drawer.setSidePane(pa);
-            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername()));
+            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername(),
+                    employee.getChildrenCount(), Integer.parseInt(employee.getStartServiceYear()) - LocalDate.now().getYear() + 1));
             for (Node node : pa.getChildren()) {
                 node.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
                     switch (node.getAccessibleText()) {
                         case "fish hogogi":
-                            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername()));
+                            loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername(),
+                                    employee.getChildrenCount(), Integer.parseInt(employee.getStartServiceYear()) - LocalDate.now().getYear() + 1));
                             break;
                         case "change pass":
-                            loadPane("FXMLs/EmployeeMenu/employeeChangePass.fxml",new EmployeeChangePass().setUsername(employee.getUsername()).setPhoneNumber(employee.getMobilePhoneNumber()+""));
+                            loadPane("FXMLs/EmployeeMenu/employeeChangePass.fxml", new EmployeeChangePass().setUsername(employee.getUsername()).setPhoneNumber(employee.getMobilePhoneNumber() + ""));
                             break;
                         case "send massage":
-                            loadPane("FXMLs/EmployeeMenu/employeeSend.fxml",new EmployeeSendRequests());
+                            loadPane("FXMLs/EmployeeMenu/employeeSend.fxml", new EmployeeSendRequests());
                             break;
                         case "exit":
                             System.exit(0);

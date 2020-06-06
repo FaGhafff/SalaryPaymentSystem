@@ -3,7 +3,6 @@ package Controllers.ManagerSubMenu;
 import Controllers.TableModels.EmployeeManagementTableModel;
 import Model.DataBaseHelper;
 import Model.FixedValues;
-import Model.LegalReceipt;
 import Methods.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

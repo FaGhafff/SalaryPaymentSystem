@@ -41,7 +41,7 @@ public class ManagerController implements Initializable {
                 node.setOnMouseClicked(event -> {
                     switch (node.getAccessibleText()) {
                         case "modirKar":
-                            loadPane("FXMLs/ManagerMenu/1.fxml");
+                            loadPane("FXMLs/ManagerMenu/managerMenuEmployeeManagement.fxml");
                             break;
                         case "mian":
                             loadPane("FXMLs/ManagerMenu/managerAvreg.fxml");
@@ -78,6 +78,8 @@ public class ManagerController implements Initializable {
     }
     void loadPane(String path) {
         try {
+            if (mainPane.getChildren().size()>0)
+                mainPane.getChildren().remove(0);
             FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource(path));
             Parent root = fXMLLoader.load();
             mainPane.getChildren().add(root);

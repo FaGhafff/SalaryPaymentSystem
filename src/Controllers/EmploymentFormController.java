@@ -105,9 +105,11 @@ public class EmploymentFormController implements Initializable {
                     .setHealthStatus(healthStatus.getText())
                     .setHealthIssue(healthStatus1.getText())
                     .setOtherEducation(otherEducation.getText());
-
+            System.out.println(108);
             DataBaseHelper dataBaseHelper = new DataBaseHelper();
+            System.out.println(110);
             if (dataBaseHelper.sendRequest(employmentOrder)) {
+                System.out.println(112);
                 btnSendRequest.setText("ارسال شد !");
                 btnCancel.setText("خروج");
             }
@@ -122,6 +124,10 @@ public class EmploymentFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btnSendRequest.setOnAction(event ->{
+            onClickSendRequest();
+            System.out.println("hi");
+        });
         if (order != null) {
             System.out.println("hi");
             namePersian.setText(order.getNamePersian());
