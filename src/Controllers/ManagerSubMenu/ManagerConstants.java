@@ -15,12 +15,26 @@ public class ManagerConstants implements Initializable {
     public Label result;
     public TextField txtSalaryBase;
     public TextField txtReward;
+    public TextField txtBadWeather;
+    public TextField txtExtraordinaryHousing;
+    public TextField txtChildrenAllowance;
+    public TextField txtFamilyAllowance;
+    public TextField txtSeniorOrExpertAllowance;
+    public TextField txtImportantsOfJob;
+    public TextField txtDeprivationOfServiecePlace;
+    public TextField txtInsurance;
+    public TextField txtSacrificePoints;
+    public TextField txtPensionFund;
+    public TextField txtAnnualIncrease;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         FixedValues fixedValues = dataBaseHelper.getConstants();
         if (fixedValues != null){
+
+
+
 
         }
     }
