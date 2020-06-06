@@ -32,10 +32,39 @@ public class ManagerConstants implements Initializable {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         FixedValues fixedValues = dataBaseHelper.getConstants();
         if (fixedValues != null){
-
-
-
-
+            txtSalaryBase.setText(fixedValues.getSalaryBase()+"");
+            txtReward.setText(fixedValues.getReward()+"");
+            txtBadWeather.setText(fixedValues.getBadWeather()+"");
+            txtExtraordinaryHousing.setText(fixedValues.getExtraordinaryHousing()+"");
+            txtChildrenAllowance.setText(fixedValues.getChildrenAllowance()+"");
+            txtFamilyAllowance.setText(fixedValues.getFamilyAllowance()+"");
+            txtSeniorOrExpertAllowance.setText(fixedValues.getSeniorOrExpertAllowance()+"");
+            txtImportantsOfJob.setText(fixedValues.getSeniorOrExpertAllowance()+"");
+            txtDeprivationOfServiecePlace.setText(fixedValues.getDeprivationOfServiecePlace()+"");
+            txtInsurance.setText(fixedValues.getInsurance()+"");
+            txtSacrificePoints.setText(fixedValues.getSacrificePoints()+"");
+            txtPensionFund.setText(fixedValues.getPensionFund()+"");
+            txtAnnualIncrease.setText(fixedValues.getAnnualIncrease()+"");
         }
+
+    }
+    public void fati() {
+        FixedValues da =new FixedValues();
+        da.setSalaryBase(Double.parseDouble(txtSalaryBase.getText()));
+        da.setReward(Double.parseDouble(txtReward.getText()));
+        da.setBadWeather(Double.parseDouble(txtBadWeather.getText()));
+        da.setExtraordinaryHousing(Double.parseDouble(txtSeniorOrExpertAllowance.getText()));
+        da.setChildrenAllowance(Double.parseDouble(txtChildrenAllowance.getText()));
+        da.setFamilyAllowance(Double.parseDouble(txtFamilyAllowance.getText()));
+        da.setSeniorOrExpertAllowance(Double.parseDouble(txtSeniorOrExpertAllowance.getText()));
+        da.setImportantsOfJob(Double.parseDouble(txtImportantsOfJob.getText()));
+        da.setDeprivationOfServiecePlace(Double.parseDouble(txtDeprivationOfServiecePlace.getText()));
+        da.setInsurance(Double.parseDouble(txtInsurance.getText()));
+        da.setSacrificePoints(Double.parseDouble(txtSacrificePoints.getText()));
+        da.setPensionFund(Double.parseDouble(txtPensionFund.getText()));
+        da.setAnnualIncrease(Double.parseDouble(txtAnnualIncrease.getText()));
+
+
+
     }
 }
