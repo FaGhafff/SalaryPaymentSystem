@@ -39,12 +39,12 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Pane fx:id="forgetPassPane" onMouseClicked="#showForgetPane" prefHeight="372.0" prefWidth="275.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <Pane fx:id="forgetPassPane" prefHeight="372.0" prefWidth="275.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <children>
                   <JFXTextField fx:id="textFieldForgetPass" alignment="CENTER_RIGHT" focusColor="#e81b1b" labelFloat="true" layoutX="28.0" layoutY="138.0" prefHeight="31.0" prefWidth="222.0" promptText="نام کاربری خود را وارد کنید." />
                   <JFXButton layoutX="28.0" layoutY="287.0" prefHeight="31.0" prefWidth="222.0" style="-fx-background-color: #e81b1b;" text="تایید" textFill="WHITE" />
                   <Label fx:id="lblResultForgetPass" alignment="CENTER" layoutX="75.0" layoutY="186.0" prefHeight="47.0" prefWidth="142.0" />
-                  <Hyperlink layoutX="118.0" layoutY="318.0" onAction="#onClickHyperBack"  text="بازگشت" textFill="#da2727">
+                  <Hyperlink onMouseClicked="#onClickHyperBack" layoutX="118.0" layoutY="318.0" onAction="#onClickHyperBack"  text="بازگشت" textFill="#da2727">
                      <font>
                         <Font size="11.0" />
                      </font>

@@ -1,6 +1,7 @@
 package Model;
 
 import SubSystems.PersonnelCodeGenerator;
+import SubSystems.SMS;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import java.math.BigInteger;
@@ -73,17 +74,17 @@ public class DataBaseHelper {
     }
 
     public boolean authClient(String username, String password) {
-        if(username.equals("123")&&password.equals("123"))
+        if (username.equals("123") && password.equals("123"))
             return true;
         else
-        try {
-            String query = "SELECT * FROM userpass WHERE user='" + username + "' AND pass= '" + getHash(password) + "'";
-            ResultSet resultSet = statement.executeQuery(query);
-            resultSet.next();
-            resultSet.getString(1);
-        } catch (SQLException e) {
-            return false;
-        }
+            try {
+                String query = "SELECT * FROM userpass WHERE user='" + username + "' AND pass= '" + getHash(password) + "'";
+                ResultSet resultSet = statement.executeQuery(query);
+                resultSet.next();
+                resultSet.getString(1);
+            } catch (SQLException e) {
+                return false;
+            }
         return true;
     }
 
@@ -134,7 +135,7 @@ public class DataBaseHelper {
                     .setPensionFund(resultSet.getDouble(13))
                     .setTax(resultSet.getDouble(14));
         } catch (SQLException e) {
-            System.out.println(e.getMessage() + " getDefaultHokm");
+            System.out.println(e.getMessage() + " getConstant "+this.getClass().getName());
             return null;
         }
 
@@ -350,7 +351,7 @@ public class DataBaseHelper {
                     + employmentOrder.getFatherMobileNumber() + "','"
                     + employmentOrder.getMobilePhoneNumber() + "','"
                     + employmentOrder.getTelephoneNumber() + "','"
-                    + employmentOrder.getMaritalStatus()+"','"
+                    + employmentOrder.getMaritalStatus() + "','"
                     + employmentOrder.getChildrenCount() + "','"
                     + employmentOrder.getHealthIssue() + "','"
                     + employmentOrder.getHealthStatus() + "','"
@@ -374,8 +375,8 @@ public class DataBaseHelper {
                     + employmentOrder.getDoctoratePlace() + "','"
                     + employmentOrder.getDoctorateScore() + "')";
 
-             statement.execute(query);
-             return true;
+            statement.execute(query);
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -423,7 +424,7 @@ public class DataBaseHelper {
                         .setBachelorScore(Double.parseDouble(resultSet.getString(31)))
                         .setMasterStatus(resultSet.getString(32))
                         .setMasterPlace(resultSet.getString(33))
-                        .setMasterScore(Double.parseDouble(resultSet.getString(35)))
+                        .setMasterScore(resultSet.getDouble(35))
                         .setDoctoratePlace(resultSet.getString(36))
                         .setDoctorateScore(resultSet.getDouble(37))
                 );
@@ -443,37 +444,113 @@ public class DataBaseHelper {
         }
     }
 
-    public void signUp(EmploymentOrder order) {
+    public void signUp(EmploymentOrder order) throws SQLException {
         String user = new PersonnelCodeGenerator().getPersonnelCode();
         String pass = String.valueOf(order.getIdNumber());
-        String sqlEmployee = "INSERT INTO `employee`(`row`, `username`, `namePersian`, `lastNamePersian`, `nameEnglish`, `lastNameEnglish`," +
-                " `idNumber`, `bcNumber`, `birthPlace`, `issuanceOfBCPlace`, `sexuality`, `fatherName`, `mobilePhoneNumber`," +
-                " `telephoneNumber`, `fatherMobileNumber`, `maritalStatus`, `childrenCount`, `healthIssue`, `healthStatus`," +
-                " `emergencyContactName`, `emergencyContactLastName`, `emergencyContactRelation`, `emergencyContactMobileNumber`," +
-                " `methodOfIntroduction`, `diplomaType`, `diplomaScore`, `associateStatus`, `associatePlace`, `associateScore`," +
-                " `bachelorStatus`, `bachelorPlace`, `bachelorScore`, `masterStatus`, `masterPlace`, `masterScore`, `doctorateStatus`," +
-                " `doctoratePlace`, `doctorateScore`, `otherEducation`, `highestDegree`, `majorStatus`," +
-                " `startServiceYear`, `startServiceMonth`, `startServiceDay`)" +
-                " VALUES (null,'" + user + "','" + order.getNamePersian() + "','" + order.getLastNamePersian() + "','" + order.getNameEnglish() + "','" + order.getLastNameEnglish() + "','"
-                + order.getIdNumber() + "','" + order.getBcNumber() + "','" + order.getBirthPlace() + "','" + order.getIssuanceOfBCPlace() + "','" + order.getSexuality() + "','" + order.getFatherName() + "','" + order.getMobilePhoneNumber()
-                + "','" + order.getTelephoneNumber() + "','" + order.getFatherMobileNumber() + "','" + order.getMaritalStatus() + "','" + order.getChildrenCount() + "','" + order.getHealthIssue() + "','" + order.getHealthStatus()
-                + "','" + order.getEmergencyContactName() + "','" + order.getEmergencyContactLastName() + "','" + order.getEmergencyContactRelation() + "','" + order.getEmergencyContactMobileNumber()
-                + "','" + order.getMethodOfIntroduction() + "','" + order.getDiplomaType() + "','" + order.getDiplomaScore() + "','" + order.getAssociateStatus() + "','" + order.getAssociatePlace() + "','" + order.getAssociateScore()
-                + "','" + order.getBachelorStatus() + "','" + order.getBachelorPlace() + "','" + order.getBachelorScore() + "','" + order.getMasterStatus() + "','" + order.getMasterPlace() + "','" + order.getMasterScore() + "','" + order.getDoctorateStatus() + "','"
-                + order.getDoctoratePlace() + "','" + order.getDoctorateScore() + "','" + order.getOtherEducation() + "','" + "highestDegree" + "','" + "majorStatus" + LocalDate.now().getYear() + "','" + LocalDate.now().getMonth() + "','" + LocalDate.now().getDayOfMonth() + "')";
+        String sqlEmployee = "INSERT INTO `employee`(`row`," +
+                " `username`, " +
+                "`namePersian`," +
+                " `lastNamePersian`," +
+                " `nameEnglish`," +
+                " `lastNameEnglish`," +
+                " `idNumber`," +
+                " `bcNumber`, " +
+                "`birthPlace`, " +
+                "`issuanceOfBCPlace`," +
+                " `sexuality`, " +
+                "`fatherName`, " +
+                "`mobilePhoneNumber`," +
+                " `telephoneNumber`," +
+                " `fatherMobileNumber`," +
+                " `maritalStatus`," +
+                " `childrenCount`, " +
+                "`healthIssue`," +
+                " `healthStatus`," +
+                " `emergencyContactName`," +
+                " `emergencyContactLastName`," +
+                " `emergencyContactRelation`, " +
+                "`emergencyContactMobileNumber`," +
+                " `methodOfIntroduction`," +
+                " `diplomaType`," +
+                " `diplomaScore`, " +
+                "`associateStatus`," +
+                " `associatePlace`," +
+                " `associateScore`," +
+                " `bachelorStatus`, " +
+                "`bachelorPlace`, " +
+                "`bachelorScore`, " +
+                "`masterStatus`, " +
+                "`masterPlace`, " +
+                "`masterScore`, " +
+                "`doctorateStatus`," +
+                " `doctoratePlace`, " +
+                "`doctorateScore`," +
+                " `otherEducation`, " +
+                "`highestDegree`, " +
+                "`majorStatus`," +
+                " `startServiceYear`," +
+                " `startServiceMonth`, " +
+                "`startServiceDay`)" +
+                " VALUES (null,'" +
+                user + "','" +
+                order.getNamePersian() + "','" +
+                order.getLastNamePersian() + "','" +
+                order.getNameEnglish() + "','" +
+                order.getLastNameEnglish() + "','" +
+                order.getIdNumber() + "','" +
+                order.getBcNumber() + "','" +
+                order.getBirthPlace() + "','" +
+                order.getIssuanceOfBCPlace() + "','" +
+                order.getSexuality() + "','" +
+                order.getFatherName() + "','" +
+                order.getMobilePhoneNumber() + "','" +
+                order.getTelephoneNumber() + "','" +
+                order.getFatherMobileNumber() + "','" +
+                order.getMaritalStatus() + "','" +
+                order.getChildrenCount() + "','" +
+                order.getHealthIssue() + "','" +
+                order.getHealthStatus() + "','" +
+                order.getEmergencyContactName() + "','" +
+                order.getEmergencyContactLastName() + "','" +
+                order.getEmergencyContactRelation() + "','" +
+                order.getEmergencyContactMobileNumber() + "','" +
+                order.getMethodOfIntroduction() + "','" +
+                order.getDiplomaType() + "','" +
+                order.getDiplomaScore() + "','" +
+                order.getAssociateStatus() + "','" +
+                order.getAssociatePlace() + "','" +
+                order.getAssociateScore() + "','" +
+                order.getBachelorStatus() + "','" +
+                order.getBachelorPlace() + "','" +
+                order.getBachelorScore() + "','" +
+                order.getMasterStatus() + "','" +
+                order.getMasterPlace() + "','" +
+                order.getMasterScore() + "','" +
+                order.getDoctorateStatus() + "','" +
+                order.getDoctoratePlace() + "','" +
+                order.getDoctorateScore() + "','" +
+                order.getOtherEducation() + "','" +
+                "highestDegree" + "','" +
+                "majorStatus" +"','"+
+                LocalDate.now().getYear() + "','" +
+                LocalDate.now().getMonth().getValue() + "','" +
+                LocalDate.now().getDayOfMonth() + "')";
         String sqlUserpass = "INSERT INTO `userpass`(`row`, `user`, `pass`) VALUES (null,'" + user + "','" + getHash(pass) + "')";
         try {
             statement.execute(sqlEmployee);
             statement.execute(sqlUserpass);
             writeHokme(getConstants().setUsername(user));
+            SMS sms = new SMS(order.getMobilePhoneNumber()+"");
+            sms.setMessage("با سلام نام کاربری و رمز عبور شما به ترتیب : "+user+" "+pass);
             remove(order);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " signUp");
+            e.printStackTrace();
+            throw e;
         }
     }
 
-
-    //Empty
     public Person getPerson(String username) {
         if (username.equals("123"))
             return new Manager();
@@ -543,7 +620,10 @@ public class DataBaseHelper {
             }
 
     }
-
+    //Empty
+ public boolean isExist(String username){
+        return true;
+ }
 
     //todo eslah shavad ehraz dar login baraye textFields
 
@@ -557,28 +637,3 @@ public class DataBaseHelper {
 }
 
 
-//    public void updateHokm(ArrayList<FixedValues> list) {
-//        for (FixedValues fixedValues : list) {
-//
-//            String query = "UPDATE `legalreceipt`"
-//                    +" SET `salaryBase`= "+fixedValues.getSalaryBase()+" ," +
-//                    "`annualIncrease`= "+fixedValues.getAnnualIncrease()+"," +
-//                    "`extraordinaryHousing`="+fixedValues.getExtraordinaryHousing()+"," +
-//                    "`badWeather`="+fixedValues.getBadWeather()+"," +
-//                    "`deprivationOfServiecePlace`="+fixedValues.getDeprivationOfServiecePlace()+"," +
-//                    "`familyAllowance`="+fixedValues.getFamilyAllowance()+"," +
-//                    "`childrenAllowance`="+fixedValues.getChildrenAllowance()+"," +
-//                    "`seniorOrExpertAllowance`="+fixedValues.getSeniorOrExpertAllowance()+"," +
-//                    "`reward`="+fixedValues.getReward()+"," +
-//                    "`importantsOfJob`="+fixedValues.getImportantsOfJob()+"," +
-//                    "`sacrificePoints`="+fixedValues.getSacrificePoints()+"," +
-//                    "`insurance`="+fixedValues.getInsurance()+"," +
-//                    "`pensionFund`="+fixedValues.getPensionFund()+"," +
-//                    "`tax`="+fixedValues.getTax()+""+" WHERE 'username'= "+fixedValues.getUsername()+"";
-//            try {
-//                statement.execute(query);
-//            } catch (SQLException e) {
-//                System.out.println(e.getMessage());
-//            }
-//        }
-//    }

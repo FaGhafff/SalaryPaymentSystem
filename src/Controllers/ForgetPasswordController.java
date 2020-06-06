@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.DataBaseHelper;
 import SubSystems.SMS;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.Initializable;
@@ -17,12 +18,10 @@ public class ForgetPasswordController implements Initializable {
 
     public void onClickConfirm() {
         String username = textFieldUsername.getText();
-        //call method boolean:isExist(String Username) from DBHelper
-        boolean isExist = true;
-        if (isExist) {
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
+        if (dataBaseHelper.isExist(username)) {
             String phoneNumber = "";
-            //call method String:getPhoneNumber(String username) from DBHelper
-
+            phoneNumber = String.valueOf(dataBaseHelper.getPerson(username).getMobilePhoneNumber());
             //generate new password
             Random random = new Random();
             int newPass = random.nextInt(89999) + 10000;
@@ -31,8 +30,7 @@ public class ForgetPasswordController implements Initializable {
             sms.setMessage("رمز عبور جدید شما: " + newPass);
             String result = sms.send();
             if (sms.getStatus()) {
-                //update new password
-                //call void:updatePassword(String username)
+                dataBaseHelper.changePassword(username, newPass + "");
             }
             lblResult.setText(result);
         }

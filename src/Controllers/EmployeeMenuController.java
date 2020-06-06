@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class employeeMenuController implements Initializable {
+public class EmployeeMenuController implements Initializable {
     public ImageView e1;
     public ImageView e2;
     public ImageView e3;

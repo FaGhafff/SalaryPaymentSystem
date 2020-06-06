@@ -16,6 +16,4 @@ public class JFXButton extends com.jfoenix.controls.JFXButton {
         return this;
     }
 
-
-
 }

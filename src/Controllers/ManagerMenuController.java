@@ -17,15 +17,15 @@ public class ManagerMenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image image1 = new Image("PNG/");
+        Image image1 = new Image("PNG/managerMenu1.png");
         i0.setImage(image1);
-        Image image2 = new Image("PNG/");
+        Image image2 = new Image("PNG/managerMenu2.png");
         i1.setImage(image2);
-        Image image3 = new Image("PNG/");
+        Image image3 = new Image("PNG/managerMenu3.png");
         i2.setImage(image3);
-        Image image4 = new Image("PNG/");
+        Image image4 = new Image("PNG/employeeMenu1.png");
         i3.setImage(image4);
-        Image image5 = new Image("PNG/");
+        Image image5 = new Image("PNG/managerMenu4.png");
         i4.setImage(image5);
         Image imageExit = new Image("PNG/exit.png");
         i5.setImage(imageExit);

@@ -1,7 +1,5 @@
 package Controllers;
 
-import Controllers.EmployeeController;
-import Controllers.ManagerController;
 import Model.DataBaseHelper;
 import Model.Employee;
 import Model.Manager;
@@ -30,17 +28,13 @@ public class LoginPageController implements Initializable {
     public Pane forgetPassPane;
     public Label lblResultForgetPass;
     public JFXTextField textFieldForgetPass;
-
     private Parent root;
     private FXMLLoader loader;
-
 
     public void onClickLogin() {
         if (textFieldValidation(textFieldUser)) {
             DataBaseHelper dataBaseHelper = new DataBaseHelper();
             if (dataBaseHelper.authClient(textFieldUser.getText(), textFieldPass.getText())) {
-                //if we have a client with this user pass
-                //call getPerson(String username)
                 Stage stage = (Stage) imageViewBack.getScene().getWindow();
                 Person person = dataBaseHelper.getPerson(textFieldUser.getText());
                 try {
@@ -73,12 +67,12 @@ public class LoginPageController implements Initializable {
 
     public void onClickForgetPass() {
         if (textFieldValidation(textFieldForgetPass)) {
-
+            forgetPassPane.setVisible(true);
+            forgetPassPane.setDisable(false);
 
         } else {
             lblResultForgetPass.setText("نام کاربری موجود نمی باشد.");
         }
-        //todo open new stage and get username and send new pass with SMS
     }
 
     private void loginAsEmployee(Employee employee, Stage stage) throws IOException {
@@ -114,7 +108,7 @@ public class LoginPageController implements Initializable {
         String str = textField.getText();
         for (char c : str.toCharArray()
         ) {
-            if (!Character.isDigit(c))
+            if (c==' ')
                 return false;
         }
         return true;

@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -70,9 +71,12 @@ public class ManagerMenuRequestManagement implements Initializable {
     DataBaseHelper dataBaseHelper;
     void onClickAccept(EmploymentOrder order) {
         dataBaseHelper = new DataBaseHelper();
+        try{
         dataBaseHelper.signUp(order);
         onClickReject(order);
-    }
+    }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }}
 
     void onClickReject(EmploymentOrder order) {
         dataBaseHelper = new DataBaseHelper();
@@ -85,10 +89,12 @@ public class ManagerMenuRequestManagement implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
-        ArrayList<EmploymentOrder> list = new ArrayList<>();
-        list.add(new EmploymentOrder().setNamePersian("ali").setMobilePhoneNumber(914).setSexuality("mard").setDoctorateStatus("hi"));
-        list.add(new EmploymentOrder().setNamePersian("علی").setMobilePhoneNumber(5030).setSexuality("mard").setDoctorateStatus("ho"));
-        tableList.addAll(list);
+//        ArrayList<EmploymentOrder> list = new ArrayList<>();
+//        list.add(new EmploymentOrder().setNamePersian("ali").setMobilePhoneNumber(914).setSexuality("mard").setDoctorateStatus("hi"));
+//        list.add(new EmploymentOrder().setNamePersian("علی").setMobilePhoneNumber(5030).setSexuality("mard").setDoctorateStatus("ho"));
+//        tableList.addAll(list);
+        dataBaseHelper = new DataBaseHelper();
+        tableList = dataBaseHelper.getRequests();
         fillTable();
 
 

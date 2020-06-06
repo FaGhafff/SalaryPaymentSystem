@@ -40,7 +40,7 @@ public class EmployeeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Pane pa = FXMLLoader.load(getClass().getResource("../FXMLs/EmployeeMenu/employeeMenu.fxml"));
+            Pane pa = FXMLLoader.load(this.getClass().getResource("../FXMLs/EmployeeMenu/employeeMenu.fxml"));
             drawer.setSidePane(pa);
             loadPane("FXMLs/EmployeeMenu/employeeFish.fxml", new EmployeeLegalReceipt().setUsername(employee.getUsername(),
                     employee.getChildrenCount(), Integer.parseInt(employee.getStartServiceYear()) - LocalDate.now().getYear() + 1));

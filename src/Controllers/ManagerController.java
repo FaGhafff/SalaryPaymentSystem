@@ -85,6 +85,7 @@ public class ManagerController implements Initializable {
             mainPane.getChildren().add(root);
             System.out.println("hi");
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println(e.getMessage() + " " + this.getClass().getName());
         }
     }

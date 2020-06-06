@@ -26,30 +26,41 @@ public class ManagerConstants implements Initializable {
     public TextField txtSacrificePoints;
     public TextField txtPensionFund;
     public TextField txtAnnualIncrease;
+    public TextField txtTax;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
         FixedValues fixedValues = dataBaseHelper.getConstants();
-        if (fixedValues != null){
-            txtSalaryBase.setText(fixedValues.getSalaryBase()+"");
-            txtReward.setText(fixedValues.getReward()+"");
-            txtBadWeather.setText(fixedValues.getBadWeather()+"");
-            txtExtraordinaryHousing.setText(fixedValues.getExtraordinaryHousing()+"");
-            txtChildrenAllowance.setText(fixedValues.getChildrenAllowance()+"");
-            txtFamilyAllowance.setText(fixedValues.getFamilyAllowance()+"");
-            txtSeniorOrExpertAllowance.setText(fixedValues.getSeniorOrExpertAllowance()+"");
-            txtImportantsOfJob.setText(fixedValues.getSeniorOrExpertAllowance()+"");
-            txtDeprivationOfServiecePlace.setText(fixedValues.getDeprivationOfServiecePlace()+"");
-            txtInsurance.setText(fixedValues.getInsurance()+"");
-            txtSacrificePoints.setText(fixedValues.getSacrificePoints()+"");
-            txtPensionFund.setText(fixedValues.getPensionFund()+"");
-            txtAnnualIncrease.setText(fixedValues.getAnnualIncrease()+"");
+        if (fixedValues != null) {
+            txtSalaryBase.setText(fixedValues.getSalaryBase() + "");
+            txtReward.setText(fixedValues.getReward() + "");
+            txtBadWeather.setText(fixedValues.getBadWeather() + "");
+            txtExtraordinaryHousing.setText(fixedValues.getExtraordinaryHousing() + "");
+            txtChildrenAllowance.setText(fixedValues.getChildrenAllowance() + "");
+            txtFamilyAllowance.setText(fixedValues.getFamilyAllowance() + "");
+            txtSeniorOrExpertAllowance.setText(fixedValues.getSeniorOrExpertAllowance() + "");
+            txtImportantsOfJob.setText(fixedValues.getSeniorOrExpertAllowance() + "");
+            txtDeprivationOfServiecePlace.setText(fixedValues.getDeprivationOfServiecePlace() + "");
+            txtInsurance.setText(fixedValues.getInsurance() + "");
+            txtSacrificePoints.setText(fixedValues.getSacrificePoints() + "");
+            txtPensionFund.setText(fixedValues.getPensionFund() + "");
+            txtAnnualIncrease.setText(fixedValues.getAnnualIncrease() + "");
+            txtTax.setText(fixedValues.getTax() + "");
         }
+        confirm.setOnAction(event -> {
+            try {
+                dataBaseHelper.setConstants(fati());
+                result.setText("ثبت شد!");
+            } catch (Exception e) {
+                result.setText("فرمت اطلاعات صحیح نیست!");
+            }
+        });
 
     }
-    public void fati() {
-        FixedValues da =new FixedValues();
+
+    public FixedValues fati() {
+        FixedValues da = new FixedValues();
         da.setSalaryBase(Double.parseDouble(txtSalaryBase.getText()));
         da.setReward(Double.parseDouble(txtReward.getText()));
         da.setBadWeather(Double.parseDouble(txtBadWeather.getText()));
@@ -63,8 +74,7 @@ public class ManagerConstants implements Initializable {
         da.setSacrificePoints(Double.parseDouble(txtSacrificePoints.getText()));
         da.setPensionFund(Double.parseDouble(txtPensionFund.getText()));
         da.setAnnualIncrease(Double.parseDouble(txtAnnualIncrease.getText()));
-
-
-
+        da.setTax(Double.parseDouble(txtTax.getText()));
+        return da;
     }
 }
