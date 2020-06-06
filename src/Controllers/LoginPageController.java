@@ -4,6 +4,8 @@ import Model.DataBaseHelper;
 import Model.Employee;
 import Model.Manager;
 import Model.Person;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,8 +31,30 @@ public class LoginPageController implements Initializable {
     public Pane forgetPassPane;
     public Label lblResultForgetPass;
     public JFXTextField textFieldForgetPass;
+    public ImageView back;
+    public JFXPasswordField passwordFieldPass;
+    public JFXCheckBox chkBoxShow;
     private Parent root;
     private FXMLLoader loader;
+
+
+    private void onClickChkBox() {
+        if (passwordFieldPass.isVisible()) {
+            textFieldPass.setText(passwordFieldPass.getText());
+            textFieldPass.setVisible(true);
+            textFieldPass.setDisable(false);
+            passwordFieldPass.setVisible(false);
+            passwordFieldPass.setDisable(true);
+        }else {
+            passwordFieldPass.setText(textFieldPass.getText());
+            textFieldPass.setVisible(false);
+            textFieldPass.setDisable(true);
+            passwordFieldPass.setVisible(true);
+            passwordFieldPass.setDisable(false);
+
+        }
+    }
+
 
     public void onClickLogin() {
         if (textFieldValidation(textFieldUser)) {
@@ -108,7 +133,7 @@ public class LoginPageController implements Initializable {
         String str = textField.getText();
         for (char c : str.toCharArray()
         ) {
-            if (c==' ')
+            if (c == ' ')
                 return false;
         }
         return true;
@@ -124,13 +149,23 @@ public class LoginPageController implements Initializable {
         forgetPassPane.setVisible(true);
     }
 
+    public void click() {
+        System.exit(0);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image image = new Image("PNG/PP.jpg");
+        Image img = new Image("PNG/exit1.png");
+        System.out.println(img.getHeight());
+        back.setImage(img);
+        System.out.println(back.getImage().getHeight());
         imageViewBack.setImage(image);
         forgetPassPane.setVisible(false);
         forgetPassPane.setDisable(false);
+        chkBoxShow.setOnMouseClicked(event -> onClickChkBox());
+        textFieldPass.setLabelFloat(true);
+        textFieldPass.setPromptText("رمز عبور ");
 
 
     }

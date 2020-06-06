@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/8.0.92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginPageController">
    <children>
       <ImageView fx:id="imageViewBack" fitHeight="582.0" fitWidth="874.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
@@ -18,8 +18,8 @@
       <Pane layoutX="491.0" layoutY="116.0" prefHeight="372.0" prefWidth="275.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 10 10 0;">
          <children>
             <JFXTextField fx:id="textFieldUser" alignment="CENTER_RIGHT" focusColor="#da2727" labelFloat="true" layoutX="30.0" layoutY="89.0" prefHeight="31.0" prefWidth="222.0" promptText="نام کاربری" />
-            <JFXTextField fx:id="textFieldPass" alignment="CENTER_RIGHT" focusColor="#da2727" labelFloat="true" layoutX="30.0" layoutY="177.0" prefHeight="31.0" prefWidth="222.0" />
-            <JFXCheckBox checkedColor="#da2727" layoutX="30.0" layoutY="217.0" prefHeight="21.0" prefWidth="98.0" text="نشان دادن " textFill="#9a9292" unCheckedColor="#a2aba7">
+            <JFXTextField fx:id="textFieldPass" alignment="CENTER_RIGHT" disable="true" visible="false" focusColor="#da2727" labelFloat="true" layoutX="30.0" layoutY="177.0" prefHeight="31.0" prefWidth="222.0" />
+            <JFXCheckBox fx:id="chkBoxShow" checkedColor="#da2727" layoutX="30.0" layoutY="217.0" prefHeight="21.0" prefWidth="98.0" text="نشان دادن " textFill="#9a9292" unCheckedColor="#a2aba7">
                <font>
                   <Font size="11.0" />
                </font>
@@ -40,20 +40,17 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <JFXPasswordField alignment="CENTER_RIGHT" focusColor="#da2727" labelFloat="true" layoutX="25.0" layoutY="177.0" prefHeight="31.0" prefWidth="229.0" promptText="رمز عبور" />
+            <JFXPasswordField fx:id="passwordFieldPass" alignment="CENTER_RIGHT" focusColor="#da2727" labelFloat="true" layoutX="25.0" layoutY="177.0" prefHeight="31.0" prefWidth="229.0" promptText="رمز عبور" />
             <Pane fx:id="forgetPassPane" onMouseClicked="#showForgetPane" prefHeight="372.0" prefWidth="275.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <children>
                   <JFXTextField fx:id="textFieldForgetPass" alignment="CENTER_RIGHT" focusColor="#e81b1b" labelFloat="true" layoutX="28.0" layoutY="138.0" prefHeight="31.0" prefWidth="222.0" promptText="نام کاربری خود را وارد کنید." />
-                  <JFXButton layoutX="28.0" layoutY="287.0" prefHeight="31.0" prefWidth="222.0" style="-fx-background-color: #e81b1b;" text="تایید" textFill="WHITE" />
+                  <JFXButton layoutX="28.0" layoutY="270.0" prefHeight="31.0" prefWidth="222.0" style="-fx-background-color: #e81b1b;" text="تایید" textFill="WHITE" />
                   <Label fx:id="lblResultForgetPass" alignment="CENTER" layoutX="75.0" layoutY="186.0" prefHeight="47.0" prefWidth="142.0" />
-                  <Hyperlink layoutX="118.0" layoutY="318.0" onAction="#onClickHyperBack" text="بازگشت" textFill="#da2727">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </Hyperlink>
+                  <JFXButton layoutX="27.0" layoutY="307.0" onAction="#onClickHyperBack" prefHeight="31.0" prefWidth="222.0" style="-fx-background-color: #e81b1b;" text="بازگشت" textFill="WHITE" />
                </children>
             </Pane>
          </children>
       </Pane>
+      <ImageView fx:id="back" fitHeight="26.0" fitWidth="26.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#click" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
