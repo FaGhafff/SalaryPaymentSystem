@@ -2,7 +2,6 @@ package Model;
 
 import SubSystems.PersonnelCodeGenerator;
 import SubSystems.SMS;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -135,7 +134,7 @@ public class DataBaseHelper {
                     .setPensionFund(resultSet.getDouble(13))
                     .setTax(resultSet.getDouble(14));
         } catch (SQLException e) {
-            System.out.println(e.getMessage() + " getConstant "+this.getClass().getName());
+            System.out.println(e.getMessage() + " getConstant " + this.getClass().getName());
             return null;
         }
 
@@ -203,12 +202,12 @@ public class DataBaseHelper {
         }
     }
 
-    public void writeHokme(FixedValues fixedValues) {
+    public void writeHokme(FixedValues fixedValues,String name) {
 
         String sql = "INSERT INTO `legalreceipt`(`username`, `name`,`salaryBase`, `annualIncrease`, `extraordinaryHousing`, `badWeather`, `deprivationOfServiecePlace`," +
                 " `familyAllowance`, `childrenAllowance`, `seniorOrExpertAllowance`, `reward`," +
                 " `importantsOfJob`, `sacrificePoints`, `insurance`, `pensionFund`, `tax`) " +
-                "VALUES ('" + fixedValues.getUsername() + "','" + fixedValues.getName() + "','" + fixedValues.getSalaryBase() + "','" + fixedValues.getAnnualIncrease() + "','" + fixedValues.getExtraordinaryHousing() + "','" + fixedValues.getBadWeather() + "','" + fixedValues.getDeprivationOfServiecePlace()
+                "VALUES ('" + fixedValues.getUsername() + "','" +name + "','" + fixedValues.getSalaryBase() + "','" + fixedValues.getAnnualIncrease() + "','" + fixedValues.getExtraordinaryHousing() + "','" + fixedValues.getBadWeather() + "','" + fixedValues.getDeprivationOfServiecePlace()
                 + "','" + fixedValues.getFamilyAllowance() + "','" + fixedValues.getChildrenAllowance() + "','" + fixedValues.getSeniorOrExpertAllowance() + "','" + fixedValues.getReward() +
                 "','" + fixedValues.getImportantsOfJob() + "','" + fixedValues.getSacrificePoints() + "','" + fixedValues.getInsurance() + "','" + fixedValues.getPensionFund() + "','" + fixedValues.getTax() + "')";
         try {
@@ -225,7 +224,7 @@ public class DataBaseHelper {
             String query = "DELETE FROM `legalreceipt` WHERE `username`=" + fixedValues.getUsername();
             try {
                 statement.execute(query);
-                writeHokme(fixedValues);
+                writeHokme(fixedValues,fixedValues.getName());
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
@@ -531,7 +530,7 @@ public class DataBaseHelper {
                 order.getDoctorateScore() + "','" +
                 order.getOtherEducation() + "','" +
                 "highestDegree" + "','" +
-                "majorStatus" +"','"+
+                "majorStatus" + "','" +
                 LocalDate.now().getYear() + "','" +
                 LocalDate.now().getMonth().getValue() + "','" +
                 LocalDate.now().getDayOfMonth() + "')";
@@ -539,9 +538,9 @@ public class DataBaseHelper {
         try {
             statement.execute(sqlEmployee);
             statement.execute(sqlUserpass);
-            writeHokme(getConstants().setUsername(user));
-            SMS sms = new SMS(order.getMobilePhoneNumber()+"");
-            sms.setMessage("با سلام نام کاربری و رمز عبور شما به ترتیب : "+user+" "+pass);
+            writeHokme(getConstants().setUsername(user),order.getNamePersian()+" "+order.getLastNamePersian());
+            SMS sms = new SMS(order.getMobilePhoneNumber() + "");
+            sms.setMessage("با سلام نام کاربری و رمز عبور شما به ترتیب : " + user + " " + pass);
             remove(order);
 
         } catch (SQLException e) {
@@ -620,17 +619,28 @@ public class DataBaseHelper {
             }
 
     }
-    //Empty
- public boolean isExist(String username){
-        return true;
- }
 
-    //todo eslah shavad ehraz dar login baraye textFields
+    public boolean isExist(String username) {
+        try {
+            String query = "SELECT * FROM userpass WHERE user='" + username + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+            resultSet.next();
+            resultSet.getString(1);
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
+    }
+
+    //Empty
+
+    public void sendRequest(String username){}
+
+
 
     public static void main(String[] args) {
         DataBaseHelper dataBaseHelper = new DataBaseHelper();
 //        dataBaseHelper.createTables();
-        System.out.println(dataBaseHelper.getNumberOfEmployees());
 
 
     }

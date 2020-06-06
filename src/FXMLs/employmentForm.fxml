@@ -220,11 +220,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea fx:id="healthStatus" layoutX="697.0" layoutY="589.0" prefHeight="89.0" prefWidth="309.0" />
-            <TextArea fx:id="healthStatus1" layoutX="219.0" layoutY="1231.0" prefHeight="89.0" prefWidth="309.0" />
-            <TextArea fx:id="otherEducation" layoutX="219.0" layoutY="1080.0" prefHeight="89.0" prefWidth="309.0" />
-            <JFXButton fx:id="btnSendRequest" layoutX="956.0" layoutY="1352.0" onMouseClicked="#onClickSendRequest" prefHeight="32.0" prefWidth="131.0" style="-fx-background-color: red;" text="ارسال درخواست" />
-            <JFXButton fx:id="btnCancel" layoutX="811.0" layoutY="1352.0" onMouseClicked="#onClickCancel" prefHeight="32.0" prefWidth="131.0" style="-fx-background-color: red;" text="انصراف" />
+            <TextArea fx:id="healthStatus" style="-fx-background-radius:10px; -fx-border-radius:10px; -fx-border-color: red;" layoutX="697.0" layoutY="589.0" prefHeight="89.0" prefWidth="309.0" />
+            <TextArea fx:id="healthStatus1" style="-fx-background-radius:10px; -fx-border-radius:10px; -fx-border-color: red;" layoutX="219.0" layoutY="1231.0" prefHeight="89.0" prefWidth="309.0" />
+            <TextArea fx:id="otherEducation" style="-fx-background-radius:10px; -fx-border-radius:10px; -fx-border-color: red;" layoutX="219.0" layoutY="1080.0" prefHeight="89.0" prefWidth="309.0" />
+            <JFXButton fx:id="btnSendRequest" layoutX="956.0" layoutY="1352.0" onMouseClicked="#onClickSendRequest" prefHeight="32.0" prefWidth="131.0" style="-fx-text-fill: white; -fx-background-color: red;" text="ارسال درخواست" />
+            <JFXButton fx:id="btnCancel" layoutX="811.0" layoutY="1352.0" onMouseClicked="#onClickCancel" prefHeight="32.0" prefWidth="131.0" style="-fx-text-fill: white;-fx-background-color: red;" text="انصراف" />
          </children>
       </AnchorPane>
    </content>

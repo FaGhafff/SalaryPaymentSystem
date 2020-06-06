@@ -54,9 +54,6 @@ public class EmployeeController implements Initializable {
                         case "change pass":
                             loadPane("FXMLs/EmployeeMenu/employeeChangePass.fxml", new EmployeeChangePass().setUsername(employee.getUsername()).setPhoneNumber(employee.getMobilePhoneNumber() + ""));
                             break;
-                        case "send massage":
-                            loadPane("FXMLs/EmployeeMenu/employeeSend.fxml", new EmployeeSendRequests());
-                            break;
                         case "exit":
                             System.exit(0);
                             break;
@@ -74,7 +71,8 @@ public class EmployeeController implements Initializable {
                     drawer.open();
             });
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()+" 74");
+            e.printStackTrace();
         }
     }
 
@@ -89,7 +87,7 @@ public class EmployeeController implements Initializable {
             fadeTransition.play();
             mainPane.getChildren().add(root);
         } catch (IOException e) {
-            System.out.println(e.getMessage() + " " + this.getClass().getName());
+            System.out.println(e.getMessage() + " # " + this.getClass().getName());
         }
     }
 

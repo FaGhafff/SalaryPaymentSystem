@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -57,6 +58,8 @@ public class LoginPageController implements Initializable {
 
 
     public void onClickLogin() {
+        onClickChkBox();
+        onClickChkBox();
         if (textFieldValidation(textFieldUser)) {
             DataBaseHelper dataBaseHelper = new DataBaseHelper();
             if (dataBaseHelper.authClient(textFieldUser.getText(), textFieldPass.getText())) {
@@ -157,9 +160,7 @@ public class LoginPageController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Image image = new Image("PNG/PP.jpg");
         Image img = new Image("PNG/exit1.png");
-        System.out.println(img.getHeight());
         back.setImage(img);
-        System.out.println(back.getImage().getHeight());
         imageViewBack.setImage(image);
         forgetPassPane.setVisible(false);
         forgetPassPane.setDisable(false);
