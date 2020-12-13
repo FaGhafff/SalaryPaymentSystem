@@ -16,20 +16,22 @@ public class DataBaseHelper {
 
     public DataBaseHelper() {
         connect();
-//        createTables();
+        createTables();
     }
 
     private void connect() {
         try {
 //            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/salerypaymentsystem", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/", "root", "moon1380me1379");
             statement = connection.createStatement();
+            statement.execute("CREATE DATABASE IF NOT EXISTS salerypaymentsystem");
         } catch (Exception e) {
             System.out.println(e.getMessage() + " from connect -> DataBaseHelper");
             e.printStackTrace();
             close();
         }
     }
+
 
     //Reviewed
     public void close() {
@@ -44,11 +46,14 @@ public class DataBaseHelper {
 
     private void createTables() {
         createTableUserPass();
-        createTable("CREATE TABLE IF NOT EXIST `salerypaymentsystem`.`legalreceipt` ( `userName` VARCHAR(9) NOT NULL , `namePersian` VARCHAR(50) NOT NULL , `lastNamePersian` VARCHAR(50) NOT NULL , `idNumber` VARCHAR(10) NOT NULL , `issuanceOfBCPlace` VARCHAR(10) NOT NULL , `birthPlace` VARCHAR(10) NOT NULL , `highestDegree` VARCHAR(10) NOT NULL , `majorStatus` VARCHAR(10) NOT NULL , `serviceUnit` VARCHAR(10) NOT NULL , `organizationalPosition` VARCHAR(10) NOT NULL , `serviceTimeYear` VARCHAR(10) NOT NULL , `serviceTimeMonth` VARCHAR(10) NOT NULL , `serviceTimeDay` VARCHAR(10) NOT NULL , `salaryBase` DOUBLE(6,2) NOT NULL , `annualIncrease` DOUBLE(6,2) NOT NULL , `extraordinaryHousing` DOUBLE(6,2) NOT NULL , `badWeather` DOUBLE(6,2) NOT NULL , `deprivationOfServiecePlace` DOUBLE(6,2) NOT NULL , `familyAllowance` DOUBLE(6,2) NOT NULL , `childrenAllowance` DOUBLE(6,2) NOT NULL , `seniorOrExpertAllowance` DOUBLE(6,2) NOT NULL , `reward` DOUBLE(6,2) NOT NULL , `importantsOfJob` DOUBLE(6,2) NOT NULL , `sacrificePoints` DOUBLE(6,2) NOT NULL , `insurance` DOUBLE(6,2) NOT NULL , `pensionFund` DOUBLE(6,2) NOT NULL , `tax` DOUBLE(6,2) NOT NULL , `descriptionOfTheSentence` VARCHAR(60) NOT NULL , `serialOfSentence` VARCHAR(50) NOT NULL , `finalSalary` DOUBLE(8,2) NOT NULL , PRIMARY KEY (`userName`(9))) ENGINE = InnoDB; ");
+        createTable("CREATE TABLE IF NOT EXISTS `salerypaymentsystem`.`legalreceipt` ( `userName` VARCHAR(9) NOT NULL , `namePersian` VARCHAR(50) NOT NULL , `lastNamePersian` VARCHAR(50) NOT NULL , `idNumber` VARCHAR(10) NOT NULL , `issuanceOfBCPlace` VARCHAR(10) NOT NULL , `birthPlace` VARCHAR(10) NOT NULL , `highestDegree` VARCHAR(10) NOT NULL , `majorStatus` VARCHAR(10) NOT NULL , `serviceUnit` VARCHAR(10) NOT NULL , `organizationalPosition` VARCHAR(10) NOT NULL , `serviceTimeYear` VARCHAR(10) NOT NULL , `serviceTimeMonth` VARCHAR(10) NOT NULL , `serviceTimeDay` VARCHAR(10) NOT NULL , `salaryBase` DOUBLE(6,2) NOT NULL , `annualIncrease` DOUBLE(6,2) NOT NULL , `extraordinaryHousing` DOUBLE(6,2) NOT NULL , `badWeather` DOUBLE(6,2) NOT NULL , `deprivationOfServiecePlace` DOUBLE(6,2) NOT NULL , `familyAllowance` DOUBLE(6,2) NOT NULL , `childrenAllowance` DOUBLE(6,2) NOT NULL , `seniorOrExpertAllowance` DOUBLE(6,2) NOT NULL , `reward` DOUBLE(6,2) NOT NULL , `importantsOfJob` DOUBLE(6,2) NOT NULL , `sacrificePoints` DOUBLE(6,2) NOT NULL , `insurance` DOUBLE(6,2) NOT NULL , `pensionFund` DOUBLE(6,2) NOT NULL , `tax` DOUBLE(6,2) NOT NULL , `descriptionOfTheSentence` VARCHAR(60) NOT NULL , `serialOfSentence` VARCHAR(50) NOT NULL , `finalSalary` DOUBLE(8,2) NOT NULL , PRIMARY KEY (`userName`(9))) ENGINE = InnoDB; ");
     }
 
     private void createTableUserPass() {
-        String query = "CREATE TABLE IF NOT EXISTS `salerypaymentsystem`.`userpass` ( `row` INT NULL AUTO_INCREMENT ,  `user` VARCHAR(9) CHARACTER SET utf8 COLLATE utf8_persian_ci NULL ,  `pass` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL , PRIMARY KEY(`user`(9)), INDEX`index` (`row`)) ENGINE = InnoDB";
+        String query = "CREATE TABLE IF NOT EXISTS `salerypaymentsystem`.`userpass` ( `row` INT not null AUTO_INCREMENT ," +
+                "  `user` VARCHAR(9) CHARACTER SET utf8 COLLATE utf8_persian_ci not NULL ," +
+                "  `pass` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci not NULL ," +
+                " PRIMARY KEY(`user`(9)), INDEX`index` (`row`)) ENGINE = InnoDB";
         try {
             statement.execute(query);
         } catch (SQLException e) {
